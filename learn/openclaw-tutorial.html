@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw Tutorial for Beginners — Build Persistent AI Agents (2025)</title>
+  <meta name="description" content="Complete OpenClaw tutorial for beginners. Learn to build persistent AI agents that run 24/7, maintain memory & automate business workflows. No coding needed.">
+  <link rel="canonical" href="https://aioperator.sh/learn/openclaw-tutorial">
+
+  <meta property="og:title" content="OpenClaw Tutorial for Beginners — Persistent AI Agents">
+  <meta property="og:description" content="Build AI agents that run 24/7. Complete OpenClaw setup tutorial for non-developers.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aioperator.sh/learn/openclaw-tutorial">
+  <meta property="og:site_name" content="AI Operators">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OpenClaw Tutorial for Beginners">
+  <meta name="twitter:description" content="Build persistent AI agents that run 24/7. No coding needed.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "OpenClaw Tutorial for Beginners — Build Persistent AI Agents",
+    "description": "Complete guide to setting up OpenClaw and building persistent AI agents for business automation.",
+    "author": {"@type": "Person", "name": "Johann Sathianathen"},
+    "publisher": {"@type": "Organization", "name": "AI Operators"},
+    "mainEntityOfPage": "https://aioperator.sh/learn/openclaw-tutorial"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo"><div class="dot"></div>AI Operators</a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/compare/ai-agents-vs-chatgpt" class="nav-link">Compare</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/learn/build-ai-agents" itemprop="item"><span itemprop="name">Learn</span></a>
+          <meta itemprop="position" content="2">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span class="current" itemprop="name">OpenClaw Tutorial</span>
+          <meta itemprop="position" content="3">
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="container-narrow">
+      <div class="page-tag">Learn</div>
+      <h1>OpenClaw Tutorial<br><span class="green">for Beginners</span></h1>
+      <p class="page-subtitle">Turn Claude Code into a persistent AI agent that runs 24/7. This is the framework behind Jars, my AI agent that handles half my business. Here's how it works.</p>
+    </div>
+  </section>
+
+  <section class="article-body">
+    <div class="container-narrow">
+
+      <p>You've got <a href="/learn/claude-code-setup">Claude Code set up</a>. Good. But right now it's like a really smart contractor you have to call every time you want something done. It doesn't remember yesterday's conversation. It doesn't run on its own. It waits for you.</p>
+
+      <p>OpenClaw changes that. It turns Claude Code into a full-time employee. An agent that remembers everything, runs on schedules, accesses your tools & handles complex workflows without you being there.</p>
+
+      <p>This is how Jars works. My AI agent that does morning briefings, CRM management, lead outreach, overnight code builds & research for DMpro. All built on OpenClaw.</p>
+
+      <h2>What is OpenClaw?</h2>
+
+      <p>OpenClaw is an open-source framework for building persistent AI agents. Think of it as the operating system your AI employee runs on.</p>
+
+      <p>Without OpenClaw, Claude Code is a one-off tool. With it, you get:</p>
+
+      <ul>
+        <li><strong>Persistent memory:</strong> Your agent remembers past conversations, decisions & context</li>
+        <li><strong>Tool integrations:</strong> Connect Gmail, Slack, CRM, calendars, databases & more</li>
+        <li><strong>Scheduled runs:</strong> Set your agent to run at 7am, every hour, whenever you want</li>
+        <li><strong>Multi-step workflows:</strong> Complex tasks that require multiple actions & decisions</li>
+        <li><strong>Multi-channel delivery:</strong> Get results via Slack, email, SMS, webhooks</li>
+      </ul>
+
+      <div class="flow-diagram" role="img" aria-label="Architecture diagram: You give instructions to OpenClaw, which uses Claude Code and Tools to complete tasks and deliver results">
+        <div class="flow-step">
+          <div class="step-icon">👤</div>
+          <div class="step-label">You<br>(instructions)</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="border-color: rgba(0,255,136,0.3);">
+          <div class="step-icon">⚙️</div>
+          <div class="step-label">OpenClaw<br>(orchestrator)</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-icon">🧠</div>
+          <div class="step-label">Claude Code<br>(brain)</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-icon">🔌</div>
+          <div class="step-label">Your Tools<br>(Gmail, CRM...)</div>
+        </div>
+      </div>
+
+      <h2>Prerequisites</h2>
+
+      <p>Before starting, make sure you have:</p>
+
+      <ol>
+        <li><a href="/learn/claude-code-setup">Claude Code installed & working</a></li>
+        <li>Git installed (comes with most computers, or download from git-scm.com)</li>
+        <li>An Anthropic API key (from console.anthropic.com)</li>
+      </ol>
+
+      <p>If you don't have Claude Code yet, <a href="/learn/claude-code-setup">follow the setup guide first</a>. Takes 15 minutes.</p>
+
+      <h2>Step 1: Clone OpenClaw</h2>
+
+      <p>Open your terminal and run:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — clone</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">git clone https://github.com/openclaw/openclaw</span></div>
+          <div class="terminal-line"><span class="dim">▸ Cloning into 'openclaw'...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Receiving objects: 100% done</span></div>
+          <div class="terminal-line"><span class="success">✓ Repository cloned</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">cd openclaw</span></div>
+        </div>
+      </div>
+
+      <p>You've got the source code. Now let's configure it.</p>
+
+      <h2>Step 2: Configure your environment</h2>
+
+      <p>Copy the example environment file & add your keys:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — config</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">cp .env.example .env</span></div>
+          <div class="terminal-line"><span class="success">✓ Environment file created</span></div>
+        </div>
+      </div>
+
+      <p>Open the <code>.env</code> file in any text editor and add:</p>
+
+      <div class="code-block">
+        <code>
+<span class="comment"># Your Anthropic API key</span>
+<span class="prop">ANTHROPIC_API_KEY</span>=<span class="string">sk-ant-your-key-here</span>
+
+<span class="comment"># Agent name (whatever you want)</span>
+<span class="prop">AGENT_NAME</span>=<span class="string">my-agent</span>
+
+<span class="comment"># Where to store agent memory</span>
+<span class="prop">MEMORY_PATH</span>=<span class="string">./memory</span>
+
+<span class="comment"># Notification channel (optional)</span>
+<span class="prop">SLACK_WEBHOOK</span>=<span class="string">https://hooks.slack.com/your-webhook</span>
+        </code>
+      </div>
+
+      <p>The only required field is your Anthropic API key. Everything else has sensible defaults.</p>
+
+      <h2>Step 3: Create your first agent config</h2>
+
+      <p>This is where it gets good. An agent config is basically a job description written in plain English. Create a file called <code>agents/morning-briefing.yaml</code>:</p>
+
+      <div class="code-block">
+        <code>
+<span class="comment"># agents/morning-briefing.yaml</span>
+<span class="prop">name</span>: <span class="string">"morning-briefing"</span>
+<span class="prop">schedule</span>: <span class="string">"0 7 * * *"</span>  <span class="comment"># Every day at 7:00 AM</span>
+
+<span class="prop">persona</span>: |
+  <span class="string">You are my morning briefing agent.</span>
+  <span class="string">You're efficient, direct & don't waste words.</span>
+  <span class="string">Think of yourself as my chief of staff.</span>
+
+<span class="prop">instructions</span>: |
+  <span class="string">Every morning, do the following:</span>
+  <span class="string">1. Check Gmail for unread emails. Flag anything urgent.</span>
+  <span class="string">2. Check my CRM for new leads & deal updates.</span>
+  <span class="string">3. Review today's calendar.</span>
+  <span class="string">4. Check yesterday's metrics (revenue, signups).</span>
+  <span class="string">5. Compile everything into a clean briefing.</span>
+  <span class="string">6. Send to Slack #morning-briefing channel.</span>
+  <span class="string">Format: bullet points, grouped by category.</span>
+  <span class="string">Keep it under 300 words. I read this on my phone.</span>
+
+<span class="prop">tools</span>:
+  - <span class="string">gmail</span>
+  - <span class="string">google-calendar</span>
+  - <span class="string">hubspot</span>
+  - <span class="string">slack</span>
+  - <span class="string">stripe</span>
+
+<span class="prop">memory</span>: <span class="keyword">true</span>
+<span class="prop">max_tokens</span>: <span class="string">4000</span>
+        </code>
+      </div>
+
+      <p>That's your agent. Notice there's zero code in there. It's all natural language describing what you want the agent to do, what tools it can use & when to run.</p>
+
+      <h2>Step 4: Set up tool integrations</h2>
+
+      <p>Your agent needs credentials to access your tools. OpenClaw makes this straightforward:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — tools</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">openclaw tools add gmail</span></div>
+          <div class="terminal-line"><span class="dim">▸ Opening browser for Gmail OAuth...</span></div>
+          <div class="terminal-line"><span class="success">✓ Gmail connected</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">openclaw tools add slack</span></div>
+          <div class="terminal-line"><span class="dim">▸ Enter your Slack webhook URL:</span></div>
+          <div class="terminal-line"><span class="success">✓ Slack connected</span></div>
+        </div>
+      </div>
+
+      <p>Each tool walks you through its setup. Most use OAuth (click to authorize) or API keys (copy-paste). Takes about 5 minutes per tool.</p>
+
+      <h2>Step 5: Test your agent</h2>
+
+      <p>Before going live, run a test:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — test run</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">openclaw run morning-briefing --dry-run</span></div>
+          <div class="terminal-line"><span class="dim">▸ Loading agent config...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Checking Gmail... 18 unread (3 flagged)</span></div>
+          <div class="terminal-line"><span class="dim">▸ CRM scan... 2 new leads, 1 deal closing</span></div>
+          <div class="terminal-line"><span class="dim">▸ Calendar... 4 meetings today</span></div>
+          <div class="terminal-line"><span class="dim">▸ Metrics... $342 revenue, 8 signups yesterday</span></div>
+          <div class="terminal-line"><span class="success">✓ Briefing generated (dry run, not sent)</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="output">📋 Morning Briefing — Jan 15, 2025</span></div>
+          <div class="terminal-line"><span class="output">━━━━━━━━━━━━━━━━━━━━━━━━━━</span></div>
+          <div class="terminal-line"><span class="output">📧 Email: 3 urgent from clients</span></div>
+          <div class="terminal-line"><span class="output">💰 Pipeline: 2 new leads, 1 closing</span></div>
+          <div class="terminal-line"><span class="output">📅 Today: 4 meetings (first at 10am)</span></div>
+          <div class="terminal-line"><span class="output">📊 Yesterday: $342 rev, 8 signups</span></div>
+        </div>
+      </div>
+
+      <p>The <code>--dry-run</code> flag means it does everything except send the message. Check the output. Is it useful? Tweak the instructions until it's perfect.</p>
+
+      <h2>Step 6: Go live</h2>
+
+      <p>Happy with the test? Remove the dry-run flag and activate the schedule:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — go live</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">openclaw activate morning-briefing</span></div>
+          <div class="terminal-line"><span class="success">✓ Agent activated</span></div>
+          <div class="terminal-line"><span class="dim">▸ Schedule: Daily at 7:00 AM</span></div>
+          <div class="terminal-line"><span class="dim">▸ Next run: Tomorrow, 7:00 AM</span></div>
+          <div class="terminal-line"><span class="dim">▸ Memory: Enabled</span></div>
+        </div>
+      </div>
+
+      <p>Done. Tomorrow morning at 7am, your agent wakes up, scans everything & delivers your briefing. Every single day. Without you lifting a finger.</p>
+
+      <h2>Understanding agent memory</h2>
+
+      <p>This is the part that makes OpenClaw special. Your agent remembers things.</p>
+
+      <p>After a few days, it learns patterns. It knows which emails you actually care about. It tracks which leads are progressing. It notices when metrics are unusual.</p>
+
+      <p>Memory is stored in markdown files in the <code>memory/</code> folder. Your agent reads them every session and writes new observations after each run. You can even edit them manually to give your agent extra context.</p>
+
+      <div class="code-block">
+        <code>
+<span class="comment"># memory/2025-01-15.md</span>
+<span class="string">## Morning Briefing Notes</span>
+<span class="string">- Client Acme Corp mentioned Q2 contract renewal</span>
+<span class="string">- Lead from Twitter DM campaign converting well</span>
+<span class="string">- Revenue trending 12% above last week</span>
+<span class="string">- Johann prefers briefings under 200 words</span>
+        </code>
+      </div>
+
+      <p>This is basically how my agent Jars became so good. Over months of memory, it understands my business better than most humans would.</p>
+
+      <h2>Building more agents</h2>
+
+      <p>Once you've got the morning briefing running, the next agents are easy. Same pattern, different job:</p>
+
+      <div class="info-card">
+        <h4>🎯 Lead Outreach Agent</h4>
+        <p>Scans CRM for hot leads, writes personalized outreach messages, queues them for optimal send times. This is how Jars generated $48k in pipeline overnight.</p>
+      </div>
+
+      <div class="info-card">
+        <h4>🔄 Follow-up Agent</h4>
+        <p>Monitors deals in your pipeline. If a deal goes quiet for 3 days, it drafts a follow-up. If someone opened your proposal, it flags them as hot.</p>
+      </div>
+
+      <div class="info-card">
+        <h4>🌙 Overnight Build Agent</h4>
+        <p>Before bed, describe what you want built. The agent works through the night, shipping code & deploying changes. Wake up to a finished feature.</p>
+      </div>
+
+      <div class="info-card">
+        <h4>🔍 Research Agent</h4>
+        <p>Monitors competitors, tracks industry news, finds keyword opportunities & summarizes findings. My agent does this for SEO research on DMpro.</p>
+      </div>
+
+      <h2>Tips for better agents</h2>
+
+      <h3>Write detailed personas</h3>
+      <p>Don't just say "you're my agent." Give it a personality. "You're my chief of staff. You're direct, efficient & you flag problems early. You don't sugarcoat." The more specific the persona, the better the output.</p>
+
+      <h3>Be explicit about format</h3>
+      <p>"Bullet points, grouped by category, under 300 words." This makes a huge difference. Without format instructions, agents tend to be verbose.</p>
+
+      <h3>Use memory strategically</h3>
+      <p>Edit memory files to give your agent context it can't discover on its own. "Our biggest client is Acme Corp. They renew in Q2. Always prioritize their emails."</p>
+
+      <h3>Start simple, iterate</h3>
+      <p>Your first agent config will be basic. That's fine. Run it for a week. See what's missing. Add more instructions. This is how you build something great.</p>
+
+      <h2>Join the community</h2>
+
+      <p>Inside <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">AI Operators</a>, you get:</p>
+
+      <ul>
+        <li>My exact OpenClaw agent configs (the ones running Jars)</li>
+        <li>Pre-built templates for common agent types</li>
+        <li>Tool integration guides for every popular service</li>
+        <li>Direct help when you get stuck</li>
+        <li>Other builders sharing their setups & results</li>
+      </ul>
+
+      <p>The community is free. The templates alone save you hours of configuration. Learn more about the full process in our guide on <a href="/learn/build-ai-agents">how to build AI agents</a> or see how it applies to <a href="/learn/ai-automation-business">automating your business</a>.</p>
+
+      <div class="related-grid">
+        <a href="/learn/build-ai-agents" class="related-card">
+          <div class="related-tag">Guide</div>
+          <h4>How to Build AI Agents (No Code)</h4>
+          <p>The complete guide from zero to working agent.</p>
+        </a>
+        <a href="/learn/ai-automation-business" class="related-card">
+          <div class="related-tag">Guide</div>
+          <h4>Automate Your Business with AI</h4>
+          <p>Identify what to automate & build the agents to do it.</p>
+        </a>
+        <a href="/compare/ai-agents-vs-chatgpt" class="related-card">
+          <div class="related-tag">Compare</div>
+          <h4>AI Agents vs ChatGPT</h4>
+          <p>Why persistent agents beat chat interfaces.</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Get Johann's exact<br><span class="green">agent configs.</span></h2>
+      <p class="cta-sub">Join AI Operators. Free templates, configs & direct access to the community.</p>
+      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary">
+        Join AI Operators Free <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><div class="dot"></div>AI Operators</a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by Johann Sathianathen.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+          <a href="/learn/ai-automation-business">AI Business Automation</a>
+          <a href="/learn/ai-employee-setup">AI Employee Setup</a>
+        </div>
+        <div class="footer-col">
+          <h5>Compare</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/compare/ai-agents-vs-hiring-va">AI Agents vs Hiring a VA</a>
+        </div>
+        <div class="footer-col">
+          <h5>For You</h5>
+          <a href="/for/saas-founders">SaaS Founders</a>
+          <a href="/for/agency-owners">Agency Owners</a>
+          <a href="/for/freelancers">Freelancers</a>
+          <a href="/for/creators">Content Creators</a>
+          <a href="/faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
