@@ -4,166 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Operators — Build AI Agents That Run Your Business</title>
-  <meta name="description" content="Learn to build AI agents that do real work. Morning briefings, CRM, lead outreach & shipping code while you sleep. No coding needed.">
+  <meta name="description" content="Learn to build AI agents that do real work. Morning briefings, CRM, lead outreach & shipping code while you sleep. No coding needed. Free Skool community.">
+  <meta name="keywords" content="AI agents, build AI agents, no code AI, AI automation, AI employee, Claude Code, OpenClaw, AI business automation">
+  <link rel="canonical" href="https://aioperator.sh/">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="AI Operators — Build AI Agents That Run Your Business">
-  <meta property="og:description" content="In 30 days you'll have your own AI agent doing real work. No coding needed.">
+  <meta property="og:description" content="In 30 days you'll have your own AI agent doing real work. Morning briefings, CRM, outreach & code. No coding needed.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aioperator.sh/">
+  <meta property="og:site_name" content="AI Operators">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Operators — Build AI Agents That Run Your Business">
+  <meta name="twitter:description" content="In 30 days you'll have your own AI agent doing real work. No coding needed.">
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AI Operators",
+    "url": "https://aioperator.sh",
+    "description": "Community teaching founders to build AI agents that run their businesses. No coding needed.",
+    "founder": {
+      "@type": "Person",
+      "name": "Johann Sathianathen",
+      "jobTitle": "Founder"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AI Operators",
+    "url": "https://aioperator.sh"
+  }
+  </script>
+
+  <!-- JSON-LD: EducationalOrganization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "AI Operators",
+    "url": "https://aioperator.sh",
+    "description": "Learn to build AI agents that handle real business work. Morning briefings, CRM, lead outreach, code shipping. No coding required.",
+    "founder": {
+      "@type": "Person",
+      "name": "Johann Sathianathen"
+    },
+    "hasCourse": {
+      "@type": "Course",
+      "name": "AI Agent Building Masterclass",
+      "description": "Step-by-step system to build AI agents using Claude Code & OpenClaw. No coding needed.",
+      "provider": {
+        "@type": "Organization",
+        "name": "AI Operators"
+      },
+      "isAccessibleForFree": true
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
   <style>
-    :root {
-      --green: #00ff88;
-      --green-dim: #00cc6a;
-      --green-glow: rgba(0, 255, 136, 0.15);
-      --green-glow-strong: rgba(0, 255, 136, 0.3);
-      --bg: #050505;
-      --bg-card: #0c0c0c;
-      --bg-card-border: #1a1a1a;
-      --text: #e8e8e8;
-      --text-dim: #888;
-      --text-dimmer: #555;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      background: var(--bg);
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Noise overlay ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      pointer-events: none;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 256px 256px;
-    }
-
-    /* ── Grid background ── */
-    .grid-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
-    }
-
-    /* ── Glow orbs ── */
-    .glow-orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(120px);
-      z-index: 0;
-      pointer-events: none;
-    }
-    .glow-orb.green {
-      width: 500px; height: 500px;
-      background: var(--green-glow);
-      top: -100px; left: 20%;
-      animation: float-orb 12s ease-in-out infinite;
-    }
-    .glow-orb.green2 {
-      width: 400px; height: 400px;
-      background: rgba(0, 255, 136, 0.08);
-      bottom: 10%; right: 10%;
-      animation: float-orb 15s ease-in-out infinite reverse;
-    }
-
-    @keyframes float-orb {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(40px, 30px); }
-    }
-
-    /* ── Layout ── */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    section {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ── Navigation ── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 20px 0;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(5, 5, 5, 0.7);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-    nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .nav-logo .dot {
-      width: 8px; height: 8px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 12px var(--green);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; box-shadow: 0 0 12px var(--green); }
-      50% { opacity: 0.6; box-shadow: 0 0 6px var(--green); }
-    }
-    .nav-cta {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 10px 24px;
-      background: var(--green);
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .nav-cta:hover {
-      box-shadow: 0 0 30px rgba(0,255,136,0.3);
-      transform: translateY(-1px);
-    }
-
-    /* ── Hero ── */
+    /* ── Hero (homepage-specific) ── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -223,122 +136,32 @@
       gap: 20px;
       flex-wrap: wrap;
     }
-    .btn-primary {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 16px 36px;
-      background: var(--green);
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.25s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-primary:hover {
-      box-shadow: 0 0 40px rgba(0,255,136,0.35);
-      transform: translateY(-2px);
-    }
-    .btn-primary .arrow {
-      transition: transform 0.25s;
-    }
-    .btn-primary:hover .arrow {
-      transform: translateX(4px);
-    }
     .hero-proof {
       font-size: 0.8rem;
       color: var(--text-dimmer);
       font-family: 'JetBrains Mono', monospace;
     }
 
-    /* ── Terminal ── */
-    .terminal {
-      background: #0a0a0a;
-      border: 1px solid #1a1a1a;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow:
-        0 0 60px rgba(0,255,136,0.06),
-        0 20px 60px rgba(0,0,0,0.5);
-    }
-    .terminal-bar {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 18px;
-      background: #0f0f0f;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    .terminal-dot {
-      width: 11px; height: 11px;
-      border-radius: 50%;
-    }
-    .terminal-dot.r { background: #ff5f57; }
-    .terminal-dot.y { background: #febc2e; }
-    .terminal-dot.g { background: #28c840; }
-    .terminal-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--text-dimmer);
-      margin-left: 8px;
-    }
-    .terminal-body {
-      padding: 20px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      line-height: 1.8;
-      min-height: 280px;
-    }
-    .terminal-line {
+    /* ── Hero terminal animation ── */
+    .hero .terminal-line {
       opacity: 0;
       animation: term-in 0.3s forwards;
     }
-    .terminal-line .prompt {
-      color: var(--green);
-    }
-    .terminal-line .cmd {
-      color: var(--text);
-    }
-    .terminal-line .output {
-      color: var(--text-dim);
-    }
-    .terminal-line .success {
-      color: var(--green);
-    }
-    .terminal-line .dim {
-      color: var(--text-dimmer);
-    }
-
     @keyframes term-in {
       from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .terminal-line:nth-child(1) { animation-delay: 0.5s; }
-    .terminal-line:nth-child(2) { animation-delay: 1.2s; }
-    .terminal-line:nth-child(3) { animation-delay: 1.9s; }
-    .terminal-line:nth-child(4) { animation-delay: 2.6s; }
-    .terminal-line:nth-child(5) { animation-delay: 3.3s; }
-    .terminal-line:nth-child(6) { animation-delay: 4.0s; }
-    .terminal-line:nth-child(7) { animation-delay: 4.7s; }
-    .terminal-line:nth-child(8) { animation-delay: 5.4s; }
-    .terminal-line:nth-child(9) { animation-delay: 6.0s; }
-    .terminal-line:nth-child(10) { animation-delay: 6.4s; }
-    .terminal-cursor {
-      display: inline-block;
-      width: 8px;
-      height: 15px;
-      background: var(--green);
-      animation: blink 1s step-end infinite;
-      vertical-align: text-bottom;
-      margin-left: 2px;
-    }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
+    .hero .terminal-line:nth-child(1) { animation-delay: 0.5s; }
+    .hero .terminal-line:nth-child(2) { animation-delay: 1.2s; }
+    .hero .terminal-line:nth-child(3) { animation-delay: 1.9s; }
+    .hero .terminal-line:nth-child(4) { animation-delay: 2.6s; }
+    .hero .terminal-line:nth-child(5) { animation-delay: 3.3s; }
+    .hero .terminal-line:nth-child(6) { animation-delay: 4.0s; }
+    .hero .terminal-line:nth-child(7) { animation-delay: 4.7s; }
+    .hero .terminal-line:nth-child(8) { animation-delay: 5.4s; }
+    .hero .terminal-line:nth-child(9) { animation-delay: 6.0s; }
+    .hero .terminal-line:nth-child(10) { animation-delay: 6.4s; }
+    .hero .terminal-body { min-height: 280px; }
 
     /* ── Credibility strip ── */
     .cred-strip {
@@ -352,9 +175,7 @@
       gap: 60px;
       flex-wrap: wrap;
     }
-    .cred-item {
-      text-align: center;
-    }
+    .cred-item { text-align: center; }
     .cred-num {
       font-family: 'Syne', sans-serif;
       font-size: 2rem;
@@ -391,9 +212,7 @@
     }
 
     /* ── Problem section ── */
-    .problem {
-      padding: 100px 0;
-    }
+    .problem { padding: 100px 0; }
     .problem-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -411,10 +230,7 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 40px rgba(0,0,0,0.3);
     }
-    .problem-icon {
-      font-size: 1.8rem;
-      margin-bottom: 16px;
-    }
+    .problem-icon { font-size: 1.8rem; margin-bottom: 16px; }
     .problem-card h3 {
       font-family: 'Syne', sans-serif;
       font-size: 1.1rem;
@@ -430,9 +246,7 @@
     }
 
     /* ── What you get ── */
-    .included {
-      padding: 100px 0;
-    }
+    .included { padding: 100px 0; }
     .included-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -448,12 +262,9 @@
       gap: 16px;
       transition: all 0.3s;
     }
-    .included-item:hover {
-      border-color: rgba(0,255,136,0.12);
-    }
+    .included-item:hover { border-color: rgba(0,255,136,0.12); }
     .included-check {
-      width: 24px;
-      height: 24px;
+      width: 24px; height: 24px;
       border-radius: 6px;
       background: rgba(0,255,136,0.1);
       border: 1px solid rgba(0,255,136,0.2);
@@ -479,18 +290,14 @@
     }
 
     /* ── Bonuses ── */
-    .bonuses {
-      padding: 100px 0;
-    }
+    .bonuses { padding: 100px 0; }
     .bonus-banner {
       background: linear-gradient(135deg, rgba(0,255,136,0.08) 0%, rgba(0,255,136,0.02) 100%);
       border: 1px solid rgba(0,255,136,0.12);
       border-radius: 16px;
       padding: 48px;
     }
-    .bonus-banner .section-tag {
-      text-align: left;
-    }
+    .bonus-banner .section-tag { text-align: left; }
     .bonus-banner h2 {
       font-family: 'Syne', sans-serif;
       font-size: 2rem;
@@ -518,18 +325,11 @@
       border-radius: 10px;
       border: 1px solid rgba(255,255,255,0.04);
     }
-    .bonus-emoji {
-      font-size: 1.4rem;
-    }
-    .bonus-item span {
-      font-size: 0.9rem;
-      font-weight: 400;
-    }
+    .bonus-emoji { font-size: 1.4rem; }
+    .bonus-item span { font-size: 0.9rem; font-weight: 400; }
 
     /* ── Guarantee ── */
-    .guarantee {
-      padding: 80px 0;
-    }
+    .guarantee { padding: 80px 0; }
     .guarantee-box {
       text-align: center;
       max-width: 600px;
@@ -581,65 +381,19 @@
       padding: 18px 48px;
     }
 
-    /* ── Footer ── */
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid rgba(255,255,255,0.04);
-      text-align: center;
-    }
-    footer p {
-      font-size: 0.8rem;
-      color: var(--text-dimmer);
-    }
-
-    /* ── Scroll animations ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── Responsive ── */
     @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-      .terminal {
-        max-width: 500px;
-      }
-      .problem-grid {
-        grid-template-columns: 1fr;
-      }
-      .included-grid {
-        grid-template-columns: 1fr;
-      }
-      .bonus-list {
-        grid-template-columns: 1fr;
-      }
-      .cred-items {
-        gap: 32px;
-      }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .terminal { max-width: 500px; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .included-grid { grid-template-columns: 1fr; }
+      .bonus-list { grid-template-columns: 1fr; }
+      .cred-items { gap: 32px; }
     }
     @media (max-width: 600px) {
-      .hero {
-        padding-top: 120px;
-        min-height: auto;
-        padding-bottom: 60px;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .bonus-banner {
-        padding: 32px 20px;
-      }
-      .guarantee-box {
-        padding: 32px 20px;
-      }
+      .hero { padding-top: 120px; min-height: auto; padding-bottom: 60px; }
+      .hero h1 { font-size: 2rem; }
+      .bonus-banner { padding: 32px 20px; }
+      .guarantee-box { padding: 32px 20px; }
     }
   </style>
 </head>
@@ -652,11 +406,16 @@
   <!-- Nav -->
   <nav>
     <div class="container">
-      <div class="nav-logo">
+      <a href="/" class="nav-logo">
         <div class="dot"></div>
         AI Operators
+      </a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/compare/ai-agents-vs-chatgpt" class="nav-link">Compare</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
       </div>
-      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
     </div>
   </nav>
 
@@ -680,7 +439,7 @@
             <span class="hero-proof">Free to join</span>
           </div>
         </div>
-        <div class="terminal">
+        <div class="terminal" role="img" aria-label="Terminal showing AI agent Jars processing morning briefing, scanning emails, updating CRM, and generating pipeline leads overnight">
           <div class="terminal-bar">
             <div class="terminal-dot r"></div>
             <div class="terminal-dot y"></div>
@@ -863,22 +622,51 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>AI Operators — Built different.</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <div class="dot"></div>
+            AI Operators
+          </a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by Johann Sathianathen.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+          <a href="/learn/ai-automation-business">AI Business Automation</a>
+          <a href="/learn/ai-employee-setup">AI Employee Setup</a>
+        </div>
+        <div class="footer-col">
+          <h5>Compare</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/compare/ai-agents-vs-hiring-va">AI Agents vs Hiring a VA</a>
+        </div>
+        <div class="footer-col">
+          <h5>For You</h5>
+          <a href="/for/saas-founders">SaaS Founders</a>
+          <a href="/for/agency-owners">Agency Owners</a>
+          <a href="/for/freelancers">Freelancers</a>
+          <a href="/for/creators">Content Creators</a>
+          <a href="/faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-        }
+        if (e.isIntersecting) e.target.classList.add('visible');
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
