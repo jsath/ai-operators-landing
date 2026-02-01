@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Should Your AI Agent Do First? — Free Quiz</title>
+  <meta name="description" content="Take this 2-minute quiz to find out which AI agent you should build first. Get a personalized recommendation based on your business, bottlenecks, and goals.">
+  <meta name="keywords" content="AI agent quiz, which AI agent to build, AI readiness assessment, AI automation quiz, first AI agent, business AI recommendation">
+  <link rel="canonical" href="https://aioperator.sh/tools/ai-readiness-quiz">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What Should Your AI Agent Do First? — Free Quiz">
+  <meta property="og:description" content="2-minute quiz. Find out which AI agent fits your business right now. Personalized recommendation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aioperator.sh/tools/ai-readiness-quiz">
+  <meta property="og:site_name" content="AI Operators">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Should Your AI Agent Do First?">
+  <meta name="twitter:description" content="Take a 2-minute quiz and get a personalized AI agent recommendation for your business.">
+
+  <!-- JSON-LD: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Readiness Quiz — What Should Your AI Agent Do First?",
+    "url": "https://aioperator.sh/tools/ai-readiness-quiz",
+    "description": "Interactive quiz that recommends which AI agent a founder should build first based on their business profile and bottlenecks.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Johann Sathianathen"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Operators",
+      "url": "https://aioperator.sh"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioperator.sh/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://aioperator.sh/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "AI Readiness Quiz", "item": "https://aioperator.sh/tools/ai-readiness-quiz" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* ── Quiz Page Styles ── */
+    .quiz-hero {
+      padding: 140px 0 40px;
+      text-align: center;
+    }
+    .quiz-hero .page-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .quiz-hero .page-tag::before {
+      content: '>';
+      opacity: 0.5;
+    }
+    .quiz-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .quiz-hero h1 .green {
+      color: var(--green);
+      text-shadow: 0 0 40px rgba(0,255,136,0.3);
+    }
+    .quiz-hero .page-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ── Quiz Container ── */
+    .quiz-wrapper {
+      max-width: 680px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Progress bar ── */
+    .progress-bar {
+      margin-bottom: 32px;
+    }
+    .progress-track {
+      height: 4px;
+      background: #1a1a1a;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+      box-shadow: 0 0 12px rgba(0,255,136,0.3);
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dimmer);
+    }
+
+    /* ── Question Card ── */
+    .question-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 16px;
+      padding: 48px 40px;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .question-card.hidden {
+      display: none;
+    }
+    .question-card.fade-out {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    .question-card.fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: qFadeIn 0.3s forwards;
+    }
+    @keyframes qFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .question-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .question-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    /* ── Answer options ── */
+    .answer-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .answer-option {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+    .answer-option:hover {
+      border-color: rgba(0,255,136,0.2);
+      background: rgba(0,255,136,0.03);
+      color: var(--text);
+    }
+    .answer-option.selected {
+      border-color: var(--green);
+      background: rgba(0,255,136,0.06);
+      color: var(--text);
+    }
+    .answer-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #333;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .answer-option.selected .answer-dot {
+      border-color: var(--green);
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(0,255,136,0.4);
+    }
+    .answer-option.selected .answer-dot::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.65rem;
+      color: #000;
+      font-weight: 700;
+    }
+
+    /* ── Navigation buttons ── */
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+      gap: 16px;
+    }
+    .quiz-back {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-dimmer);
+      background: none;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 12px 24px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quiz-back:hover {
+      border-color: #333;
+      color: var(--text-dim);
+    }
+    .quiz-back:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    .quiz-next {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      background: var(--green);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .quiz-next:hover {
+      box-shadow: 0 0 30px rgba(0,255,136,0.3);
+      transform: translateY(-1px);
+    }
+    .quiz-next:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ── Results ── */
+    .quiz-results {
+      display: none;
+    }
+    .quiz-results.active {
+      display: block;
+    }
+
+    .result-badge {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .result-icon {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+    }
+    .result-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .result-subtitle {
+      font-size: 1rem;
+      color: var(--text-dim);
+      font-weight: 300;
+    }
+
+    /* ── Recommendation card ── */
+    .rec-card {
+      background: linear-gradient(135deg, rgba(0,255,136,0.06) 0%, rgba(0,255,136,0.01) 100%);
+      border: 1px solid rgba(0,255,136,0.15);
+      border-radius: 16px;
+      padding: 40px 36px;
+      margin-bottom: 32px;
+    }
+    .rec-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--green);
+    }
+    .rec-card p {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+    .rec-card p:last-child { margin-bottom: 0; }
+    .rec-card strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── What it handles ── */
+    .handles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .handle-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+    .handle-item .hi-icon {
+      color: var(--green);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Score breakdown ── */
+    .score-breakdown {
+      margin-bottom: 32px;
+    }
+    .score-breakdown h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .score-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .score-bar-label {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      min-width: 120px;
+      font-weight: 400;
+    }
+    .score-bar-track {
+      flex: 1;
+      height: 8px;
+      background: #1a1a1a;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.8s ease;
+    }
+    .score-bar-fill.outreach { background: var(--green); }
+    .score-bar-fill.content { background: #00aaff; }
+    .score-bar-fill.ops { background: #ff9f43; }
+    .score-bar-fill.code { background: #a855f7; }
+    .score-bar-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      min-width: 32px;
+      text-align: right;
+    }
+    .score-bar-value.outreach { color: var(--green); }
+    .score-bar-value.content { color: #00aaff; }
+    .score-bar-value.ops { color: #ff9f43; }
+    .score-bar-value.code { color: #a855f7; }
+
+    /* ── Terminal ── */
+    .quiz-terminal {
+      margin-bottom: 40px;
+    }
+
+    /* ── Result CTA ── */
+    .result-cta {
+      text-align: center;
+      padding: 40px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .result-cta h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .result-cta p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      font-weight: 300;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Retake ── */
+    .retake-row {
+      text-align: center;
+      margin-top: 24px;
+    }
+    .retake-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-dimmer);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .retake-btn:hover { color: var(--text-dim); }
+
+    @media (max-width: 600px) {
+      .question-card { padding: 32px 24px; }
+      .rec-card { padding: 28px 22px; }
+      .handles-grid { grid-template-columns: 1fr; }
+      .score-bar-label { min-width: 80px; font-size: 0.75rem; }
+      .quiz-nav { flex-direction: column-reverse; }
+      .quiz-back, .quiz-next { width: 100%; justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <div class="dot"></div>
+        AI Operators
+      </a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/compare/ai-agents-vs-chatgpt" class="nav-link">Compare</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a><span class="sep">/</span></li>
+        <li><a href="/tools/ai-readiness-quiz">Tools</a><span class="sep">/</span></li>
+        <li><span class="current">AI Readiness Quiz</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="quiz-hero">
+    <div class="container">
+      <div class="page-tag">2-minute quiz</div>
+      <h1>What should your AI<br>agent <span class="green">do first?</span></h1>
+      <p class="page-subtitle">Answer 9 quick questions about your business. Get a personalized recommendation on which agent to build first.</p>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <div class="quiz-wrapper">
+
+    <!-- Progress -->
+    <div class="progress-bar" id="progressBar">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width: 11%"></div>
+      </div>
+      <div class="progress-label">
+        <span id="progressText">Question 1 of 9</span>
+        <span id="progressPercent">11%</span>
+      </div>
+    </div>
+
+    <!-- Questions Container -->
+    <div id="questionsContainer">
+      <!-- Questions are rendered by JS -->
+    </div>
+
+    <!-- Results -->
+    <div class="quiz-results" id="quizResults">
+      <div class="result-badge">
+        <div class="result-icon" id="resultIcon">🚀</div>
+        <div class="result-title" id="resultTitle">Loading...</div>
+        <div class="result-subtitle" id="resultSubtitle"></div>
+      </div>
+
+      <div class="rec-card" id="recCard">
+        <h3 id="recHeading">Your #1 AI agent to build</h3>
+        <p id="recBody"></p>
+        <div class="handles-grid" id="handlesGrid"></div>
+        <p id="recWhy"></p>
+      </div>
+
+      <!-- Score breakdown -->
+      <div class="score-breakdown">
+        <h4>Your full agent-fit scores</h4>
+        <div class="score-bar-row">
+          <span class="score-bar-label">Outreach Agent</span>
+          <div class="score-bar-track"><div class="score-bar-fill outreach" id="barOutreach" style="width:0%"></div></div>
+          <span class="score-bar-value outreach" id="valOutreach">0</span>
+        </div>
+        <div class="score-bar-row">
+          <span class="score-bar-label">Content Agent</span>
+          <div class="score-bar-track"><div class="score-bar-fill content" id="barContent" style="width:0%"></div></div>
+          <span class="score-bar-value content" id="valContent">0</span>
+        </div>
+        <div class="score-bar-row">
+          <span class="score-bar-label">Ops Agent</span>
+          <div class="score-bar-track"><div class="score-bar-fill ops" id="barOps" style="width:0%"></div></div>
+          <span class="score-bar-value ops" id="valOps">0</span>
+        </div>
+        <div class="score-bar-row">
+          <span class="score-bar-label">Code Agent</span>
+          <div class="score-bar-track"><div class="score-bar-fill code" id="barCode" style="width:0%"></div></div>
+          <span class="score-bar-value code" id="valCode">0</span>
+        </div>
+      </div>
+
+      <!-- Terminal -->
+      <div class="quiz-terminal">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="terminal-dot r"></div>
+            <div class="terminal-dot y"></div>
+            <div class="terminal-dot g"></div>
+            <span class="terminal-title">ai-quiz ~ recommendation</span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">agent recommend --profile yours</span></div>
+            <div class="terminal-line"><span class="dim" id="termQ1">▸ Analyzing business profile...</span></div>
+            <div class="terminal-line"><span class="dim" id="termQ2">▸ Scoring agent fit...</span></div>
+            <div class="terminal-line"><span class="success" id="termQ3">✓ Top pick: --</span></div>
+            <div class="terminal-line"><span class="success" id="termQ4">✓ Estimated time saved: --</span><span class="terminal-cursor"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="result-cta">
+        <h3>Build this agent in 30 days</h3>
+        <p>Join AI Operators. Get the exact templates, configs, and community to build your first AI agent. No coding needed.</p>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary">
+          Join AI Operators (free) <span class="arrow">→</span>
+        </a>
+        <div class="retake-row">
+          <button class="retake-btn" onclick="retakeQuiz()">Retake quiz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <div class="dot"></div>
+            AI Operators
+          </a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by Johann Sathianathen.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+          <a href="/learn/ai-automation-business">AI Business Automation</a>
+        </div>
+        <div class="footer-col">
+          <h5>Tools</h5>
+          <a href="/tools/roi-calculator">ROI Calculator</a>
+          <a href="/tools/ai-readiness-quiz">AI Readiness Quiz</a>
+        </div>
+        <div class="footer-col">
+          <h5>More</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/faq">FAQ</a>
+          <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">Join Community</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Questions Data ──
+    // Each answer has scores: [outreach, content, ops, code]
+    const questions = [
+      {
+        q: "What takes up most of your time right now?",
+        answers: [
+          { text: "Finding & reaching out to leads / prospects", scores: [3, 0, 0, 0] },
+          { text: "Creating content (social, emails, blogs)", scores: [0, 3, 0, 0] },
+          { text: "Admin work (CRM, scheduling, data entry, reports)", scores: [0, 0, 3, 0] },
+          { text: "Building & maintaining software / websites", scores: [0, 0, 0, 3] }
+        ]
+      },
+      {
+        q: "What's your biggest bottleneck?",
+        answers: [
+          { text: "Not enough leads or sales conversations", scores: [3, 1, 0, 0] },
+          { text: "Can't produce content fast enough", scores: [0, 3, 0, 0] },
+          { text: "Drowning in busywork that shouldn't need me", scores: [0, 0, 3, 0] },
+          { text: "Development is too slow or too expensive", scores: [0, 0, 0, 3] }
+        ]
+      },
+      {
+        q: "How big is your team?",
+        answers: [
+          { text: "Just me (solo founder)", scores: [1, 1, 2, 1] },
+          { text: "2-5 people", scores: [1, 1, 2, 1] },
+          { text: "6-20 people", scores: [2, 1, 2, 0] },
+          { text: "20+ people", scores: [2, 0, 3, 1] }
+        ]
+      },
+      {
+        q: "How comfortable are you with tech?",
+        answers: [
+          { text: "I can barely set up a Notion page", scores: [1, 1, 2, 0] },
+          { text: "I use tools like Zapier, Airtable, etc.", scores: [1, 1, 2, 1] },
+          { text: "I've written some code before (even basic)", scores: [1, 0, 1, 3] },
+          { text: "I'm technical / I code regularly", scores: [0, 0, 1, 3] }
+        ]
+      },
+      {
+        q: "What type of business do you run?",
+        answers: [
+          { text: "Agency or consulting", scores: [3, 1, 1, 0] },
+          { text: "SaaS or software product", scores: [1, 0, 1, 3] },
+          { text: "E-commerce or physical products", scores: [1, 2, 2, 0] },
+          { text: "Content, coaching, or info products", scores: [1, 3, 1, 0] }
+        ]
+      },
+      {
+        q: "How do you currently get customers?",
+        answers: [
+          { text: "Outbound (cold DMs, email, calls)", scores: [3, 0, 0, 0] },
+          { text: "Content & organic (social media, SEO, YouTube)", scores: [0, 3, 0, 0] },
+          { text: "Referrals & word of mouth mostly", scores: [2, 1, 1, 0] },
+          { text: "Paid ads", scores: [1, 2, 1, 0] }
+        ]
+      },
+      {
+        q: "How many hours per week do you spend on repetitive tasks?",
+        answers: [
+          { text: "Less than 5 hours", scores: [1, 1, 0, 1] },
+          { text: "5-15 hours", scores: [1, 1, 2, 1] },
+          { text: "15-30 hours", scores: [1, 1, 3, 0] },
+          { text: "30+ hours (most of my week)", scores: [0, 0, 3, 0] }
+        ]
+      },
+      {
+        q: "What would make the biggest impact on your revenue?",
+        answers: [
+          { text: "More sales conversations happening automatically", scores: [3, 0, 0, 0] },
+          { text: "Consistent content that drives inbound leads", scores: [0, 3, 0, 0] },
+          { text: "Getting 10+ hours/week back to focus on growth", scores: [0, 0, 3, 0] },
+          { text: "Shipping products & features faster", scores: [0, 0, 0, 3] }
+        ]
+      },
+      {
+        q: "What excites you most about AI agents?",
+        answers: [
+          { text: "An agent that books meetings while I sleep", scores: [3, 0, 1, 0] },
+          { text: "An agent that writes & posts content for me", scores: [0, 3, 0, 0] },
+          { text: "An agent that handles my inbox, CRM, and scheduling", scores: [0, 0, 3, 0] },
+          { text: "An agent that writes code and ships features", scores: [0, 0, 0, 3] }
+        ]
+      }
+    ];
+
+    // ── State ──
+    let currentQ = 0;
+    let answers = new Array(questions.length).fill(null);
+
+    // ── Agent Profiles ──
+    const agents = {
+      outreach: {
+        icon: '📨',
+        name: 'Outreach Agent',
+        tagline: 'Your 24/7 lead generation machine',
+        description: 'Your business needs more conversations happening. An outreach agent finds leads, personalizes messages, sends DMs and follow-ups, and books meetings on your calendar. All while you sleep.',
+        why: "Based on your answers, lead gen and sales outreach are your biggest leverage point. Automating this first means more pipeline, more revenue, more room to hire or invest. It's the highest-ROI agent for your situation.",
+        handles: [
+          'Lead research & scoring',
+          'Personalized DM sequences',
+          'Email outreach campaigns',
+          'Follow-up automation',
+          'Meeting scheduling',
+          'CRM updates from conversations'
+        ],
+        timeSaved: '12-20 hours/week',
+        color: 'var(--green)'
+      },
+      content: {
+        icon: '✍️',
+        name: 'Content Agent',
+        tagline: 'Your always-on content engine',
+        description: "Content is your growth channel but you can't keep up. A content agent drafts posts, repurposes your ideas across platforms, writes email sequences, and maintains a consistent publishing schedule.",
+        why: "Your answers show content is both your growth lever and your bottleneck. Automating content creation first frees up creative energy and drives consistent inbound leads. More content = more trust = more sales.",
+        handles: [
+          'Social media post drafting',
+          'Blog & article writing',
+          'Email newsletter creation',
+          'Content repurposing across platforms',
+          'SEO optimization',
+          'Publishing schedule management'
+        ],
+        timeSaved: '10-15 hours/week',
+        color: '#00aaff'
+      },
+      ops: {
+        icon: '⚡',
+        name: 'Ops Agent',
+        tagline: 'Your business on autopilot',
+        description: "You're buried in admin that shouldn't need you. An ops agent handles your morning briefing, CRM updates, inbox triage, scheduling, data entry, and reporting. You get your time back to do actual high-value work.",
+        why: "Your answers make it clear: busywork is eating your week. Before you can grow, you need to stop drowning. The ops agent clears the noise so you can focus on what actually moves the needle.",
+        handles: [
+          'Morning briefing delivery',
+          'Inbox triage & responses',
+          'CRM data entry & updates',
+          'Calendar management',
+          'Report generation',
+          'Task & project tracking'
+        ],
+        timeSaved: '15-25 hours/week',
+        color: '#ff9f43'
+      },
+      code: {
+        icon: '💻',
+        name: 'Code Agent',
+        tagline: 'Your tireless dev that ships overnight',
+        description: "You need features shipped faster. A code agent writes code, builds features, fixes bugs, runs tests, and deploys updates. It's like having a senior dev on your team that works 24/7 and costs a fraction of a hire.",
+        why: "Your profile screams builder. You need speed. A code agent lets you ship features while you sleep, fix bugs instantly, and iterate faster than any competitor. This is your unfair advantage.",
+        handles: [
+          'Feature development',
+          'Bug fixes & patches',
+          'Code review assistance',
+          'Test writing & running',
+          'Deployment automation',
+          'Documentation generation'
+        ],
+        timeSaved: '15-30 hours/week',
+        color: '#a855f7'
+      }
+    };
+
+    // ── Render ──
+    function renderQuestion(idx) {
+      const q = questions[idx];
+      const container = document.getElementById('questionsContainer');
+
+      let html = '<div class="question-card fade-in" id="qCard">';
+      html += '<div class="question-number">Question ' + (idx + 1) + ' of ' + questions.length + '</div>';
+      html += '<div class="question-text">' + q.q + '</div>';
+      html += '<div class="answer-options">';
+
+      q.answers.forEach((a, i) => {
+        const selected = answers[idx] === i ? ' selected' : '';
+        html += '<div class="answer-option' + selected + '" onclick="selectAnswer(' + i + ')">';
+        html += '<div class="answer-dot"></div>';
+        html += '<span>' + a.text + '</span>';
+        html += '</div>';
+      });
+
+      html += '</div>';
+
+      // Nav buttons
+      html += '<div class="quiz-nav">';
+      html += '<button class="quiz-back"' + (idx === 0 ? ' disabled' : '') + ' onclick="prevQuestion()">← Back</button>';
+      if (idx === questions.length - 1) {
+        html += '<button class="quiz-next" id="nextBtn"' + (answers[idx] === null ? ' disabled' : '') + ' onclick="showResults()">See my results <span class="arrow">→</span></button>';
+      } else {
+        html += '<button class="quiz-next" id="nextBtn"' + (answers[idx] === null ? ' disabled' : '') + ' onclick="nextQuestion()">Next <span class="arrow">→</span></button>';
+      }
+      html += '</div>';
+      html += '</div>';
+
+      container.innerHTML = html;
+
+      // Update progress
+      const pct = Math.round(((idx + 1) / questions.length) * 100);
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressText').textContent = 'Question ' + (idx + 1) + ' of ' + questions.length;
+      document.getElementById('progressPercent').textContent = pct + '%';
+    }
+
+    function selectAnswer(idx) {
+      answers[currentQ] = idx;
+
+      // Update UI
+      const options = document.querySelectorAll('.answer-option');
+      options.forEach((o, i) => {
+        o.classList.toggle('selected', i === idx);
+      });
+
+      // Enable next button
+      document.getElementById('nextBtn').disabled = false;
+
+      // Auto-advance after short delay
+      setTimeout(() => {
+        if (currentQ < questions.length - 1) {
+          nextQuestion();
+        }
+      }, 300);
+    }
+
+    function nextQuestion() {
+      if (answers[currentQ] === null) return;
+      currentQ++;
+      renderQuestion(currentQ);
+      window.scrollTo({ top: document.querySelector('.quiz-wrapper').offsetTop - 100, behavior: 'smooth' });
+    }
+
+    function prevQuestion() {
+      if (currentQ <= 0) return;
+      currentQ--;
+      renderQuestion(currentQ);
+    }
+
+    function showResults() {
+      if (answers[currentQ] === null) return;
+
+      // Calculate scores
+      let scores = { outreach: 0, content: 0, ops: 0, code: 0 };
+
+      answers.forEach((ansIdx, qIdx) => {
+        if (ansIdx === null) return;
+        const s = questions[qIdx].answers[ansIdx].scores;
+        scores.outreach += s[0];
+        scores.content += s[1];
+        scores.ops += s[2];
+        scores.code += s[3];
+      });
+
+      // Find winner
+      const maxScore = Math.max(scores.outreach, scores.content, scores.ops, scores.code);
+      let winner = 'ops'; // default
+      if (scores.outreach === maxScore) winner = 'outreach';
+      else if (scores.content === maxScore) winner = 'content';
+      else if (scores.ops === maxScore) winner = 'ops';
+      else if (scores.code === maxScore) winner = 'code';
+
+      const agent = agents[winner];
+
+      // Hide quiz, show results
+      document.getElementById('questionsContainer').style.display = 'none';
+      document.getElementById('progressBar').style.display = 'none';
+      document.getElementById('quizResults').classList.add('active');
+
+      // Populate results
+      document.getElementById('resultIcon').textContent = agent.icon;
+      document.getElementById('resultTitle').textContent = 'Build a ' + agent.name;
+      document.getElementById('resultSubtitle').textContent = agent.tagline;
+
+      document.getElementById('recHeading').textContent = 'Your #1 pick: ' + agent.name;
+      document.getElementById('recBody').textContent = agent.description;
+      document.getElementById('recWhy').innerHTML = '<strong>Why this agent first?</strong> ' + agent.why;
+
+      // Handles grid
+      let handlesHtml = '';
+      agent.handles.forEach(h => {
+        handlesHtml += '<div class="handle-item"><span class="hi-icon">✓</span><span>' + h + '</span></div>';
+      });
+      document.getElementById('handlesGrid').innerHTML = handlesHtml;
+
+      // Score bars
+      const total = scores.outreach + scores.content + scores.ops + scores.code;
+      setTimeout(() => {
+        setBar('Outreach', scores.outreach, total);
+        setBar('Content', scores.content, total);
+        setBar('Ops', scores.ops, total);
+        setBar('Code', scores.code, total);
+      }, 200);
+
+      // Terminal
+      document.getElementById('termQ1').textContent = '▸ Business type analyzed, bottlenecks identified';
+      document.getElementById('termQ2').textContent = '▸ Scored 4 agent types against your profile';
+      document.getElementById('termQ3').textContent = '✓ Top recommendation: ' + agent.name;
+      document.getElementById('termQ4').innerHTML = '✓ Estimated time saved: ' + agent.timeSaved + '<span class="terminal-cursor"></span>';
+
+      // Scroll to results
+      window.scrollTo({ top: document.querySelector('.quiz-wrapper').offsetTop - 100, behavior: 'smooth' });
+    }
+
+    function setBar(name, score, total) {
+      const key = name.toLowerCase();
+      const pct = Math.round((score / total) * 100);
+      document.getElementById('bar' + name).style.width = pct + '%';
+      document.getElementById('val' + name).textContent = pct + '%';
+    }
+
+    function retakeQuiz() {
+      currentQ = 0;
+      answers = new Array(questions.length).fill(null);
+      document.getElementById('questionsContainer').style.display = 'block';
+      document.getElementById('progressBar').style.display = 'block';
+      document.getElementById('quizResults').classList.remove('active');
+      renderQuestion(0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ── Init ──
+    renderQuestion(0);
+  </script>
+</body>
+</html>
