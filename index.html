@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Operators — Build AI Agents That Run Your Business</title>
+  <meta name="description" content="Learn to build AI agents that do real work. Morning briefings, CRM, lead outreach & shipping code while you sleep. No coding needed.">
+  <meta property="og:title" content="AI Operators — Build AI Agents That Run Your Business">
+  <meta property="og:description" content="In 30 days you'll have your own AI agent doing real work. No coding needed.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #00ff88;
+      --green-dim: #00cc6a;
+      --green-glow: rgba(0, 255, 136, 0.15);
+      --green-glow-strong: rgba(0, 255, 136, 0.3);
+      --bg: #050505;
+      --bg-card: #0c0c0c;
+      --bg-card-border: #1a1a1a;
+      --text: #e8e8e8;
+      --text-dim: #888;
+      --text-dimmer: #555;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Noise overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* ── Grid background ── */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
+    }
+
+    /* ── Glow orbs ── */
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .glow-orb.green {
+      width: 500px; height: 500px;
+      background: var(--green-glow);
+      top: -100px; left: 20%;
+      animation: float-orb 12s ease-in-out infinite;
+    }
+    .glow-orb.green2 {
+      width: 400px; height: 400px;
+      background: rgba(0, 255, 136, 0.08);
+      bottom: 10%; right: 10%;
+      animation: float-orb 15s ease-in-out infinite reverse;
+    }
+
+    @keyframes float-orb {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(40px, 30px); }
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(5, 5, 5, 0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-logo .dot {
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--green);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; box-shadow: 0 0 12px var(--green); }
+      50% { opacity: 0.6; box-shadow: 0 0 6px var(--green); }
+    }
+    .nav-cta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 10px 24px;
+      background: var(--green);
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover {
+      box-shadow: 0 0 30px rgba(0,255,136,0.3);
+      transform: translateY(-1px);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-tag::before {
+      content: '>';
+      opacity: 0.5;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .hero h1 .green {
+      color: var(--green);
+      text-shadow: 0 0 40px rgba(0,255,136,0.3);
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-dim);
+      max-width: 480px;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+    .hero-sub strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 16px 36px;
+      background: var(--green);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 40px rgba(0,255,136,0.35);
+      transform: translateY(-2px);
+    }
+    .btn-primary .arrow {
+      transition: transform 0.25s;
+    }
+    .btn-primary:hover .arrow {
+      transform: translateX(4px);
+    }
+    .hero-proof {
+      font-size: 0.8rem;
+      color: var(--text-dimmer);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── Terminal ── */
+    .terminal {
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 0 60px rgba(0,255,136,0.06),
+        0 20px 60px rgba(0,0,0,0.5);
+    }
+    .terminal-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 18px;
+      background: #0f0f0f;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .terminal-dot {
+      width: 11px; height: 11px;
+      border-radius: 50%;
+    }
+    .terminal-dot.r { background: #ff5f57; }
+    .terminal-dot.y { background: #febc2e; }
+    .terminal-dot.g { background: #28c840; }
+    .terminal-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dimmer);
+      margin-left: 8px;
+    }
+    .terminal-body {
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      line-height: 1.8;
+      min-height: 280px;
+    }
+    .terminal-line {
+      opacity: 0;
+      animation: term-in 0.3s forwards;
+    }
+    .terminal-line .prompt {
+      color: var(--green);
+    }
+    .terminal-line .cmd {
+      color: var(--text);
+    }
+    .terminal-line .output {
+      color: var(--text-dim);
+    }
+    .terminal-line .success {
+      color: var(--green);
+    }
+    .terminal-line .dim {
+      color: var(--text-dimmer);
+    }
+
+    @keyframes term-in {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .terminal-line:nth-child(1) { animation-delay: 0.5s; }
+    .terminal-line:nth-child(2) { animation-delay: 1.2s; }
+    .terminal-line:nth-child(3) { animation-delay: 1.9s; }
+    .terminal-line:nth-child(4) { animation-delay: 2.6s; }
+    .terminal-line:nth-child(5) { animation-delay: 3.3s; }
+    .terminal-line:nth-child(6) { animation-delay: 4.0s; }
+    .terminal-line:nth-child(7) { animation-delay: 4.7s; }
+    .terminal-line:nth-child(8) { animation-delay: 5.4s; }
+    .terminal-line:nth-child(9) { animation-delay: 6.0s; }
+    .terminal-line:nth-child(10) { animation-delay: 6.4s; }
+    .terminal-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 15px;
+      background: var(--green);
+      animation: blink 1s step-end infinite;
+      vertical-align: text-bottom;
+      margin-left: 2px;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* ── Credibility strip ── */
+    .cred-strip {
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .cred-items {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .cred-item {
+      text-align: center;
+    }
+    .cred-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .cred-label {
+      font-size: 0.8rem;
+      color: var(--text-dimmer);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── Section shared ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    /* ── Problem section ── */
+    .problem {
+      padding: 100px 0;
+    }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      padding: 32px 28px;
+      transition: all 0.3s;
+    }
+    .problem-card:hover {
+      border-color: rgba(0,255,136,0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+    .problem-icon {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+    .problem-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .problem-card p {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── What you get ── */
+    .included {
+      padding: 100px 0;
+    }
+    .included-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .included-item {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 10px;
+      padding: 28px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: all 0.3s;
+    }
+    .included-item:hover {
+      border-color: rgba(0,255,136,0.12);
+    }
+    .included-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: rgba(0,255,136,0.1);
+      border: 1px solid rgba(0,255,136,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--green);
+      font-size: 0.8rem;
+    }
+    .included-item h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .included-item p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* ── Bonuses ── */
+    .bonuses {
+      padding: 100px 0;
+    }
+    .bonus-banner {
+      background: linear-gradient(135deg, rgba(0,255,136,0.08) 0%, rgba(0,255,136,0.02) 100%);
+      border: 1px solid rgba(0,255,136,0.12);
+      border-radius: 16px;
+      padding: 48px;
+    }
+    .bonus-banner .section-tag {
+      text-align: left;
+    }
+    .bonus-banner h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .bonus-banner .subtitle {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+    .bonus-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .bonus-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .bonus-emoji {
+      font-size: 1.4rem;
+    }
+    .bonus-item span {
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+    /* ── Guarantee ── */
+    .guarantee {
+      padding: 80px 0;
+    }
+    .guarantee-box {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 48px;
+      border: 1px solid rgba(0,255,136,0.12);
+      border-radius: 16px;
+      background: rgba(0,255,136,0.02);
+    }
+    .guarantee-box h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .guarantee-box p {
+      color: var(--text-dim);
+      line-height: 1.7;
+      font-size: 1rem;
+      font-weight: 300;
+    }
+    .guarantee-box strong {
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      padding: 120px 0;
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .final-cta .sub {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+    .final-cta .btn-primary {
+      font-size: 1.1rem;
+      padding: 18px 48px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      text-align: center;
+    }
+    footer p {
+      font-size: 0.8rem;
+      color: var(--text-dimmer);
+    }
+
+    /* ── Scroll animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .terminal {
+        max-width: 500px;
+      }
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+      .included-grid {
+        grid-template-columns: 1fr;
+      }
+      .bonus-list {
+        grid-template-columns: 1fr;
+      }
+      .cred-items {
+        gap: 32px;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero {
+        padding-top: 120px;
+        min-height: auto;
+        padding-bottom: 60px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .bonus-banner {
+        padding: 32px 20px;
+      }
+      .guarantee-box {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <div class="nav-logo">
+        <div class="dot"></div>
+        AI Operators
+      </div>
+      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-tag">Now accepting operators</div>
+          <h1>
+            Build AI agents<br>
+            that <span class="green">run your<br>business</span>
+          </h1>
+          <p class="hero-sub">
+            Not ChatGPT prompts. <strong>Actual AI agents</strong> that handle morning briefings, CRM, lead outreach, and ship code while you sleep. <strong>No coding needed.</strong>
+          </p>
+          <div class="hero-cta-group">
+            <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary">
+              Join the community <span class="arrow">→</span>
+            </a>
+            <span class="hero-proof">Free to join</span>
+          </div>
+        </div>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="terminal-dot r"></div>
+            <div class="terminal-dot y"></div>
+            <div class="terminal-dot g"></div>
+            <span class="terminal-title">jars@operator ~ agent</span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">jars morning-briefing</span></div>
+            <div class="terminal-line"><span class="dim">▸ Scanning inbox... 14 emails processed</span></div>
+            <div class="terminal-line"><span class="dim">▸ CRM updated: 3 new leads scored</span></div>
+            <div class="terminal-line"><span class="dim">▸ Calendar: 2 meetings rescheduled</span></div>
+            <div class="terminal-line"><span class="success">✓ Briefing delivered to Slack</span></div>
+            <div class="terminal-line"><br></div>
+            <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">jars outreach --leads hot</span></div>
+            <div class="terminal-line"><span class="dim">▸ Drafting 12 personalized DMs...</span></div>
+            <div class="terminal-line"><span class="dim">▸ Sequences queued for optimal send time</span></div>
+            <div class="terminal-line"><span class="success">✓ Pipeline +$48k generated overnight</span><span class="terminal-cursor"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credibility -->
+  <section class="cred-strip reveal">
+    <div class="container">
+      <div class="cred-items">
+        <div class="cred-item">
+          <div class="cred-num">21</div>
+          <div class="cred-label">Year-old founder</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-num">1</div>
+          <div class="cred-label">Company sold at 20</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-num">50%</div>
+          <div class="cred-label">Business run by AI</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-num">30</div>
+          <div class="cred-label">Day guarantee</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="problem">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">The problem</div>
+        <h2 class="section-title">You're doing work your<br>AI agent should handle</h2>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <div class="problem-icon">📬</div>
+          <h3>Drowning in busywork</h3>
+          <p>Emails, CRM updates, lead scoring, follow-ups. You spend 4+ hours daily on tasks that should run on autopilot.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">🤖</div>
+          <h3>AI tools, zero results</h3>
+          <p>You've tried ChatGPT, watched YouTube tutorials, copy-pasted prompts. Nothing sticks. Nothing actually does the work for you.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">💻</div>
+          <h3>"But I can't code"</h3>
+          <p>Every AI agent tutorial assumes you're a developer. You're a founder. You need results, not a computer science degree.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section class="included">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">What's inside</div>
+        <h2 class="section-title">Everything you need to build<br>your first AI operator</h2>
+      </div>
+      <div class="included-grid">
+        <div class="included-item reveal">
+          <div class="included-check">✓</div>
+          <div>
+            <h4>Claude Code & OpenClaw masterclass</h4>
+            <p>Step-by-step system to build agents that do real work. The same stack Johann uses daily.</p>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">✓</div>
+          <div>
+            <h4>Johann's exact agent setup</h4>
+            <p>Copy the blueprint behind Jars — the AI agent running half of a profitable SaaS business.</p>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">✓</div>
+          <div>
+            <h4>Templates & daily prompts</h4>
+            <p>Production-tested templates and prompts used every single day to run DMpro.</p>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">✓</div>
+          <div>
+            <h4>Real business examples</h4>
+            <p>See exactly how AI agents handle outreach, CRM, code shipping, and morning briefings.</p>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">✓</div>
+          <div>
+            <h4>Direct access to Johann</h4>
+            <p>Ask questions, get feedback, troubleshoot your setup. No gatekeeping, no middlemen.</p>
+          </div>
+        </div>
+        <div class="included-item reveal">
+          <div class="included-check">✓</div>
+          <div>
+            <h4>Community of operators</h4>
+            <p>Connect with other founders building AI-powered businesses. Share wins, learn from each other.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bonuses -->
+  <section class="bonuses">
+    <div class="container">
+      <div class="bonus-banner reveal">
+        <div class="section-tag">Bonuses worth $10k+</div>
+        <h2>You also get these. Free.</h2>
+        <p class="subtitle">The exact configs and templates from a real AI-operated business.</p>
+        <div class="bonus-list">
+          <div class="bonus-item">
+            <span class="bonus-emoji">⚡</span>
+            <span>OpenClaw config files — instant agent setup</span>
+          </div>
+          <div class="bonus-item">
+            <span class="bonus-emoji">☀️</span>
+            <span>Morning briefing agent template</span>
+          </div>
+          <div class="bonus-item">
+            <span class="bonus-emoji">📨</span>
+            <span>Lead outreach automation system</span>
+          </div>
+          <div class="bonus-item">
+            <span class="bonus-emoji">🌙</span>
+            <span>Overnight build agent template</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantee -->
+  <section class="guarantee">
+    <div class="container">
+      <div class="guarantee-box reveal">
+        <h2>The 30-day guarantee</h2>
+        <p>
+          In 30 days you'll have your own AI agent doing real work in your business.
+          Not playing with prompts. <strong>Doing actual work.</strong>
+          If it doesn't happen, it costs you nothing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="container reveal">
+      <h2>Stop prompting.<br><span style="color:var(--green)">Start operating.</span></h2>
+      <p class="sub">Join the founders building AI agents that actually work.</p>
+      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary">
+        Join AI Operators <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>AI Operators — Built different.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
