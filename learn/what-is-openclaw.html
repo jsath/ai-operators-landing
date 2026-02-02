@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is OpenClaw? The Complete Guide to Persistent AI Agents (2025)</title>
+  <meta name="description" content="OpenClaw is the open-source framework that turns Claude into a persistent AI employee. Complete guide covering setup, architecture, use cases, and why it matters for business automation.">
+  <meta name="keywords" content="OpenClaw, OpenClaw setup, what is OpenClaw, AI agent framework, persistent AI agents, Claude Code, AI employee, business automation, AI consulting">
+  <link rel="canonical" href="https://aioperator.sh/learn/what-is-openclaw">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What Is OpenClaw? The Complete Guide to Persistent AI Agents">
+  <meta property="og:description" content="OpenClaw turns Claude into a persistent AI employee that works 24/7. Here's everything you need to know.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aioperator.sh/learn/what-is-openclaw">
+  <meta property="og:site_name" content="AI Operators">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Is OpenClaw? The Complete Guide">
+  <meta name="twitter:description" content="OpenClaw turns Claude into a persistent AI employee. Complete guide covering setup, architecture, and real business use cases.">
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is OpenClaw? The Complete Guide to Persistent AI Agents",
+    "description": "OpenClaw is the open-source framework that turns Claude into a persistent AI employee. Complete guide covering setup, architecture, use cases, and why it matters for business automation.",
+    "author": {
+      "@type": "Person",
+      "name": "Johann Sathianathen",
+      "url": "https://johann.fyi"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Operators",
+      "url": "https://aioperator.sh"
+    },
+    "mainEntityOfPage": "https://aioperator.sh/learn/what-is-openclaw",
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-07-01",
+    "keywords": ["OpenClaw", "AI agent", "persistent AI", "business automation", "Claude Code"]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioperator.sh/" },
+      { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://aioperator.sh/learn/build-ai-agents" },
+      { "@type": "ListItem", "position": 3, "name": "What Is OpenClaw?", "item": "https://aioperator.sh/learn/what-is-openclaw" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is OpenClaw?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OpenClaw is an open-source framework that turns Claude (by Anthropic) into a persistent AI agent. Unlike ChatGPT or regular chatbots, OpenClaw gives your AI memory, the ability to use tools, connect to your apps, and run tasks autonomously 24/7."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to know how to code to use OpenClaw?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. OpenClaw is designed for non-developers. You configure it with plain text files and natural language instructions. If you can write an email, you can set up OpenClaw."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does OpenClaw cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OpenClaw itself is free and open source. You pay for the underlying Claude API usage, which typically runs $50-150/month depending on how heavily your agent works."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What can an OpenClaw agent actually do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OpenClaw agents can handle morning briefings, CRM updates, lead outreach, email management, code deployment, calendar management, report generation, and virtually any digital task you currently do manually."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <div class="dot"></div>
+        AI Operators
+      </a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/services/saas-founders" class="nav-link">Services</a>
+        <a href="/tools/roi-calculator" class="nav-link">Tools</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="container-narrow">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a><span class="sep">/</span></li>
+        <li><a href="/learn/build-ai-agents">Learn</a><span class="sep">/</span></li>
+        <li><span class="current">What Is OpenClaw?</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container-narrow">
+      <div class="page-tag">Complete Guide</div>
+      <h1>What Is <span class="green">OpenClaw</span>?<br>The Complete Guide</h1>
+      <p class="page-subtitle">OpenClaw turns Claude into a persistent AI employee that remembers everything, connects to your tools, and works while you sleep. Here's everything you need to know.</p>
+    </div>
+  </section>
+
+  <!-- Article Body -->
+  <div class="article-body">
+    <div class="container-narrow">
+
+      <p>You've probably heard people talk about AI agents. Maybe you've even tried ChatGPT a few times. But there's a gap between typing prompts and having an AI that <strong>actually runs part of your business</strong>.</p>
+
+      <p>That gap is what OpenClaw fills.</p>
+
+      <p>OpenClaw is the open-source framework that turns Claude (Anthropic's AI model) into a persistent, always-on agent. Not a chatbot. Not a prompt tool. An actual digital employee that wakes up, checks your inbox, updates your CRM, and handles tasks without you lifting a finger.</p>
+
+      <p>I'm <a href="https://johann.fyi" target="_blank">Johann</a>. I'm 21, sold my first company at 20, and now run roughly half of my SaaS business (<a href="https://dmpro.app" target="_blank">DMpro</a>) through an AI agent called Jars — built on OpenClaw. This guide covers everything I've learned.</p>
+
+      <h2>The Problem OpenClaw Solves</h2>
+
+      <p>Regular AI tools have three fatal flaws:</p>
+
+      <ul>
+        <li><strong>No memory.</strong> Every ChatGPT conversation starts from zero. Your AI doesn't remember what happened yesterday.</li>
+        <li><strong>No persistence.</strong> You close the tab and the AI stops existing. It can't run overnight. It can't check your email at 6 AM.</li>
+        <li><strong>No tools.</strong> ChatGPT can't send emails, update Notion, push code, or interact with your actual business stack.</li>
+      </ul>
+
+      <p>OpenClaw fixes all three. It gives Claude a memory system, a way to connect to external tools, and the ability to run continuously — even while you're asleep.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">openclaw ~ architecture</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">openclaw explain --architecture</span></div>
+          <div class="terminal-line"><span class="dim">▸ Memory layer: persistent context across sessions</span></div>
+          <div class="terminal-line"><span class="dim">▸ Tool layer: connect to APIs, files, databases</span></div>
+          <div class="terminal-line"><span class="dim">▸ Agent loop: run tasks autonomously 24/7</span></div>
+          <div class="terminal-line"><span class="dim">▸ Identity: personality, rules, preferences</span></div>
+          <div class="terminal-line"><span class="success">✓ Result: AI employee, not AI chatbot</span></div>
+        </div>
+      </div>
+
+      <h2>How OpenClaw Works (Simple Version)</h2>
+
+      <p>Think of OpenClaw as the operating system for your AI employee. Claude is the brain. OpenClaw is everything else — the body, the memory, the hands.</p>
+
+      <div class="flow-diagram">
+        <div class="flow-step">
+          <div class="step-icon">🧠</div>
+          <div class="step-label">Claude (brain)</div>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">
+          <div class="step-icon">⚙️</div>
+          <div class="step-label">OpenClaw (OS)</div>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">
+          <div class="step-icon">🔧</div>
+          <div class="step-label">Your tools</div>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">
+          <div class="step-icon">✅</div>
+          <div class="step-label">Work done</div>
+        </div>
+      </div>
+
+      <p>Here's what each layer does:</p>
+
+      <h3>1. Identity Layer (SOUL.md)</h3>
+      <p>You write a plain text file that defines who your agent is. Its name, personality, rules, boundaries. Think of it as writing a job description for a new hire.</p>
+
+      <h3>2. Memory Layer</h3>
+      <p>OpenClaw gives your agent both short-term and long-term memory. It remembers conversations, decisions, lessons learned, and context from previous sessions. No more re-explaining everything every time.</p>
+
+      <h3>3. Tool Layer</h3>
+      <p>This is where it gets powerful. Your agent can read files, run shell commands, send messages, browse the web, interact with APIs, manage calendars, and more. If it exists on your computer or the internet, your agent can probably use it.</p>
+
+      <h3>4. Agent Loop</h3>
+      <p>The agent doesn't just respond to prompts. It runs on a loop — checking for tasks, processing heartbeats, running scheduled work. It's proactive, not reactive.</p>
+
+      <h2>What Can an OpenClaw Agent Actually Do?</h2>
+
+      <p>Here's what my agent Jars handles every single day:</p>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num">14</div>
+          <div class="stat-label">Emails processed daily</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3-5</div>
+          <div class="stat-label">CRM leads scored</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">12</div>
+          <div class="stat-label">Outreach DMs drafted</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">$48k</div>
+          <div class="stat-label">Pipeline generated overnight</div>
+        </div>
+      </div>
+
+      <p>But it goes way beyond that. OpenClaw agents are being used for:</p>
+
+      <ul>
+        <li><strong>Morning briefings</strong> — Wake up to a Slack message with your calendar, inbox summary, and priority list</li>
+        <li><strong>CRM automation</strong> — Lead scoring, follow-up scheduling, deal tracking</li>
+        <li><strong>Lead outreach</strong> — Personalized DMs, email sequences, LinkedIn messages</li>
+        <li><strong>Code shipping</strong> — Overnight builds, bug fixes, feature deployments</li>
+        <li><strong>Report generation</strong> — Weekly summaries, analytics dashboards, client updates</li>
+        <li><strong>Content creation</strong> — Blog posts, social media, newsletter drafts</li>
+        <li><strong>Customer support</strong> — Ticket triage, common question responses, escalation routing</li>
+      </ul>
+
+      <h2>OpenClaw vs ChatGPT: The Real Difference</h2>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>ChatGPT</th>
+            <th class="highlight">OpenClaw + Claude</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Persistent memory</td>
+            <td><span class="cross">✗</span> Resets each chat</td>
+            <td><span class="check">✓</span> Remembers everything</td>
+          </tr>
+          <tr>
+            <td>Runs autonomously</td>
+            <td><span class="cross">✗</span> Only when you type</td>
+            <td><span class="check">✓</span> 24/7 agent loop</td>
+          </tr>
+          <tr>
+            <td>Connects to tools</td>
+            <td><span class="cross">✗</span> Limited plugins</td>
+            <td><span class="check">✓</span> Full system access</td>
+          </tr>
+          <tr>
+            <td>Custom identity</td>
+            <td><span class="cross">✗</span> Generic assistant</td>
+            <td><span class="check">✓</span> Your rules, your persona</td>
+          </tr>
+          <tr>
+            <td>Proactive actions</td>
+            <td><span class="cross">✗</span> Only responds</td>
+            <td><span class="check">✓</span> Heartbeats & scheduled tasks</td>
+          </tr>
+          <tr>
+            <td>Code execution</td>
+            <td><span class="cross">✗</span> Sandbox only</td>
+            <td><span class="check">✓</span> Full shell access</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Want the full breakdown? Read our <a href="/learn/ai-agent-vs-chatbot">AI Agent vs Chatbot</a> comparison.</p>
+
+      <h2>Do I Need to Code?</h2>
+
+      <p><strong>No.</strong> This is the part that surprises most people.</p>
+
+      <p>OpenClaw is configured through plain text files. You write instructions in natural language. If you can write an email, you can configure an OpenClaw agent.</p>
+
+      <p>The setup looks like this:</p>
+
+      <div class="code-block">
+        <code>
+<span class="comment"># SOUL.md — Your agent's identity</span>
+
+<span class="keyword">You are Jars</span>, an AI agent working for Johann.
+Your job: morning briefings, CRM management, lead outreach.
+
+<span class="keyword">Rules:</span>
+- Never send emails without approval
+- Update CRM after every conversation
+- Prioritize hot leads over cold ones
+- Check inbox every 30 minutes
+        </code>
+      </div>
+
+      <p>That's it. That's the configuration. You write what you want in plain English, and Claude handles the implementation.</p>
+
+      <h2>Getting Started with OpenClaw</h2>
+
+      <p>Here's the quick-start path:</p>
+
+      <ol>
+        <li><strong>Install Claude Code</strong> — <a href="/learn/claude-code-setup">Follow our Claude Code setup guide</a></li>
+        <li><strong>Configure your agent identity</strong> — Write SOUL.md with your agent's role and rules</li>
+        <li><strong>Set up memory</strong> — Create the memory directory structure</li>
+        <li><strong>Connect your tools</strong> — Link email, CRM, calendar, Slack, etc.</li>
+        <li><strong>Start the agent loop</strong> — Let it run and refine over time</li>
+      </ol>
+
+      <p>For the full step-by-step walkthrough, check our <a href="/learn/openclaw-tutorial">OpenClaw Tutorial for Beginners</a>.</p>
+
+      <h2>Real Results: What Founders Are Seeing</h2>
+
+      <div class="before-after">
+        <div class="ba-card before">
+          <h4>Before OpenClaw</h4>
+          <ul>
+            <li>4+ hours daily on busywork</li>
+            <li>Inbox out of control by noon</li>
+            <li>CRM data always stale</li>
+            <li>Leads going cold from slow follow-ups</li>
+            <li>No time for strategy or growth</li>
+          </ul>
+        </div>
+        <div class="ba-card after">
+          <h4>After OpenClaw</h4>
+          <ul>
+            <li>45 minutes of review per day</li>
+            <li>Inbox processed before waking up</li>
+            <li>CRM updated in real time</li>
+            <li>Leads contacted within minutes</li>
+            <li>Half the day freed for high-value work</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>How Much Does It Cost?</h2>
+
+      <p>OpenClaw itself is <strong>free and open source</strong>.</p>
+
+      <p>You pay for:</p>
+      <ul>
+        <li><strong>Claude API usage</strong> — Typically $50-150/month depending on activity</li>
+        <li><strong>Server hosting</strong> — $5-20/month for a VPS (optional, can run locally)</li>
+        <li><strong>Connected tool APIs</strong> — Most have free tiers</li>
+      </ul>
+
+      <p>Total cost: roughly <strong>$100-200/month</strong> for an AI employee that would cost $4,000-6,000/month if you hired a human.</p>
+
+      <p>Not sure if the math works for your business? <a href="/tools/roi-calculator">Try our ROI calculator</a> to see your exact savings.</p>
+
+      <h2>Who Is OpenClaw For?</h2>
+
+      <p>OpenClaw works best for:</p>
+
+      <ul>
+        <li><strong><a href="/services/saas-founders">SaaS founders</a></strong> — Automate CRM, support tickets, overnight code builds</li>
+        <li><strong><a href="/services/agencies">Agency owners</a></strong> — Scale client work without hiring, automate reports and deliverables</li>
+        <li><strong><a href="/services/ecommerce">E-commerce operators</a></strong> — Inventory alerts, customer support, order processing</li>
+        <li><strong>Freelancers</strong> — Client communication, invoicing, project management</li>
+        <li><strong>Content creators</strong> — Publishing workflows, audience engagement, analytics</li>
+      </ul>
+
+      <h2>Common Questions</h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Is OpenClaw safe? Can my agent go rogue?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              You control the boundaries. OpenClaw agents follow the rules you write in their configuration. You can require approval for sensitive actions (sending emails, making purchases, deploying code). The agent operates within the sandbox you define.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How is this different from Zapier or Make?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Zapier and Make run simple "if this, then that" automations. OpenClaw agents think, reason, and make decisions. They can handle ambiguous situations, write personalized content, and adapt to new information. It's the difference between a vending machine and an employee.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Can I use this with GPT-4 instead of Claude?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              OpenClaw is built specifically for Claude and leverages Anthropic's unique capabilities like tool use and extended context. While the concepts transfer, you'd need a different framework for GPT-4. We recommend sticking with Claude — it's better for agentic work.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How long does it take to set up?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Basic setup takes 1-2 hours. Getting it tuned and running smoothly for your specific workflows takes about a week of iteration. If you want it done faster, we offer <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">1-on-1 consulting</a> where Johann sets it up with you in a single session.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consulting CTA -->
+      <div class="info-card" style="border-color: rgba(0,255,136,0.2); background: linear-gradient(135deg, rgba(0,255,136,0.06) 0%, rgba(0,255,136,0.02) 100%); margin: 48px 0; padding: 40px 36px; text-align: center;">
+        <h4 style="font-size: 1.3rem; margin-bottom: 12px;">Want your OpenClaw agent built for you?</h4>
+        <p style="margin-bottom: 24px; max-width: 520px; margin-left: auto; margin-right: auto;">Book a 1-on-1 setup session with Johann. In 90 minutes, you'll walk away with a fully configured AI agent running your workflows. <strong style="color: var(--green);">$1,500 done-with-you deployment.</strong></p>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary">
+          Book a setup call <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <h2>Next Steps</h2>
+
+      <p>Ready to get started? Here's your path:</p>
+
+      <ol>
+        <li><strong>Learn the fundamentals</strong> — Read <a href="/learn/build-ai-agents">How to Build AI Agents</a></li>
+        <li><strong>Follow the tutorial</strong> — <a href="/learn/openclaw-tutorial">OpenClaw Tutorial for Beginners</a></li>
+        <li><strong>See what it does</strong> — <a href="/learn/ai-agent-morning-routine">5 Things My AI Agent Does Every Morning</a></li>
+        <li><strong>Calculate your ROI</strong> — <a href="/tools/roi-calculator">AI Employee ROI Calculator</a></li>
+        <li><strong>Join the community</strong> — <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">AI Operators on Skool (free)</a></li>
+      </ol>
+
+      <!-- Related Articles -->
+      <h2>Keep Reading</h2>
+      <div class="related-grid">
+        <a href="/learn/openclaw-tutorial" class="related-card">
+          <div class="related-tag">Tutorial</div>
+          <h4>OpenClaw Tutorial for Beginners</h4>
+          <p>Step-by-step setup guide. Go from zero to running agent in an afternoon.</p>
+        </a>
+        <a href="/learn/ai-agent-vs-chatbot" class="related-card">
+          <div class="related-tag">Compare</div>
+          <h4>AI Agent vs Chatbot: What's the Difference?</h4>
+          <p>Why agents do work and chatbots just talk. The distinction that matters.</p>
+        </a>
+        <a href="/learn/ai-agent-morning-routine" class="related-card">
+          <div class="related-tag">Real World</div>
+          <h4>5 Things My AI Agent Does Every Morning</h4>
+          <p>The exact morning routine of Jars, my AI employee. Before I even wake up.</p>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Final CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Stop reading about AI.<br><span class="green">Start building with it.</span></h2>
+      <p class="cta-sub">Join the founders who already have AI agents running their businesses.</p>
+      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary">
+        Join AI Operators (free) <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <div class="dot"></div>
+            AI Operators
+          </a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi" target="_blank">Johann Sathianathen</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/what-is-openclaw">What Is OpenClaw?</a>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+          <a href="/learn/ai-employee-setup">AI Employee Setup</a>
+          <a href="/learn/ai-agent-morning-routine">AI Morning Routine</a>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="/services/saas-founders">For SaaS Founders</a>
+          <a href="/services/agencies">For Agencies</a>
+          <a href="/services/ecommerce">For E-commerce</a>
+        </div>
+        <div class="footer-col">
+          <h5>More</h5>
+          <a href="/tools/roi-calculator">ROI Calculator</a>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/faq">FAQ</a>
+          <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">Join Community</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
