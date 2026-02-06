@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Demo — See Your Morning Briefing in Action</title>
+  <meta name="description" content="Experience what an AI agent delivers every morning. Live demo of email digests, CRM updates, calendar sync, and actionable insights. No signup required.">
+  <meta name="keywords" content="AI agent demo, morning briefing AI, AI assistant demo, business automation demo, AI employee example, see AI agent work">
+  <link rel="canonical" href="https://aioperator.sh/demo">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Agent Demo — Your Morning Briefing, Automated">
+  <meta property="og:description" content="See exactly what an AI agent delivers every morning. Email digest, CRM updates, calendar sync, actionable tasks. Live demo, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aioperator.sh/demo">
+  <meta property="og:site_name" content="AI Operators">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Agent Demo — See It in Action">
+  <meta name="twitter:description" content="Experience what an AI agent delivers every morning. Live demo, no signup required.">
+
+  <!-- JSON-LD: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Agent Morning Briefing Demo",
+    "url": "https://aioperator.sh/demo",
+    "description": "Interactive demo showing what an AI agent delivers as a morning briefing. Experience email digests, CRM updates, calendar sync, and actionable insights.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Johann Sathianathen"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Operators",
+      "url": "https://aioperator.sh"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://aioperator.sh/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Demo",
+        "item": "https://aioperator.sh/demo"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does an AI agent morning briefing include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A typical AI agent morning briefing includes: email digest with priority scoring, calendar overview with meeting prep, CRM updates with lead scoring, key business metrics, and actionable tasks for the day."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to set up an AI agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most founders get their first AI agent running within 2-4 hours using our templates and step-by-step system. No coding required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI agents integrate with my existing tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. AI agents built with Claude Code and OpenClaw can connect to email, calendar, CRM, Slack, databases, and most business tools through APIs and integrations."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* ══════════════════════════════════════════
+       Demo Page — Immersive Morning Briefing
+       ══════════════════════════════════════════ */
+
+    /* Orchestrated entrance */
+    @keyframes briefing-rise {
+      from { opacity: 0; transform: translateY(40px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 60px rgba(0,255,136,0.15); }
+      50% { box-shadow: 0 0 100px rgba(0,255,136,0.25); }
+    }
+    @keyframes typewriter-cursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @keyframes count-up {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slide-in-right {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    @keyframes radar-sweep {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes live-dot {
+      0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--green); }
+      50% { opacity: 0.4; box-shadow: 0 0 4px var(--green); }
+    }
+
+    /* Page layout */
+    .demo-page {
+      min-height: 100vh;
+      padding: 100px 0 80px;
+    }
+
+    /* Demo hero */
+    .demo-hero {
+      padding: 40px 0 50px;
+      text-align: center;
+    }
+    .demo-hero .demo-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .demo-hero .demo-tag .live-indicator {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: live-dot 1.5s ease-in-out infinite;
+    }
+    .demo-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .demo-hero h1 .green {
+      color: var(--green);
+      text-shadow: 0 0 40px rgba(0,255,136,0.3);
+    }
+    .demo-hero .demo-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 30px;
+      font-weight: 300;
+    }
+    .demo-hero .persona-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 100px;
+      padding: 10px 24px 10px 12px;
+      font-size: 0.85rem;
+    }
+    .persona-badge .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green) 0%, #00cc6a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .persona-badge .agent-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .persona-badge .agent-role {
+      color: var(--text-dim);
+      font-weight: 300;
+    }
+
+    /* Briefing container */
+    .briefing-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Briefing window */
+    .briefing-window {
+      background: #080808;
+      border: 1px solid #1a1a1a;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow:
+        0 0 80px rgba(0,255,136,0.08),
+        0 40px 100px rgba(0,0,0,0.6);
+      animation: briefing-rise 0.8s ease-out, pulse-glow 4s ease-in-out infinite;
+      animation-delay: 0s, 0.8s;
+    }
+
+    /* Window header */
+    .window-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      background: #0c0c0c;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .window-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .window-dots span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .window-dots .r { background: #ff5f57; }
+    .window-dots .y { background: #febc2e; }
+    .window-dots .g { background: #28c840; }
+    .window-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dimmer);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .window-title .status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--green);
+    }
+    .window-title .status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: live-dot 1.5s ease-in-out infinite;
+    }
+    .window-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .window-actions button {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .window-actions button:hover {
+      background: rgba(0,255,136,0.1);
+      border-color: rgba(0,255,136,0.2);
+      color: var(--green);
+    }
+
+    /* Briefing content */
+    .briefing-content {
+      padding: 32px;
+    }
+
+    /* Greeting header */
+    .greeting-section {
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: slide-in-right 0.6s ease forwards;
+      animation-delay: 0.4s;
+    }
+    .greeting-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-dimmer);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .greeting-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+    .greeting-text .highlight {
+      color: var(--green);
+    }
+    .greeting-summary {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      margin-top: 8px;
+      font-weight: 300;
+    }
+
+    /* Metrics row */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .metric-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+      opacity: 0;
+      animation: count-up 0.5s ease forwards;
+    }
+    .metric-card:nth-child(1) { animation-delay: 0.6s; }
+    .metric-card:nth-child(2) { animation-delay: 0.7s; }
+    .metric-card:nth-child(3) { animation-delay: 0.8s; }
+    .metric-card:nth-child(4) { animation-delay: 0.9s; }
+    .metric-card .metric-label {
+      font-size: 0.72rem;
+      color: var(--text-dimmer);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .metric-card .metric-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .metric-card .metric-value.green { color: var(--green); }
+    .metric-card .metric-change {
+      font-size: 0.72rem;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .metric-change.up { color: var(--green); }
+    .metric-change.down { color: #ff5f57; }
+
+    /* Sections grid */
+    .sections-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    /* Section cards */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      opacity: 0;
+      animation: slide-in-right 0.6s ease forwards;
+    }
+    .section-card:nth-child(1) { animation-delay: 1.0s; }
+    .section-card:nth-child(2) { animation-delay: 1.1s; }
+    .section-card:nth-child(3) { animation-delay: 1.2s; }
+    .section-card:nth-child(4) { animation-delay: 1.3s; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      text-align: left;
+      margin-bottom: 0;
+    }
+    .section-header h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-header h3 .icon {
+      font-size: 1rem;
+    }
+    .section-header .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      background: rgba(0,255,136,0.1);
+      color: var(--green);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    .section-header .badge.urgent {
+      background: rgba(255,95,87,0.1);
+      color: #ff5f57;
+    }
+    .section-body {
+      padding: 16px 20px;
+    }
+
+    /* Email items */
+    .email-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .email-item:last-child { border-bottom: none; }
+    .email-priority {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .email-priority.high { background: #ff5f57; box-shadow: 0 0 8px rgba(255,95,87,0.4); }
+    .email-priority.medium { background: #febc2e; }
+    .email-priority.low { background: var(--text-dimmer); }
+    .email-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .email-from {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .email-subject {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .email-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-dimmer);
+      flex-shrink: 0;
+    }
+
+    /* Calendar items */
+    .calendar-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .calendar-item:last-child { border-bottom: none; }
+    .calendar-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--green);
+      width: 60px;
+      flex-shrink: 0;
+    }
+    .calendar-bar {
+      width: 3px;
+      height: 36px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .calendar-bar.green { background: var(--green); }
+    .calendar-bar.blue { background: #3b82f6; }
+    .calendar-bar.purple { background: #a855f7; }
+    .calendar-details {
+      flex: 1;
+    }
+    .calendar-title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .calendar-meta {
+      font-size: 0.72rem;
+      color: var(--text-dimmer);
+    }
+
+    /* CRM items */
+    .crm-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .crm-item:last-child { border-bottom: none; }
+    .crm-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .crm-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .crm-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .crm-action {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+    .crm-score {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      background: rgba(0,255,136,0.1);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    /* Tasks */
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .task-item:last-child { border-bottom: none; }
+    .task-check {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .task-check:hover {
+      border-color: var(--green);
+    }
+    .task-check.done {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .task-check.done::after {
+      content: '✓';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .task-content {
+      flex: 1;
+    }
+    .task-text {
+      font-size: 0.82rem;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .task-context {
+      font-size: 0.7rem;
+      color: var(--text-dimmer);
+    }
+    .task-context .ai-tag {
+      color: var(--green);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* AI Insights section */
+    .insights-section {
+      background: linear-gradient(135deg, rgba(0,255,136,0.05) 0%, rgba(0,255,136,0.01) 100%);
+      border: 1px solid rgba(0,255,136,0.12);
+      border-radius: 14px;
+      padding: 24px;
+      opacity: 0;
+      animation: slide-in-right 0.6s ease forwards;
+      animation-delay: 1.4s;
+    }
+    .insights-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .insights-header .radar {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      position: relative;
+    }
+    .insights-header .radar::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 2px;
+      background: var(--green);
+      transform-origin: left center;
+      animation: radar-sweep 2s linear infinite;
+    }
+    .insights-header h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .insight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,255,136,0.08);
+    }
+    .insight-item:last-child { border-bottom: none; }
+    .insight-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .insight-text {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+    .insight-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .insight-text .green {
+      color: var(--green);
+    }
+
+    /* Typewriter effect */
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid var(--green);
+      animation: typewriter-cursor 0.8s step-end infinite;
+    }
+
+    /* CTA Section */
+    .demo-cta {
+      padding: 80px 0;
+      text-align: center;
+    }
+    .demo-cta h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+    .demo-cta .green { color: var(--green); }
+    .demo-cta .sub {
+      color: var(--text-dim);
+      font-size: 1rem;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-secondary {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* How it works */
+    .how-section {
+      padding: 60px 0 0;
+    }
+    .how-section .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+      display: block;
+      padding: 0;
+      border: none;
+    }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .how-step {
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 14px;
+      transition: all 0.3s;
+    }
+    .how-step:hover {
+      border-color: rgba(0,255,136,0.15);
+      transform: translateY(-4px);
+    }
+    .how-step .step-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .how-step h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .how-step p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .metrics-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .sections-grid {
+        grid-template-columns: 1fr;
+      }
+      .how-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .metrics-row {
+        grid-template-columns: 1fr;
+      }
+      .briefing-content {
+        padding: 20px;
+      }
+      .window-actions {
+        display: none;
+      }
+      .demo-hero h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <div class="dot"></div>
+        AI Operators
+      </a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/tools/roi-calculator" class="nav-link">ROI Calculator</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="demo-page">
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="/">Home</a></li>
+          <li><span class="sep">/</span></li>
+          <li><span class="current">Demo</span></li>
+        </ol>
+      </nav>
+
+      <!-- Hero -->
+      <div class="demo-hero">
+        <div class="demo-tag">
+          <span class="live-indicator"></span>
+          Live Demo
+        </div>
+        <h1>This is what your <span class="green">morning briefing</span> looks like</h1>
+        <p class="demo-subtitle">
+          Every morning at 7 AM, your AI agent delivers this. Email digest, calendar prep, CRM updates, and actionable tasks. All automated. No prompting.
+        </p>
+        <div class="persona-badge">
+          <div class="avatar">🫙</div>
+          <span><span class="agent-name">Jars</span> <span class="agent-role">— Johann's AI Agent</span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Briefing Window -->
+    <div class="briefing-container">
+      <div class="briefing-window">
+        <div class="window-header">
+          <div class="window-dots">
+            <span class="r"></span>
+            <span class="y"></span>
+            <span class="g"></span>
+          </div>
+          <div class="window-title">
+            <span>jars@operator</span>
+            <span class="status">synced</span>
+          </div>
+          <div class="window-actions">
+            <button onclick="location.reload()">↻ Refresh</button>
+            <button onclick="window.print()">⎙ Export</button>
+          </div>
+        </div>
+
+        <div class="briefing-content">
+
+          <!-- Greeting -->
+          <div class="greeting-section">
+            <div class="greeting-date" id="currentDate"></div>
+            <div class="greeting-text">
+              Good morning, Johann. <span class="highlight">Here's your briefing.</span>
+            </div>
+            <div class="greeting-summary">
+              3 priority emails • 2 meetings today • 4 leads need attention • $12.4K pipeline movement
+            </div>
+          </div>
+
+          <!-- Metrics -->
+          <div class="metrics-row">
+            <div class="metric-card">
+              <div class="metric-label">MRR</div>
+              <div class="metric-value green">$47.2K</div>
+              <div class="metric-change up">↑ $2.1K this week</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Active Trials</div>
+              <div class="metric-value">142</div>
+              <div class="metric-change up">↑ 18 new yesterday</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Churn Risk</div>
+              <div class="metric-value">3</div>
+              <div class="metric-change down">↓ 2 flagged for outreach</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Pipeline</div>
+              <div class="metric-value green">$86K</div>
+              <div class="metric-change up">↑ 4 deals advancing</div>
+            </div>
+          </div>
+
+          <!-- Section Grid -->
+          <div class="sections-grid">
+
+            <!-- Priority Emails -->
+            <div class="section-card">
+              <div class="section-header">
+                <h3><span class="icon">📬</span> Priority Emails</h3>
+                <span class="badge urgent">3 urgent</span>
+              </div>
+              <div class="section-body">
+                <div class="email-item">
+                  <div class="email-priority high"></div>
+                  <div class="email-content">
+                    <div class="email-from">Sarah Chen (Stripe)</div>
+                    <div class="email-subject">Re: Partnership opportunity — Let's schedule a call</div>
+                  </div>
+                  <div class="email-time">7:42 AM</div>
+                </div>
+                <div class="email-item">
+                  <div class="email-priority high"></div>
+                  <div class="email-content">
+                    <div class="email-from">Marcus Rodriguez</div>
+                    <div class="email-subject">Enterprise inquiry — 50 seats, ready to move fast</div>
+                  </div>
+                  <div class="email-time">6:15 AM</div>
+                </div>
+                <div class="email-item">
+                  <div class="email-priority medium"></div>
+                  <div class="email-content">
+                    <div class="email-from">Alex from PostHog</div>
+                    <div class="email-subject">Your analytics report for January is ready</div>
+                  </div>
+                  <div class="email-time">5:30 AM</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Calendar -->
+            <div class="section-card">
+              <div class="section-header">
+                <h3><span class="icon">📅</span> Today's Calendar</h3>
+                <span class="badge">2 meetings</span>
+              </div>
+              <div class="section-body">
+                <div class="calendar-item">
+                  <div class="calendar-time">10:00</div>
+                  <div class="calendar-bar green"></div>
+                  <div class="calendar-details">
+                    <div class="calendar-title">Product sync with dev team</div>
+                    <div class="calendar-meta">Zoom • 45 min • Prep notes ready</div>
+                  </div>
+                </div>
+                <div class="calendar-item">
+                  <div class="calendar-time">14:30</div>
+                  <div class="calendar-bar blue"></div>
+                  <div class="calendar-details">
+                    <div class="calendar-title">Enterprise demo — Marcus Rodriguez</div>
+                    <div class="calendar-meta">Google Meet • 30 min • $12K deal</div>
+                  </div>
+                </div>
+                <div class="calendar-item">
+                  <div class="calendar-time">18:00</div>
+                  <div class="calendar-bar purple"></div>
+                  <div class="calendar-details">
+                    <div class="calendar-title">Founder dinner (Chiang Mai)</div>
+                    <div class="calendar-meta">Meena Rice Based • 8 people confirmed</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CRM Updates -->
+            <div class="section-card">
+              <div class="section-header">
+                <h3><span class="icon">🎯</span> CRM Updates</h3>
+                <span class="badge">4 leads scored</span>
+              </div>
+              <div class="section-body">
+                <div class="crm-item">
+                  <div class="crm-avatar">MR</div>
+                  <div class="crm-info">
+                    <div class="crm-name">Marcus Rodriguez</div>
+                    <div class="crm-action">Moved to "Demo Scheduled"</div>
+                  </div>
+                  <div class="crm-score">92</div>
+                </div>
+                <div class="crm-item">
+                  <div class="crm-avatar" style="background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);">EW</div>
+                  <div class="crm-info">
+                    <div class="crm-name">Emily Watson</div>
+                    <div class="crm-action">Opened pricing page 3x</div>
+                  </div>
+                  <div class="crm-score">78</div>
+                </div>
+                <div class="crm-item">
+                  <div class="crm-avatar" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">JK</div>
+                  <div class="crm-info">
+                    <div class="crm-name">James Kim</div>
+                    <div class="crm-action">Trial expiring in 2 days</div>
+                  </div>
+                  <div class="crm-score">65</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Today's Tasks -->
+            <div class="section-card">
+              <div class="section-header">
+                <h3><span class="icon">✓</span> Your Tasks</h3>
+                <span class="badge">AI-generated</span>
+              </div>
+              <div class="section-body">
+                <div class="task-item">
+                  <div class="task-check" onclick="this.classList.toggle('done')"></div>
+                  <div class="task-content">
+                    <div class="task-text">Reply to Sarah Chen about partnership call</div>
+                    <div class="task-context"><span class="ai-tag">[AI]</span> Draft ready in email</div>
+                  </div>
+                </div>
+                <div class="task-item">
+                  <div class="task-check" onclick="this.classList.toggle('done')"></div>
+                  <div class="task-content">
+                    <div class="task-text">Send follow-up to Emily Watson</div>
+                    <div class="task-context"><span class="ai-tag">[AI]</span> High intent, pricing hesitation</div>
+                  </div>
+                </div>
+                <div class="task-item">
+                  <div class="task-check" onclick="this.classList.toggle('done')"></div>
+                  <div class="task-content">
+                    <div class="task-text">Review overnight build results</div>
+                    <div class="task-context"><span class="ai-tag">[AI]</span> Lead finder deployed</div>
+                  </div>
+                </div>
+                <div class="task-item">
+                  <div class="task-check" onclick="this.classList.toggle('done')"></div>
+                  <div class="task-content">
+                    <div class="task-text">Prep talking points for Marcus demo</div>
+                    <div class="task-context"><span class="ai-tag">[AI]</span> Research compiled</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- AI Insights -->
+          <div class="insights-section">
+            <div class="insights-header">
+              <div class="radar"></div>
+              <h3>AI Insights & Recommendations</h3>
+            </div>
+            <div class="insight-item">
+              <span class="insight-icon">💰</span>
+              <span class="insight-text">
+                <strong>Revenue opportunity:</strong> Marcus Rodriguez's company just raised $4M (found via LinkedIn). 
+                They're scaling sales team — <span class="green">high likelihood of expansion</span> beyond initial 50 seats.
+              </span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-icon">⚠️</span>
+              <span class="insight-text">
+                <strong>Churn alert:</strong> 2 accounts haven't logged in for 5+ days. 
+                Automated re-engagement sequence triggered. <span class="green">Monitor for response.</span>
+              </span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-icon">📈</span>
+              <span class="insight-text">
+                <strong>Trend spotted:</strong> Trial conversion rate up 12% since adding the ROI calculator page. 
+                Consider promoting it more in onboarding emails.
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- How it works -->
+      <section class="how-section">
+        <div class="section-header">
+          <div class="section-tag">How it works</div>
+          <h2 class="section-title">Get this running in 30 days</h2>
+        </div>
+        <div class="how-grid">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <h4>Learn the system</h4>
+            <p>Claude Code + OpenClaw. No coding needed. Follow the step-by-step tutorials in AI Operators.</p>
+          </div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <h4>Use our templates</h4>
+            <p>Copy Johann's exact agent configs. Morning briefing, outreach, CRM — all production-tested.</p>
+          </div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <h4>Ship your agent</h4>
+            <p>Connect your tools, customize for your business, and wake up to your first briefing.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="demo-cta">
+        <h2>Want this <span class="green">for your business?</span></h2>
+        <p class="sub">Join AI Operators and build your own morning briefing agent in 30 days.</p>
+        <div class="cta-buttons">
+          <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary">
+            Join AI Operators <span class="arrow">→</span>
+          </a>
+          <a href="/tools/roi-calculator" class="btn-secondary">
+            Calculate your ROI
+          </a>
+        </div>
+      </section>
+
+      <!-- Related -->
+      <div class="related-grid">
+        <a href="/tools/roi-calculator" class="related-card">
+          <div class="related-tag">Tool</div>
+          <h4>AI Agent ROI Calculator</h4>
+          <p>See exactly how much time and money an AI agent saves your business.</p>
+        </a>
+        <a href="/tools/ai-readiness-quiz" class="related-card">
+          <div class="related-tag">Quiz</div>
+          <h4>What Should Your AI Agent Do First?</h4>
+          <p>2-minute quiz to find the best starting point for your business.</p>
+        </a>
+        <a href="/learn/ai-agent-morning-routine" class="related-card">
+          <div class="related-tag">Learn</div>
+          <h4>The AI Agent Morning Routine</h4>
+          <p>How founders are using AI agents to start every day with clarity.</p>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <div class="dot"></div>
+            AI Operators
+          </a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi" target="_blank">Johann Sathianathen</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+        </div>
+        <div class="footer-col">
+          <h5>Tools</h5>
+          <a href="/tools/roi-calculator">ROI Calculator</a>
+          <a href="/tools/ai-readiness-quiz">AI Readiness Quiz</a>
+          <a href="/demo">Live Demo</a>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">Join Free</a>
+          <a href="/faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set current date
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options).toUpperCase();
+  </script>
+</body>
+</html>
