@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code Examples: 20+ Ready-to-Use Prompts & Projects</title>
+  <meta name="description" content="Copy-paste Claude Code examples for automation, web scraping, APIs, and more. Real prompts that work. Build projects in minutes.">
+  <link rel="canonical" href="https://aioperator.sh/learn/claude-code-examples">
+
+  <meta property="og:title" content="Claude Code Examples: 20+ Ready-to-Use Prompts">
+  <meta property="og:description" content="Real Claude Code prompts you can copy and use today. Build automations in minutes.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aioperator.sh/learn/claude-code-examples">
+  <meta property="og:site_name" content="AI Operators">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code Examples & Prompts">
+  <meta name="twitter:description" content="20+ prompts you can copy-paste into Claude Code.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Claude Code Examples: 20+ Ready-to-Use Prompts",
+    "description": "Collection of Claude Code prompts and examples for various automation tasks",
+    "author": {"@type": "Person", "name": "Johann Sathianathen"},
+    "datePublished": "2025-01-20",
+    "dateModified": "2025-02-01"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo"><div class="dot"></div>AI Operators</a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/compare/ai-agents-vs-chatgpt" class="nav-link">Compare</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/learn/build-ai-agents" itemprop="item"><span itemprop="name">Learn</span></a>
+          <meta itemprop="position" content="2">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span class="current" itemprop="name">Claude Code Examples</span>
+          <meta itemprop="position" content="3">
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="container-narrow">
+      <div class="page-tag">Examples</div>
+      <h1>Claude Code Examples:<br><span class="green">Ready-to-Use Prompts</span></h1>
+      <p class="page-subtitle">Copy these prompts directly into Claude Code. Each one produces working code. No modifications needed.</p>
+    </div>
+  </section>
+
+  <section class="article-body">
+    <div class="container-narrow">
+
+      <p>I've collected my most-used Claude Code prompts. These are real examples from real projects. Copy them. Modify them. Build on them.</p>
+
+      <p>Each example includes the prompt you'd type, what it builds, and ideas for customization.</p>
+
+      <h2>File & System Automation</h2>
+
+      <h3>1. File Organizer</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create a script that organizes files in a folder by type. Move images (jpg, png, gif, webp) to /images, documents (pdf, doc, docx, txt) to /docs, videos (mp4, mov, avi) to /videos. Skip hidden files. Show a summary of what was moved.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Python script that sorts your Downloads folder in seconds.</p>
+
+      <h3>2. Duplicate File Finder</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Build a tool that finds duplicate files by comparing file hashes. Take a folder path as input. Output a list of duplicates grouped together. Include file sizes and show how much space I could save by deleting duplicates.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Disk space cleanup tool that identifies identical files.</p>
+
+      <h3>3. Batch Renamer</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create a batch file renamer. Take a folder and a pattern. Support patterns like: add prefix, add suffix, replace text, add sequential numbers. Preview changes before applying. Support undo.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Flexible file renaming tool with safety features.</p>
+
+      <h2>Web Scraping & Data</h2>
+
+      <h3>4. News Aggregator</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Build a news scraper that extracts headlines from a list of news sites I specify in config.json. Get the headline, link, and publication time. Combine everything into a single RSS feed. Run daily at 6am.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Personal news feed from sources you choose.</p>
+
+      <h3>5. Price Tracker</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create a price tracking tool. I give it product URLs. It checks the price daily and logs it to a database. Alert me when price drops more than 10%. Show price history as a simple chart in terminal.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Amazon/store price tracker with alerts.</p>
+
+      <h3>6. LinkedIn Job Scraper</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Build a script that takes LinkedIn job search URLs, extracts job listings (title, company, location, salary if available), and saves to CSV. Handle pagination. Add delays to avoid rate limiting.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Job search data collector for market research.</p>
+
+      <h2>API Integrations</h2>
+
+      <h3>7. Weather Dashboard</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create a weather dashboard using wttr.in API. Show current conditions, 3-day forecast, and rain probability. Format nicely for terminal. Cache results for 30 minutes to avoid repeat API calls.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Beautiful terminal weather display. No API key needed.</p>
+
+      <h3>8. GitHub Release Monitor</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Build a tool that monitors GitHub repos for new releases. I give it a list of repos. It checks daily and notifies me of any new releases with the version number and release notes summary.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Stay updated on tools you use without checking manually.</p>
+
+      <h3>9. Slack Summary Bot</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create a Slack integration that summarizes channel activity. Connect to Slack API. Get messages from specified channels from the last 24 hours. Use Claude API to summarize key points. Post summary to a #daily-digest channel.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Never miss important Slack discussions again.</p>
+
+      <h2>Productivity Tools</h2>
+
+      <h3>10. Meeting Notes Processor</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Build a meeting notes processor. Take a raw transcript or notes file. Extract: key decisions, action items (with who's responsible), follow-up questions, and next meeting topics. Output as formatted markdown.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Turn messy meeting notes into structured action items.</p>
+
+      <h3>11. Time Tracker</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create a CLI time tracker. Commands: start [project], stop, status, report. Store data in SQLite. Report command shows hours by project for the week. Support multiple projects.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Simple freelancer time tracking without SaaS subscriptions.</p>
+
+      <h3>12. Daily Planner Generator</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Build a daily planner that reads my Google Calendar, checks my todo.json, and generates a time-blocked schedule for the day. Account for travel time between meetings. Leave buffer time. Output as markdown.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> AI-generated daily schedule based on your commitments.</p>
+
+      <h2>Email Automation</h2>
+
+      <h3>13. Email Sorter</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create an email automation that connects to Gmail. Categorize unread emails as: urgent (client names from config), newsletters, receipts, social notifications, other. Apply labels automatically. Generate a summary of what's in each category.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Inbox zero helper that sorts email automatically.</p>
+
+      <h3>14. Follow-up Reminder</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Build a follow-up tracker. When I send an email, it logs the recipient and date. If no reply within 3 days, remind me. Track in SQLite. Show pending follow-ups command. Let me mark as resolved.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Never forget to follow up on important emails.</p>
+
+      <h2>Content & Social</h2>
+
+      <h3>15. Social Media Scheduler</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create a content scheduler. I write posts in a markdown file with target date/time and platform tags. The script reads this file and posts to Twitter/X using their API at the scheduled times. Log successes and failures.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Buffer/Hootsuite alternative you control.</p>
+
+      <h3>16. Blog Post Formatter</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Build a blog post processor. Take a markdown draft. Add SEO metadata suggestions. Generate a meta description. Suggest internal links from a list of my existing posts. Create social media preview text. Output everything in a structured format.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> SEO optimization helper for content creators.</p>
+
+      <h2>Development Tools</h2>
+
+      <h3>17. Git Commit Summarizer</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create a tool that generates weekly git activity summaries. Analyze commits from the past week. Group by project/branch. Summarize what changed in plain English. Format as a report suitable for standups or client updates.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Automatic weekly progress reports from git history.</p>
+
+      <h3>18. Dependency Updater</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Build a tool that checks all my projects for outdated npm/pip dependencies. Scan a folder containing multiple projects. Report outdated packages with current vs latest version. Flag security vulnerabilities. Output as markdown report.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Keep all your projects up to date with one command.</p>
+
+      <h3>19. Environment Manager</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create a development environment manager. Store different .env configurations for dev/staging/prod. Switch between them with a command. Back up current env before switching. Support encrypted storage for sensitive values.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Safe environment variable management across projects.</p>
+
+      <h2>Advanced: AI Agent Examples</h2>
+
+      <h3>20. Research Assistant</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Build a research assistant. I give it a topic. It searches the web using a search API, reads the top 10 results, extracts key information, and compiles a research summary with sources cited. Save to markdown with proper citations.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> AI researcher that does the reading for you.</p>
+
+      <h3>21. Inbox Summarizer</h3>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">prompt</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="cmd">Create a morning briefing generator. Check Gmail for unread emails, check Google Calendar for today's events, check a news API for relevant industry news. Combine into a morning briefing. Send to my phone as a notification at 7am.</span></div>
+        </div>
+      </div>
+      <p><strong>Builds:</strong> Personal AI assistant morning routine.</p>
+
+      <h2>Making These Your Own</h2>
+
+      <p>Every example here is a starting point. The power of Claude Code is iteration. Build the basic version, then add:</p>
+
+      <ul>
+        <li><strong>Error handling:</strong> "Add robust error handling and retry logic"</li>
+        <li><strong>Logging:</strong> "Log all actions to a file with timestamps"</li>
+        <li><strong>Configuration:</strong> "Move all hardcoded values to a config file"</li>
+        <li><strong>Scheduling:</strong> "Make this run automatically every hour"</li>
+        <li><strong>Notifications:</strong> "Send me a Slack/Discord message when X happens"</li>
+      </ul>
+
+      <div class="related-grid">
+        <a href="/learn/claude-code-tutorial" class="related-card">
+          <div class="related-tag">Tutorial</div>
+          <h4>Claude Code Tutorial</h4>
+          <p>Step-by-step guide for beginners.</p>
+        </a>
+        <a href="/learn/autonomous-ai-agent-setup" class="related-card">
+          <div class="related-tag">Advanced</div>
+          <h4>Autonomous AI Agent Setup</h4>
+          <p>Build agents that run 24/7.</p>
+        </a>
+        <a href="/learn/build-ai-agents" class="related-card">
+          <div class="related-tag">Guide</div>
+          <h4>Build AI Agents</h4>
+          <p>The complete guide to AI agents.</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Want more<br><span class="green">examples & templates?</span></h2>
+      <p class="cta-sub">AI Operators members get access to 50+ advanced templates plus custom configs.</p>
+      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary">
+        Join AI Operators Free <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><div class="dot"></div>AI Operators</a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi" target="_blank">Johann Sathianathen</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/claude-code-tutorial">Claude Code Tutorial</a>
+          <a href="/learn/claude-code-examples">Claude Code Examples</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+        </div>
+        <div class="footer-col">
+          <h5>Compare</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/compare/ai-agents-vs-hiring-va">AI Agents vs Hiring a VA</a>
+          <a href="/compare/claude-code-vs-cursor">Claude Code vs Cursor</a>
+        </div>
+        <div class="footer-col">
+          <h5>For You</h5>
+          <a href="/for/saas-founders">SaaS Founders</a>
+          <a href="/for/agency-owners">Agency Owners</a>
+          <a href="/for/freelancers">Freelancers</a>
+          <a href="/for/creators">Content Creators</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
