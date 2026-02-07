@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automation Audit Checklist — Find Your Hidden Time Leaks | AI Operators</title>
+  <meta name="description" content="Free automation audit tool. Check off the manual tasks draining your week. See exactly how many hours AI can reclaim. Takes 2 minutes.">
+  <meta name="keywords" content="automation audit, business automation checklist, AI automation opportunities, time savings calculator, manual task audit, workflow automation">
+  <link rel="canonical" href="https://aioperator.sh/tools/automation-audit">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Automation Audit Checklist — Find Your Hidden Time Leaks">
+  <meta property="og:description" content="Check off the tasks draining your week. See exactly how many hours AI can reclaim. Free audit tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aioperator.sh/tools/automation-audit">
+  <meta property="og:site_name" content="AI Operators">
+  <meta property="og:image" content="https://aioperator.sh/og-automation-audit.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automation Audit Checklist — Find Hidden Time Leaks">
+  <meta name="twitter:description" content="2-minute audit reveals how many hours AI can save you each week. Free tool.">
+  <meta name="twitter:image" content="https://aioperator.sh/og-automation-audit.png">
+
+  <!-- JSON-LD: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Automation Audit Checklist",
+    "url": "https://aioperator.sh/tools/automation-audit",
+    "description": "Interactive tool to identify manual tasks in your business and calculate potential time savings with AI automation.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Johann Sathianathen"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Operators",
+      "url": "https://aioperator.sh"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioperator.sh/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://aioperator.sh/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Automation Audit", "item": "https://aioperator.sh/tools/automation-audit" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an automation audit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An automation audit identifies manual, repetitive tasks in your business that can be handled by AI or automation tools, revealing how much time and money you can save."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is the time savings estimate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our estimates are based on real data from businesses we've helped automate. Individual results vary based on your specific processes and implementation, but most clients see 70-90% of the estimated savings."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What tasks can AI agents automate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI agents can handle email management, calendar scheduling, data entry, report generation, lead research, customer support responses, social media posting, invoice processing, and much more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to implement AI automation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most AI agent implementations take 1-4 weeks depending on complexity. Simple automations like email sorting can be live in days, while comprehensive systems with multiple integrations take longer."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Audit Your Business for Automation Opportunities",
+    "description": "Use this checklist to identify manual tasks and calculate potential time savings with AI automation.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Review Each Category",
+        "text": "Go through each category: Admin, Sales, Marketing, Support, and Operations."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Check Manual Tasks",
+        "text": "Check the box for every task you or your team currently does manually."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Review Your Results",
+        "text": "See your total weekly hours spent on automatable tasks and the potential dollar value of that time."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Book a Strategy Call",
+        "text": "Get a personalized automation roadmap from an AI Operator expert."
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* ══════════════════════════════════════════
+       Automation Audit — Page Styles
+       ══════════════════════════════════════════ */
+
+    .audit-hero {
+      padding: 140px 0 50px;
+      text-align: center;
+    }
+
+    .audit-hero .page-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .audit-hero .page-tag::before {
+      content: '>';
+      opacity: 0.5;
+    }
+
+    .audit-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .audit-hero h1 .green {
+      color: var(--green);
+      text-shadow: 0 0 40px rgba(0,255,136,0.3);
+    }
+
+    .audit-hero .page-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ── Sticky Results Bar ── */
+    .results-bar {
+      position: sticky;
+      top: 72px;
+      z-index: 50;
+      background: rgba(12, 12, 12, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      padding: 16px 24px;
+      margin: 0 auto 40px;
+      max-width: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .results-bar.has-items {
+      border-color: rgba(0, 255, 136, 0.2);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.08);
+    }
+
+    .results-summary {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .result-item {
+      text-align: center;
+    }
+
+    .result-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+      transition: all 0.3s ease;
+    }
+
+    .result-value.zero {
+      color: var(--text-dimmer);
+    }
+
+    .result-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-dimmer);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    .result-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--bg-card-border);
+    }
+
+    .results-bar .btn-primary {
+      padding: 12px 24px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    /* ── Audit Container ── */
+    .audit-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Category Section ── */
+    .audit-category {
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .audit-category:nth-child(1) { animation-delay: 0.1s; }
+    .audit-category:nth-child(2) { animation-delay: 0.2s; }
+    .audit-category:nth-child(3) { animation-delay: 0.3s; }
+    .audit-category:nth-child(4) { animation-delay: 0.4s; }
+    .audit-category:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .category-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .category-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .category-count {
+      margin-left: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dimmer);
+      padding: 4px 10px;
+      background: var(--bg-card);
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    .category-count.active {
+      color: var(--green);
+      background: rgba(0, 255, 136, 0.1);
+    }
+
+    /* ── Task Items ── */
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .task-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: transparent;
+      transition: background 0.25s ease;
+    }
+
+    .task-item:hover {
+      border-color: rgba(255, 255, 255, 0.1);
+      transform: translateX(4px);
+    }
+
+    .task-item.checked {
+      border-color: rgba(0, 255, 136, 0.2);
+      background: rgba(0, 255, 136, 0.03);
+    }
+
+    .task-item.checked::before {
+      background: var(--green);
+    }
+
+    /* Custom Checkbox */
+    .task-checkbox {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--text-dimmer);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+
+    .task-item.checked .task-checkbox {
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .task-checkbox svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--bg);
+      stroke-width: 3;
+      fill: none;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.2s ease;
+    }
+
+    .task-item.checked .task-checkbox svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .task-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .task-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+      transition: color 0.2s;
+    }
+
+    .task-item.checked .task-name {
+      color: var(--green);
+    }
+
+    .task-desc {
+      font-size: 0.8rem;
+      color: var(--text-dimmer);
+      font-weight: 300;
+    }
+
+    .task-hours {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+    }
+
+    .task-item.checked .task-hours {
+      color: var(--green);
+      background: rgba(0, 255, 136, 0.1);
+    }
+
+    /* ── Progress Ring (optional visual) ── */
+    .progress-section {
+      margin: 60px 0;
+      text-align: center;
+    }
+
+    .progress-ring-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .progress-ring {
+      transform: rotate(-90deg);
+    }
+
+    .progress-ring-bg {
+      fill: none;
+      stroke: var(--bg-card-border);
+      stroke-width: 8;
+    }
+
+    .progress-ring-fill {
+      fill: none;
+      stroke: var(--green);
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 440;
+      stroke-dashoffset: 440;
+      transition: stroke-dashoffset 0.8s ease;
+      filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.4));
+    }
+
+    .progress-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .progress-percent {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .progress-label {
+      font-size: 0.75rem;
+      color: var(--text-dimmer);
+      margin-top: 4px;
+    }
+
+    /* ── Results Breakdown ── */
+    .breakdown-section {
+      margin: 60px 0;
+      padding: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 16px;
+      display: none;
+    }
+
+    .breakdown-section.visible {
+      display: block;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .breakdown-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .breakdown-header h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .breakdown-header p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+    }
+
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .breakdown-stat {
+      text-align: center;
+      padding: 24px 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .breakdown-stat .stat-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .breakdown-stat .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-dimmer);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .breakdown-stat.highlight {
+      background: rgba(0, 255, 136, 0.05);
+      border-color: rgba(0, 255, 136, 0.15);
+    }
+
+    .breakdown-stat.highlight .stat-value {
+      text-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+    }
+
+    /* ── Impact Visualization ── */
+    .impact-visual {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      margin-top: 24px;
+    }
+
+    .impact-bar-container {
+      flex: 1;
+    }
+
+    .impact-label {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .impact-bar {
+      height: 12px;
+      background: var(--bg-card-border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .impact-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--green) 0%, rgba(0, 255, 136, 0.6) 100%);
+      border-radius: 6px;
+      width: 0%;
+      transition: width 1s ease;
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+    }
+
+    /* ── CTA Section ── */
+    .audit-cta {
+      text-align: center;
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .audit-cta h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .audit-cta .cta-sub {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-dimmer);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* ── Related Tools ── */
+    .related-section {
+      padding: 60px 0 80px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .related-section h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    /* ── FAQ Section ── */
+    .faq-section {
+      padding: 60px 0;
+    }
+
+    .faq-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .results-bar {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .results-summary {
+        justify-content: center;
+      }
+
+      .result-divider {
+        display: none;
+      }
+
+      .breakdown-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .impact-visual {
+        flex-direction: column;
+      }
+
+      .task-item {
+        flex-wrap: wrap;
+      }
+
+      .task-hours {
+        margin-left: auto;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .category-header {
+        flex-wrap: wrap;
+      }
+
+      .category-count {
+        margin-left: 54px;
+        margin-top: -8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background effects -->
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <span class="dot"></span>
+        AI Operators
+      </a>
+      <div class="nav-links">
+        <a href="/demo/" class="nav-link">Demo</a>
+        <a href="/tools/roi-calculator" class="nav-link">ROI Calculator</a>
+        <a href="/tools/ai-readiness-quiz" class="nav-link">AI Quiz</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Community</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <section class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li><span class="sep">/</span></li>
+        <li><a href="/tools/">Tools</a></li>
+        <li><span class="sep">/</span></li>
+        <li><span class="current">Automation Audit</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Hero -->
+  <section class="audit-hero">
+    <div class="container">
+      <div class="page-tag">Free Tool</div>
+      <h1>Find Your <span class="green">Hidden Time Leaks</span></h1>
+      <p class="page-subtitle">
+        Check the tasks you do manually. See exactly how many hours AI can give back to you each week.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sticky Results Bar -->
+  <div class="results-bar" id="resultsBar">
+    <div class="results-summary">
+      <div class="result-item">
+        <div class="result-value zero" id="totalTasks">0</div>
+        <div class="result-label">Tasks Selected</div>
+      </div>
+      <div class="result-divider"></div>
+      <div class="result-item">
+        <div class="result-value zero" id="totalHours">0</div>
+        <div class="result-label">Hours / Week</div>
+      </div>
+      <div class="result-divider"></div>
+      <div class="result-item">
+        <div class="result-value zero" id="totalValue">$0</div>
+        <div class="result-label">Value / Month</div>
+      </div>
+    </div>
+    <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary" id="ctaButton" style="display: none;">
+      Get Your AI Agent <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <!-- Audit Checklist -->
+  <div class="audit-container">
+    
+    <!-- Admin & Operations -->
+    <div class="audit-category" data-category="admin">
+      <div class="category-header">
+        <div class="category-icon">📋</div>
+        <div class="category-title">Admin & Operations</div>
+        <div class="category-count">0 selected</div>
+      </div>
+      <div class="task-list">
+        <div class="task-item" data-hours="3">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Sorting and prioritizing emails</div>
+            <div class="task-desc">Triaging inbox, flagging important messages, moving to folders</div>
+          </div>
+          <div class="task-hours">~3 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="2">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Calendar scheduling & rescheduling</div>
+            <div class="task-desc">Finding times, sending invites, handling conflicts</div>
+          </div>
+          <div class="task-hours">~2 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="2">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Data entry & spreadsheet updates</div>
+            <div class="task-desc">Copying data between systems, updating records manually</div>
+          </div>
+          <div class="task-hours">~2 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="1.5">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Generating recurring reports</div>
+            <div class="task-desc">Weekly summaries, dashboards, performance updates</div>
+          </div>
+          <div class="task-hours">~1.5 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="1">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Document formatting & organization</div>
+            <div class="task-desc">Filing docs, renaming files, maintaining folder structures</div>
+          </div>
+          <div class="task-hours">~1 hr/wk</div>
+        </div>
+        <div class="task-item" data-hours="1.5">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Invoice processing & expense tracking</div>
+            <div class="task-desc">Logging receipts, matching invoices, categorizing expenses</div>
+          </div>
+          <div class="task-hours">~1.5 hrs/wk</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sales & CRM -->
+    <div class="audit-category" data-category="sales">
+      <div class="category-header">
+        <div class="category-icon">💼</div>
+        <div class="category-title">Sales & CRM</div>
+        <div class="category-count">0 selected</div>
+      </div>
+      <div class="task-list">
+        <div class="task-item" data-hours="4">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Lead research & qualification</div>
+            <div class="task-desc">Looking up prospects, checking LinkedIn, finding contact info</div>
+          </div>
+          <div class="task-hours">~4 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="2">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">CRM data entry & updates</div>
+            <div class="task-desc">Logging calls, updating deal stages, adding notes</div>
+          </div>
+          <div class="task-hours">~2 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="3">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Follow-up email sequences</div>
+            <div class="task-desc">Writing follow-ups, tracking replies, timing sends</div>
+          </div>
+          <div class="task-hours">~3 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="1.5">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Proposal & quote generation</div>
+            <div class="task-desc">Customizing templates, calculating pricing, formatting docs</div>
+          </div>
+          <div class="task-hours">~1.5 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="1">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Meeting prep & recap notes</div>
+            <div class="task-desc">Researching attendees, summarizing calls, sharing action items</div>
+          </div>
+          <div class="task-hours">~1 hr/wk</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marketing & Content -->
+    <div class="audit-category" data-category="marketing">
+      <div class="category-header">
+        <div class="category-icon">📣</div>
+        <div class="category-title">Marketing & Content</div>
+        <div class="category-count">0 selected</div>
+      </div>
+      <div class="task-list">
+        <div class="task-item" data-hours="3">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Social media scheduling & posting</div>
+            <div class="task-desc">Preparing posts, scheduling across platforms, managing content calendar</div>
+          </div>
+          <div class="task-hours">~3 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="2">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Repurposing content across channels</div>
+            <div class="task-desc">Turning blogs into threads, videos into clips, podcasts into posts</div>
+          </div>
+          <div class="task-hours">~2 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="2">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Monitoring brand mentions & competitors</div>
+            <div class="task-desc">Tracking what people say, watching competitor moves</div>
+          </div>
+          <div class="task-hours">~2 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="1.5">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Newsletter compilation & sending</div>
+            <div class="task-desc">Curating content, writing intros, managing subscriber lists</div>
+          </div>
+          <div class="task-hours">~1.5 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="1">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">SEO research & keyword tracking</div>
+            <div class="task-desc">Finding keywords, monitoring rankings, updating content</div>
+          </div>
+          <div class="task-hours">~1 hr/wk</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer Support -->
+    <div class="audit-category" data-category="support">
+      <div class="category-header">
+        <div class="category-icon">💬</div>
+        <div class="category-title">Customer Support</div>
+        <div class="category-count">0 selected</div>
+      </div>
+      <div class="task-list">
+        <div class="task-item" data-hours="4">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Answering repetitive support questions</div>
+            <div class="task-desc">Same FAQ questions, basic troubleshooting, how-to explanations</div>
+          </div>
+          <div class="task-hours">~4 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="2">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Ticket routing & prioritization</div>
+            <div class="task-desc">Sorting incoming requests, assigning to right person</div>
+          </div>
+          <div class="task-hours">~2 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="1.5">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Customer feedback collection & tagging</div>
+            <div class="task-desc">Gathering feedback, categorizing issues, tracking trends</div>
+          </div>
+          <div class="task-hours">~1.5 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="1">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Onboarding email sequences</div>
+            <div class="task-desc">Welcome emails, setup guides, check-in messages</div>
+          </div>
+          <div class="task-hours">~1 hr/wk</div>
+        </div>
+        <div class="task-item" data-hours="1">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Help doc & FAQ updates</div>
+            <div class="task-desc">Keeping documentation current, adding new answers</div>
+          </div>
+          <div class="task-hours">~1 hr/wk</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research & Analysis -->
+    <div class="audit-category" data-category="research">
+      <div class="category-header">
+        <div class="category-icon">🔍</div>
+        <div class="category-title">Research & Analysis</div>
+        <div class="category-count">0 selected</div>
+      </div>
+      <div class="task-list">
+        <div class="task-item" data-hours="3">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Market & competitor research</div>
+            <div class="task-desc">Tracking competitors, reading industry news, identifying trends</div>
+          </div>
+          <div class="task-hours">~3 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="2">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Summarizing articles, reports, or calls</div>
+            <div class="task-desc">Distilling long content into actionable insights</div>
+          </div>
+          <div class="task-hours">~2 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="1.5">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Data cleanup & normalization</div>
+            <div class="task-desc">Fixing messy data, standardizing formats, deduping records</div>
+          </div>
+          <div class="task-hours">~1.5 hrs/wk</div>
+        </div>
+        <div class="task-item" data-hours="1">
+          <div class="task-checkbox">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="task-info">
+            <div class="task-name">Monitoring news & alerts</div>
+            <div class="task-desc">Tracking relevant topics, filtering noise, surfacing what matters</div>
+          </div>
+          <div class="task-hours">~1 hr/wk</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Breakdown (hidden until selections made) -->
+    <div class="breakdown-section" id="breakdownSection">
+      <div class="breakdown-header">
+        <h2>Your Automation Potential</h2>
+        <p>Here's what AI could reclaim for you</p>
+      </div>
+      <div class="breakdown-grid">
+        <div class="breakdown-stat">
+          <div class="stat-value" id="breakdownHours">0</div>
+          <div class="stat-label">Hours / Week</div>
+        </div>
+        <div class="breakdown-stat">
+          <div class="stat-value" id="breakdownMonthly">0</div>
+          <div class="stat-label">Hours / Month</div>
+        </div>
+        <div class="breakdown-stat">
+          <div class="stat-value" id="breakdownYearly">0</div>
+          <div class="stat-label">Hours / Year</div>
+        </div>
+        <div class="breakdown-stat highlight">
+          <div class="stat-value" id="breakdownValue">$0</div>
+          <div class="stat-label">Value / Year</div>
+        </div>
+      </div>
+      <div class="impact-visual">
+        <div class="impact-bar-container">
+          <div class="impact-label">
+            <span>Automation coverage</span>
+            <span id="impactPercent">0%</span>
+          </div>
+          <div class="impact-bar">
+            <div class="impact-bar-fill" id="impactBarFill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA Section -->
+  <section class="audit-cta">
+    <div class="container">
+      <h2>Ready to <span class="green">Reclaim Your Time?</span></h2>
+      <p class="cta-sub">Join AI Operators and get a personalized automation roadmap for your business.</p>
+      <div class="cta-buttons">
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary">
+          Join AI Operators <span class="arrow">→</span>
+        </a>
+        <a href="/tools/roi-calculator" class="btn-secondary">
+          Calculate Full ROI
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="related-section">
+    <div class="container-narrow">
+      <h3>More Tools</h3>
+      <div class="related-grid">
+        <a href="/tools/roi-calculator" class="related-card">
+          <div class="related-tag">Calculator</div>
+          <h4>AI Agent ROI Calculator</h4>
+          <p>See exactly how much time & money an AI agent saves your business.</p>
+        </a>
+        <a href="/tools/ai-readiness-quiz" class="related-card">
+          <div class="related-tag">Quiz</div>
+          <h4>AI Readiness Assessment</h4>
+          <p>Find out if your business is ready for AI automation.</p>
+        </a>
+        <a href="/demo/" class="related-card">
+          <div class="related-tag">Demo</div>
+          <h4>AI Agent Demo</h4>
+          <p>See what a morning briefing from your AI agent looks like.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container-narrow">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            What is an automation audit?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              An automation audit identifies manual, repetitive tasks in your business that can be handled by AI or automation tools. It reveals how much time and money you're spending on work that could run on autopilot.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            How accurate is the time savings estimate?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Our estimates are based on real data from businesses we've helped automate. Individual results vary based on your specific processes and implementation, but most clients see 70-90% of the estimated savings within 30 days of deployment.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What tasks can AI agents automate?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AI agents can handle email management, calendar scheduling, data entry, report generation, lead research, customer support responses, social media posting, invoice processing, content repurposing, and much more. If it's repetitive and rule-based, it's probably automatable.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            How long does it take to implement AI automation?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Most AI agent implementations take 1-4 weeks depending on complexity. Simple automations like email sorting can be live in days, while comprehensive systems with multiple integrations take longer. You'll see incremental value from day one.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <span class="dot"></span>
+            AI Operators
+          </a>
+          <p>Deploy AI agents that work while you sleep. Built by operators, for operators.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Tools</h5>
+          <a href="/tools/roi-calculator">ROI Calculator</a>
+          <a href="/tools/ai-readiness-quiz">Readiness Quiz</a>
+          <a href="/tools/automation-audit">Automation Audit</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="/demo/">Live Demo</a>
+          <a href="/learn/">Learn</a>
+          <a href="/faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">Join Skool</a>
+          <a href="https://twitter.com/johann_sath" target="_blank">Twitter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 AI Operators. Built by <a href="https://johann.fyi" target="_blank" style="color: var(--green);">Johann Sathianathen</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ══════════════════════════════════════════
+    // Automation Audit — Interactive Logic
+    // ══════════════════════════════════════════
+
+    const HOURLY_RATE = 75; // Default hourly value for calculations
+    const TOTAL_POSSIBLE_HOURS = 51; // Sum of all task hours
+
+    // State
+    let selectedTasks = new Set();
+    let totalHours = 0;
+
+    // Elements
+    const resultsBar = document.getElementById('resultsBar');
+    const totalTasksEl = document.getElementById('totalTasks');
+    const totalHoursEl = document.getElementById('totalHours');
+    const totalValueEl = document.getElementById('totalValue');
+    const ctaButton = document.getElementById('ctaButton');
+    const breakdownSection = document.getElementById('breakdownSection');
+
+    // Initialize
+    document.querySelectorAll('.task-item').forEach(item => {
+      item.addEventListener('click', () => toggleTask(item));
+    });
+
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+
+    function toggleTask(item) {
+      const hours = parseFloat(item.dataset.hours);
+      const category = item.closest('.audit-category');
+      
+      if (item.classList.contains('checked')) {
+        item.classList.remove('checked');
+        selectedTasks.delete(item);
+        totalHours -= hours;
+      } else {
+        item.classList.add('checked');
+        selectedTasks.add(item);
+        totalHours += hours;
+      }
+
+      updateCategoryCount(category);
+      updateResults();
+    }
+
+    function updateCategoryCount(category) {
+      const checked = category.querySelectorAll('.task-item.checked').length;
+      const countEl = category.querySelector('.category-count');
+      countEl.textContent = checked + ' selected';
+      countEl.classList.toggle('active', checked > 0);
+    }
+
+    function updateResults() {
+      const taskCount = selectedTasks.size;
+      const monthlyValue = Math.round(totalHours * 4 * HOURLY_RATE);
+      const yearlyValue = monthlyValue * 12;
+      const monthlyHours = Math.round(totalHours * 4);
+      const yearlyHours = monthlyHours * 12;
+      const percent = Math.round((totalHours / TOTAL_POSSIBLE_HOURS) * 100);
+
+      // Animate numbers
+      animateValue(totalTasksEl, taskCount);
+      animateValue(totalHoursEl, totalHours.toFixed(1));
+      animateValue(totalValueEl, '$' + monthlyValue.toLocaleString());
+
+      // Toggle classes
+      totalTasksEl.classList.toggle('zero', taskCount === 0);
+      totalHoursEl.classList.toggle('zero', totalHours === 0);
+      totalValueEl.classList.toggle('zero', monthlyValue === 0);
+      resultsBar.classList.toggle('has-items', taskCount > 0);
+
+      // Show/hide CTA
+      ctaButton.style.display = taskCount > 0 ? 'inline-flex' : 'none';
+
+      // Show breakdown if items selected
+      if (taskCount >= 3) {
+        breakdownSection.classList.add('visible');
+        document.getElementById('breakdownHours').textContent = totalHours.toFixed(1);
+        document.getElementById('breakdownMonthly').textContent = monthlyHours;
+        document.getElementById('breakdownYearly').textContent = yearlyHours.toLocaleString();
+        document.getElementById('breakdownValue').textContent = '$' + yearlyValue.toLocaleString();
+        document.getElementById('impactPercent').textContent = percent + '%';
+        
+        // Animate progress bar
+        const barFill = document.getElementById('impactBarFill');
+        setTimeout(() => {
+          barFill.style.width = percent + '%';
+        }, 100);
+      } else {
+        breakdownSection.classList.remove('visible');
+      }
+    }
+
+    function animateValue(el, newValue) {
+      el.textContent = newValue;
+    }
+
+    // Intersection Observer for reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
