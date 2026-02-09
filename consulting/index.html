@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw Consulting — Get Your AI Agent Running in Days, Not Months</title>
+  <meta name="description" content="Skip the trial and error. Get Johann to set up your personal AI agent with OpenClaw. DIY kit, done-with-you, or done-for-you options. Book a call.">
+  <meta name="keywords" content="OpenClaw setup, AI agent consulting, personal AI assistant, AI automation setup, Claude Code setup, AI employee">
+  <link rel="canonical" href="https://aioperator.sh/consulting/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="OpenClaw Consulting — Get Your AI Agent Running in Days">
+  <meta property="og:description" content="Skip the trial and error. Get Johann to set up your personal AI agent. DIY, guided, or done-for-you.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aioperator.sh/consulting/">
+  <meta property="og:site_name" content="AI Operators">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OpenClaw Consulting — AI Agent Setup">
+  <meta name="twitter:description" content="Get your personal AI agent running. DIY kit, done-with-you, or done-for-you.">
+
+  <!-- JSON-LD: Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "OpenClaw Consulting",
+    "provider": {
+      "@type": "Person",
+      "name": "Johann Sathianathen",
+      "url": "https://johann.fyi"
+    },
+    "description": "AI agent setup and consulting services. Get your personal AI assistant running with OpenClaw.",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "DIY Kit",
+        "price": "497",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Done-With-You",
+        "price": "1500",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Done-For-You",
+        "price": "5000",
+        "priceCurrency": "USD"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* ── Hero ── */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      padding-bottom: 80px;
+    }
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-tag::before {
+      content: '>';
+      opacity: 0.5;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .hero h1 .green {
+      color: var(--green);
+      text-shadow: 0 0 40px rgba(0,255,136,0.3);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+    }
+    .hero-sub strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── Problem Section ── */
+    .problem {
+      padding: 80px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .problem-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .problem-icon {
+      color: #ff5f57;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .problem-item p {
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    .problem-item strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── Pricing Section ── */
+    .pricing {
+      padding: 100px 0;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 16px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .pricing-card:hover {
+      border-color: rgba(0,255,136,0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.4);
+    }
+    .pricing-card.popular {
+      border-color: rgba(0,255,136,0.3);
+      background: linear-gradient(180deg, rgba(0,255,136,0.05) 0%, var(--bg-card) 100%);
+    }
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green);
+      color: #000;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .pricing-tier {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .pricing-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .pricing-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .pricing-for {
+      font-size: 0.88rem;
+      color: var(--text-dimmer);
+      font-style: italic;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+      flex-grow: 1;
+    }
+    .pricing-features li {
+      font-size: 0.92rem;
+      color: var(--text-dim);
+      padding: 10px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      font-weight: 300;
+    }
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+    .pricing-features .check {
+      color: var(--green);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .pricing-cta {
+      margin-top: auto;
+    }
+    .pricing-cta .btn-primary {
+      width: 100%;
+      justify-content: center;
+    }
+    .pricing-card:not(.popular) .btn-primary {
+      background: transparent;
+      border: 1px solid var(--green);
+      color: var(--green);
+    }
+    .pricing-card:not(.popular) .btn-primary:hover {
+      background: var(--green);
+      color: #000;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials {
+      padding: 100px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .testimonial-text {
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-weight: 300;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dim) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #000;
+    }
+    .testimonial-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .testimonial-role {
+      font-size: 0.82rem;
+      color: var(--text-dimmer);
+    }
+
+    /* ── About Section ── */
+    .about {
+      padding: 100px 0;
+    }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0,255,136,0.2) 0%, rgba(0,255,136,0.05) 100%);
+      border: 2px solid rgba(0,255,136,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      margin: 0 auto;
+    }
+    .about-content h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .about-content p {
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    .about-content strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    .about-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 28px;
+    }
+    .about-stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .about-stat-label {
+      font-size: 0.82rem;
+      color: var(--text-dimmer);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      padding: 120px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .final-cta h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .final-cta .sub {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+    .final-cta .btn-primary {
+      font-size: 1.1rem;
+      padding: 18px 48px;
+    }
+
+    /* ── Section headers ── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .pricing-card.popular {
+        order: -1;
+      }
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .about-stats {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero { padding-top: 120px; min-height: auto; }
+      .hero h1 { font-size: 1.9rem; }
+      .about-stats { flex-direction: column; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <div class="dot"></div>
+        AI Operators
+      </a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/consulting/" class="nav-link" style="color: var(--green);">Consulting</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://app.lemcal.com/@johann" target="_blank" class="nav-cta">Book a Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">OpenClaw Consulting</div>
+        <h1>
+          Get Your AI Agent<br>
+          <span class="green">Running in Days</span><br>
+          Not Months
+        </h1>
+        <p class="hero-sub">
+          Stop watching tutorials. Stop guessing at configs. <strong>Let someone who runs 50% of their business on AI</strong> set up your personal agent — or show you exactly how.
+        </p>
+        <a href="#pricing" class="btn-primary">
+          See Pricing <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="problem">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">The reality</div>
+        <h2 class="section-title">DIY AI setup is harder than<br>YouTube makes it look</h2>
+      </div>
+      <div class="problem-list">
+        <div class="problem-item reveal">
+          <span class="problem-icon">✗</span>
+          <p><strong>Security nightmares.</strong> One wrong config and your API keys, emails, or customer data could leak. Most tutorials skip this entirely.</p>
+        </div>
+        <div class="problem-item reveal">
+          <span class="problem-icon">✗</span>
+          <p><strong>Weeks of trial and error.</strong> Prompt engineering, tool configs, memory systems — you'll spend 40+ hours just to get something mediocre.</p>
+        </div>
+        <div class="problem-item reveal">
+          <span class="problem-icon">✗</span>
+          <p><strong>It breaks. Then what?</strong> No support. No one to ask. You're back to Googling error messages at 2am.</p>
+        </div>
+        <div class="problem-item reveal">
+          <span class="problem-icon">✗</span>
+          <p><strong>Generic templates don't fit your business.</strong> You need custom skills, integrations, and workflows — not copy-paste prompts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Choose your path</div>
+        <h2 class="section-title">Three ways to get your<br>AI agent running</h2>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Tier 1: DIY -->
+        <div class="pricing-card reveal">
+          <div class="pricing-tier">Tier 1</div>
+          <h3>DIY Kit</h3>
+          <div class="pricing-price">$497</div>
+          <div class="pricing-for">"For technical founders who want to do it themselves"</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Full setup guide + video walkthroughs</li>
+            <li><span class="check">✓</span> Exact configs, prompts, templates</li>
+            <li><span class="check">✓</span> Security checklist (don't leak your keys)</li>
+            <li><span class="check">✓</span> Community Discord access</li>
+            <li><span class="check">✓</span> No calls, no support — just the materials</li>
+          </ul>
+          <div class="pricing-cta">
+            <a href="https://app.lemcal.com/@johann" target="_blank" class="btn-primary">
+              Get the Kit <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2: Done-With-You (Popular) -->
+        <div class="pricing-card popular reveal">
+          <div class="popular-badge">Most Popular</div>
+          <div class="pricing-tier">Tier 2</div>
+          <h3>Done-With-You</h3>
+          <div class="pricing-price">$1,500</div>
+          <div class="pricing-for">"For founders who want guidance but can execute"</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> 90-minute strategy call with Johann</li>
+            <li><span class="check">✓</span> Custom setup plan for your business</li>
+            <li><span class="check">✓</span> Johann guides, you implement</li>
+            <li><span class="check">✓</span> 30 days async support (Slack/email)</li>
+            <li><span class="check">✓</span> All DIY Kit materials included</li>
+          </ul>
+          <div class="pricing-cta">
+            <a href="https://app.lemcal.com/@johann" target="_blank" class="btn-primary">
+              Book Strategy Call <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 3: Done-For-You -->
+        <div class="pricing-card reveal">
+          <div class="pricing-tier">Tier 3</div>
+          <h3>Done-For-You</h3>
+          <div class="pricing-price">$5,000</div>
+          <div class="pricing-for">"For busy execs who want it handled"</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Full white-glove implementation</li>
+            <li><span class="check">✓</span> Johann builds everything for you</li>
+            <li><span class="check">✓</span> Custom skills & integrations</li>
+            <li><span class="check">✓</span> Team training session</li>
+            <li><span class="check">✓</span> 60 days priority support</li>
+          </ul>
+          <div class="pricing-cta">
+            <a href="https://app.lemcal.com/@johann" target="_blank" class="btn-primary">
+              Book Discovery Call <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">What people say</div>
+        <h2 class="section-title">Real results from<br>real operators</h2>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <p class="testimonial-text">"Went from spending 3 hours daily on busywork to having my AI handle 80% of it. Johann's setup saved me months of figuring it out myself."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-name">Marcus T.</div>
+              <div class="testimonial-role">SaaS Founder</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <p class="testimonial-text">"I tried setting up OpenClaw myself. After 2 weeks of frustration, I booked the done-with-you call. Running within 3 days. Worth every penny."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Sarah K.</div>
+              <div class="testimonial-role">Agency Owner</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <p class="testimonial-text">"The security checklist alone is worth the price. I had no idea how many mistakes I was making with API keys and permissions."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">J</div>
+            <div>
+              <div class="testimonial-name">James L.</div>
+              <div class="testimonial-role">Technical Founder</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <p class="testimonial-text">"My AI agent now handles lead outreach, CRM updates, and morning briefings. That's 15+ hours per week back. Johann made it look easy."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-name">Alex R.</div>
+              <div class="testimonial-role">Freelance Consultant</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <div class="container">
+      <div class="about-inner reveal">
+        <div class="about-photo">👨‍💻</div>
+        <div class="about-content">
+          <h2>Who's Johann?</h2>
+          <p>
+            <strong>Sold a SaaS company at 20.</strong> Now building AI products and running half of my business with an AI agent called Jars.
+          </p>
+          <p>
+            I'm not an AI researcher. I'm a founder who figured out how to make AI actually do work — handle emails, update CRM, ship code, run outreach. The boring stuff that eats your day.
+          </p>
+          <p>
+            I built OpenClaw because existing AI tools were either too dumb or required a PhD to set up. Now I help other founders skip the learning curve and get straight to results.
+          </p>
+          <div class="about-stats">
+            <div>
+              <div class="about-stat-num">21</div>
+              <div class="about-stat-label">Years old</div>
+            </div>
+            <div>
+              <div class="about-stat-num">1</div>
+              <div class="about-stat-label">Company sold</div>
+            </div>
+            <div>
+              <div class="about-stat-num">50%</div>
+              <div class="about-stat-label">Business run by AI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="container reveal">
+      <h2>Ready to stop doing<br><span style="color:var(--green)">work your AI should handle?</span></h2>
+      <p class="sub">Book a call. Let's get your agent running.</p>
+      <a href="https://app.lemcal.com/@johann" target="_blank" class="btn-primary">
+        Book Your Call <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <div class="dot"></div>
+            AI Operators
+          </a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi" target="_blank">Johann Sathianathen</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="/consulting/">OpenClaw Consulting</a>
+          <a href="https://app.lemcal.com/@johann" target="_blank">Book a Call</a>
+        </div>
+        <div class="footer-col">
+          <h5>Community</h5>
+          <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">Free Skool Group</a>
+          <a href="/faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

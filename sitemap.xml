@@ -173,4 +173,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Consulting -->
+  <url>
+    <loc>https://aioperator.sh/consulting/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
 </urlset>
