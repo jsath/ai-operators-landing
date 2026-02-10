@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Security Audit — Let AI Hack Your Laptop Before Someone Else Does | AI Operators</title>
+  <meta name="description" content="Run a comprehensive security audit on your Mac using Claude AI. Check for vulnerabilities like a 10x cybersecurity engineer. One prompt. Full protection.">
+  <meta name="keywords" content="AI security audit, MacBook security, cybersecurity AI, Claude security scan, laptop protection, hacker protection, security vulnerabilities">
+  <link rel="canonical" href="https://aioperator.sh/tools/security-audit">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Security Audit — Let AI Hack Your Laptop Before Someone Else Does">
+  <meta property="og:description" content="One prompt. Full security audit. Claude AI checks your Mac for vulnerabilities like a 10x cybersecurity engineer.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aioperator.sh/tools/security-audit">
+  <meta property="og:site_name" content="AI Operators">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Security Audit — Let AI Hack Your Laptop">
+  <meta name="twitter:description" content="One prompt. Full security audit. Claude AI checks your Mac for vulnerabilities.">
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Run an AI Security Audit on Your Mac",
+    "description": "Use Claude AI to perform a comprehensive security audit on your MacBook, checking for vulnerabilities and hardening your system against hackers.",
+    "step": [
+      { "@type": "HowToStep", "name": "Open Terminal", "text": "Launch Terminal on your Mac" },
+      { "@type": "HowToStep", "name": "Navigate to root", "text": "Run cd ~ to navigate to your home directory" },
+      { "@type": "HowToStep", "name": "Launch Claude", "text": "Run 'claude' to start Claude Code CLI" },
+      { "@type": "HowToStep", "name": "Select Model", "text": "Choose Claude Opus 4 for best results" },
+      { "@type": "HowToStep", "name": "Run Audit", "text": "Paste the security audit prompt and let Claude scan your system" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioperator.sh/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://aioperator.sh/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Security Audit", "item": "https://aioperator.sh/tools/security-audit" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* ══════════════════════════════════════════
+       Security Audit — Page Styles
+       ══════════════════════════════════════════ */
+
+    :root {
+      --red: #ff3b3b;
+      --red-glow: rgba(255, 59, 59, 0.15);
+      --amber: #ffb800;
+    }
+
+    /* Override glow orbs with security theme */
+    .glow-orb.red {
+      width: 600px;
+      height: 600px;
+      background: var(--red-glow);
+      top: -150px;
+      right: 10%;
+      animation: float-orb 14s ease-in-out infinite;
+    }
+
+    .glow-orb.green {
+      width: 400px;
+      height: 400px;
+      background: var(--green-glow);
+      bottom: 20%;
+      left: 5%;
+      animation: float-orb 18s ease-in-out infinite reverse;
+    }
+
+    /* ── Hero Section ── */
+    .security-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 0 80px;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .page-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--red);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .page-tag::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse-red 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-red {
+      0%, 100% { opacity: 1; box-shadow: 0 0 12px var(--red); }
+      50% { opacity: 0.4; box-shadow: 0 0 4px var(--red); }
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 28px;
+    }
+
+    .hero-title .highlight {
+      color: var(--green);
+      text-shadow: 0 0 60px rgba(0, 255, 136, 0.4);
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto 50px;
+      font-weight: 300;
+    }
+
+    /* ── Terminal Window ── */
+    .terminal-wrapper {
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+
+    .terminal {
+      background: #0a0a0a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 20px 80px rgba(0, 0, 0, 0.5),
+        0 0 100px rgba(0, 255, 136, 0.05);
+      position: relative;
+    }
+
+    .terminal::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(0,255,136,0.1) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .terminal-header {
+      background: linear-gradient(180deg, #1a1a1a 0%, #141414 100%);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .terminal-dot.red { background: #ff5f57; }
+    .terminal-dot.yellow { background: #febc2e; }
+    .terminal-dot.green { background: #28c840; }
+
+    .terminal-title {
+      flex: 1;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dimmer);
+      margin-right: 52px;
+    }
+
+    .terminal-body {
+      padding: 24px 28px;
+      position: relative;
+    }
+
+    .terminal-prompt {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .prompt-symbol {
+      color: var(--green);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: 1rem;
+      user-select: none;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .prompt-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .prompt-text .typing-cursor {
+      display: inline-block;
+      width: 10px;
+      height: 18px;
+      background: var(--green);
+      margin-left: 4px;
+      animation: blink-cursor 1s step-end infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink-cursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copy-btn:hover {
+      background: rgba(0, 255, 136, 0.1);
+      border-color: rgba(0, 255, 136, 0.3);
+      color: var(--green);
+    }
+
+    .copy-btn.copied {
+      background: rgba(0, 255, 136, 0.15);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .copy-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ── Explanation Section ── */
+    .explain-section {
+      padding: 40px 0 80px;
+    }
+
+    .explain-card {
+      background: rgba(12, 12, 12, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 40px 48px;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      backdrop-filter: blur(20px);
+    }
+
+    .explain-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .explain-title svg {
+      width: 24px;
+      height: 24px;
+      color: var(--green);
+    }
+
+    .explain-text {
+      font-size: 1.05rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+
+    /* ── Steps Section ── */
+    .steps-section {
+      padding: 40px 0 100px;
+    }
+
+    .steps-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .steps-header h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      background: rgba(12, 12, 12, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover {
+      border-color: rgba(0, 255, 136, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .step-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--green);
+      opacity: 0.2;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .step-card:hover .step-number {
+      opacity: 0.5;
+    }
+
+    .step-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 255, 136, 0.08);
+      border-radius: 12px;
+    }
+
+    .step-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--green);
+    }
+
+    .step-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .step-desc {
+      font-size: 0.8rem;
+      color: var(--text-dimmer);
+      line-height: 1.5;
+    }
+
+    .step-code {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(0, 255, 136, 0.08);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: var(--green);
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      padding: 60px 0 120px;
+      text-align: center;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.08) 0%, rgba(0, 255, 136, 0.02) 100%);
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      border-radius: 20px;
+      padding: 60px 40px;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .cta-subtitle {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--green);
+      color: #000;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 18px 36px;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 60px rgba(0, 255, 136, 0.5);
+    }
+
+    .cta-btn svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .security-hero {
+        padding: 100px 0 60px;
+      }
+
+      .terminal-body {
+        padding: 20px;
+      }
+
+      .prompt-text {
+        font-size: 0.8rem;
+      }
+
+      .copy-btn {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .step-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 16px;
+        text-align: left;
+        padding: 20px;
+      }
+
+      .step-number {
+        display: none;
+      }
+
+      .step-icon {
+        margin: 0;
+      }
+
+      .explain-card {
+        padding: 28px 24px;
+      }
+
+      .cta-box {
+        padding: 40px 24px;
+      }
+    }
+
+    /* ── Scanline effect ── */
+    .scanline {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--green), transparent);
+      opacity: 0.03;
+      animation: scanline 8s linear infinite;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    @keyframes scanline {
+      0% { top: 0; }
+      100% { top: 100vh; }
+    }
+
+    /* Matrix rain background effect */
+    .matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      opacity: 0.03;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .matrix-column {
+      position: absolute;
+      top: -100%;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: var(--green);
+      writing-mode: vertical-rl;
+      animation: matrix-fall linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background effects -->
+  <div class="grid-bg"></div>
+  <div class="glow-orb red"></div>
+  <div class="glow-orb green"></div>
+  <div class="scanline"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <span class="dot"></span>
+        AI Operators
+      </a>
+      <div class="nav-links">
+        <a href="/learn" class="nav-link">Learn</a>
+        <a href="/tools/automation-audit" class="nav-link">Tools</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+      <button class="nav-mobile-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="security-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="page-tag">Security Tool</div>
+        <h1 class="hero-title">
+          Let AI <span class="highlight">Hack Your Laptop</span><br>
+          Before Someone Else Does
+        </h1>
+        <p class="hero-subtitle">
+          One prompt turns Claude into a 10x cybersecurity engineer. It scans your Mac for vulnerabilities, 
+          checks your firewall, audits your apps, and hardens your system against hackers and intelligence agencies.
+        </p>
+
+        <!-- Terminal Window -->
+        <div class="terminal-wrapper">
+          <div class="terminal">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+              </div>
+              <div class="terminal-title">claude — security-audit</div>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-prompt">
+                <span class="prompt-symbol">❯</span>
+                <span class="prompt-text" id="prompt-text">perform a security audit of my macbook, to ensure we are well protected against hackers and intelligence agencies. proceed like a 10x cybersecurity engineer would.<span class="typing-cursor"></span></span>
+              </div>
+              <button class="copy-btn" onclick="copyPrompt()" id="copy-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+                <span>Copy</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explanation Section -->
+  <section class="explain-section">
+    <div class="container">
+      <div class="explain-card">
+        <h2 class="explain-title">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          What does this do?
+        </h2>
+        <p class="explain-text">
+          This prompt unleashes Claude as your personal security auditor. It systematically checks your firewall settings, 
+          scans for suspicious processes, reviews app permissions, examines network configurations, and identifies potential 
+          attack vectors. You get actionable fixes—not just warnings. Think of it as hiring a senior penetration tester 
+          for the cost of an API call.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps Section -->
+  <section class="steps-section">
+    <div class="container">
+      <div class="steps-header">
+        <h2>How to run it</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="step-title">Open Terminal</div>
+          <div class="step-desc">Launch Terminal.app on your Mac</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </div>
+          <div class="step-title">Go to root</div>
+          <div class="step-desc">Navigate to your home directory</div>
+          <div class="step-code">cd ~</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div class="step-title">Run Claude</div>
+          <div class="step-desc">Start the Claude Code CLI</div>
+          <div class="step-code">claude</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+          </div>
+          <div class="step-title">Select Opus 4</div>
+          <div class="step-desc">Choose the most capable model</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">05</div>
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          </div>
+          <div class="step-title">Paste prompt</div>
+          <div class="step-desc">Paste the audit prompt and hit enter</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="cta-title">Want help setting this up?</h2>
+        <p class="cta-subtitle">Join 2,000+ operators building AI agents that do real work.</p>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="cta-btn">
+          Join the community
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <span class="dot"></span>
+            AI Operators
+          </a>
+          <p class="footer-tagline">Build AI agents that run your business.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/learn">Learn</a>
+          <a href="/faq">FAQ</a>
+          <a href="/tools/automation-audit">Tools</a>
+          <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">Community</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 AI Operators</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const PROMPT_TEXT = "perform a security audit of my macbook, to ensure we are well protected against hackers and intelligence agencies. proceed like a 10x cybersecurity engineer would.";
+
+    function copyPrompt() {
+      navigator.clipboard.writeText(PROMPT_TEXT).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.classList.add('copied');
+        btn.querySelector('span').textContent = 'Copied!';
+        btn.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />';
+        
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.querySelector('span').textContent = 'Copy';
+          btn.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />';
+        }, 2000);
+      });
+    }
+
+    // Mobile nav toggle
+    document.querySelector('.nav-mobile-toggle')?.addEventListener('click', function() {
+      document.querySelector('.nav-links')?.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
