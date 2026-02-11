@@ -336,6 +336,42 @@
       padding: 100px 0;
       border-top: 1px solid rgba(255,255,255,0.04);
     }
+    .testimonial-video-featured {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-top: 48px;
+      margin-bottom: 48px;
+      padding: 40px;
+      background: linear-gradient(180deg, rgba(0,255,136,0.05) 0%, var(--bg-card) 100%);
+      border: 1px solid rgba(0,255,136,0.2);
+      border-radius: 20px;
+    }
+    .testimonial-video-featured h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+    }
+    .testimonial-video-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(0,255,136,0.1);
+      border: 2px solid rgba(0,255,136,0.15);
+    }
+    .testimonial-video-wrapper iframe {
+      display: block;
+    }
+    .testimonial-video-caption {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      text-align: center;
+      max-width: 400px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
     .testimonial-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -723,6 +759,15 @@
       <div class="section-header reveal">
         <div class="section-tag">OpenClaw Setup Success Stories</div>
         <h2 class="section-title">Real Results from AI Automation<br>Consulting Clients</h2>
+      </div>
+
+      <!-- Featured Video Testimonial -->
+      <div class="testimonial-video-featured reveal">
+        <h3>🎬 Hear It From a Client</h3>
+        <div class="testimonial-video-wrapper">
+          <iframe width="315" height="560" src="https://www.youtube.com/embed/mC-KM2z5aOw" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="testimonial-video-caption">A real client shares their experience with OpenClaw consulting and how it transformed their workflow.</p>
       </div>
 
       <div class="testimonial-grid">
