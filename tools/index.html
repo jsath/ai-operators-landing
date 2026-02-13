@@ -3,324 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free AI Tools — Calculators, Quizzes & Audits | AI Operators</title>
-  <meta name="description" content="Free tools to get started with AI agents. ROI calculator, automation audit, AI readiness quiz, and security audit. No signup required.">
-  <meta name="keywords" content="AI tools, AI calculator, automation audit, AI readiness quiz, AI ROI calculator, free AI tools">
+  <title>AI Tools — Calculators, Quizzes & Audits | AI Operators</title>
+  <meta name="description" content="Free AI tools to help you evaluate and implement AI automation. ROI calculator, readiness quiz, automation audit, and more.">
   <link rel="canonical" href="https://aioperator.sh/tools/">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Free AI Tools — Calculators, Quizzes & Audits">
-  <meta property="og:description" content="Free tools to get started with AI agents. Calculate ROI, audit your automation gaps, and find where AI can help your business.">
+  <meta property="og:title" content="AI Tools — AI Operators">
+  <meta property="og:description" content="Free tools to help you evaluate and implement AI automation.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aioperator.sh/tools/">
-  <meta property="og:site_name" content="AI Operators">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Free AI Tools — AI Operators">
-  <meta name="twitter:description" content="Free tools to get started with AI agents. Calculate ROI, audit your workflows, discover opportunities.">
-
-  <!-- JSON-LD: CollectionPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Free AI Tools",
-    "description": "Collection of free AI tools including ROI calculator, automation audit, AI readiness quiz, and security audit.",
-    "url": "https://aioperator.sh/tools/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "AI Operators",
-      "url": "https://aioperator.sh"
-    },
-    "mainEntity": {
-      "@type": "ItemList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "url": "https://aioperator.sh/tools/ai-readiness-quiz"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "url": "https://aioperator.sh/tools/automation-audit"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "url": "https://aioperator.sh/tools/roi-calculator"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "url": "https://aioperator.sh/tools/security-audit"
-        }
-      ]
-    }
-  }
-  </script>
-
-  <!-- JSON-LD: BreadcrumbList -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioperator.sh/" },
-      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://aioperator.sh/tools/" }
-    ]
-  }
-  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <style>
-    /* ── Tools Page Styles ── */
     .tools-hero {
-      padding: 140px 0 60px;
-      text-align: center;
+      padding: var(--space-5xl) 0 var(--space-3xl);
     }
-    .tools-hero .page-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--green);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+    
+    .tools-hero .label {
+      margin-bottom: var(--space-lg);
     }
-    .tools-hero .page-tag::before {
-      content: '>';
-      opacity: 0.5;
-    }
+    
     .tools-hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-      font-weight: 800;
-      line-height: 1.1;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1;
       letter-spacing: -0.03em;
-      margin-bottom: 20px;
+      margin-bottom: var(--space-lg);
     }
-    .tools-hero h1 .green {
-      color: var(--green);
-      text-shadow: 0 0 40px rgba(0,255,136,0.3);
+    
+    .tools-hero .subtitle {
+      font-size: var(--text-xl);
+      color: var(--text-secondary);
+      max-width: 560px;
     }
-    .tools-hero .page-subtitle {
-      font-size: 1.15rem;
-      color: var(--text-dim);
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto;
-      font-weight: 300;
-    }
-
-    /* ── Tools Grid ── */
+    
     .tools-section {
-      padding: 40px 0 120px;
+      padding: var(--space-3xl) 0 var(--space-5xl);
     }
+    
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
-
-    /* ── Tool Card ── */
+    
     .tool-card {
-      background: var(--bg-card);
-      border: 1px solid var(--bg-card-border);
-      border-radius: 16px;
-      padding: 36px 32px;
+      background: var(--bg);
+      padding: var(--space-2xl);
       text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
+      transition: background var(--duration-normal);
+      display: block;
     }
-    .tool-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--green), transparent);
-      opacity: 0;
-      transition: opacity 0.35s;
-    }
+    
     .tool-card:hover {
-      border-color: rgba(0,255,136,0.25);
-      transform: translateY(-6px);
-      box-shadow: 
-        0 20px 60px rgba(0,0,0,0.4),
-        0 0 40px rgba(0,255,136,0.08);
+      background: var(--bg-elevated);
     }
-    .tool-card:hover::before {
-      opacity: 1;
+    
+    .tool-card .tool-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-md);
     }
-
-    .tool-icon {
-      width: 56px;
-      height: 56px;
-      background: rgba(0,255,136,0.08);
-      border: 1px solid rgba(0,255,136,0.15);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 24px;
-      transition: all 0.35s;
+    
+    .tool-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: var(--text-xl);
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: var(--space-sm);
     }
-    .tool-card:hover .tool-icon {
-      background: rgba(0,255,136,0.12);
-      border-color: rgba(0,255,136,0.3);
-      box-shadow: 0 0 20px rgba(0,255,136,0.15);
+    
+    .tool-card p {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-md);
     }
-
-    .tool-badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
+    
+    .tool-card .tool-cta {
+      font-size: var(--text-sm);
       color: var(--green);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
-    .tool-badge::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--green);
+    
+    .tool-card .tool-cta .arrow {
+      transition: transform var(--duration-normal) var(--ease-out-expo);
     }
-
-    .tool-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-
-    .tool-card p {
-      font-size: 0.95rem;
-      color: var(--text-dim);
-      line-height: 1.65;
-      font-weight: 300;
-      flex-grow: 1;
-      margin-bottom: 24px;
-    }
-
-    .tool-cta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--green);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: gap 0.25s;
-    }
-    .tool-card:hover .tool-cta {
-      gap: 12px;
-    }
-    .tool-cta .arrow {
-      transition: transform 0.25s;
-    }
+    
     .tool-card:hover .tool-cta .arrow {
       transform: translateX(4px);
     }
-
-    /* ── Featured tool styling ── */
-    .tool-card.featured {
-      grid-column: span 2;
-      background: linear-gradient(135deg, rgba(0,255,136,0.04) 0%, var(--bg-card) 50%);
-    }
-    .tool-card.featured .tool-icon {
-      width: 64px;
-      height: 64px;
-      font-size: 1.8rem;
-    }
-
-    /* ── Tool stats row ── */
-    .tool-stats {
-      display: flex;
-      gap: 24px;
-      margin-bottom: 24px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-    .tool-stat {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .tool-stat-icon {
-      font-size: 0.9rem;
-      opacity: 0.6;
-    }
-    .tool-stat-text {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-dimmer);
-    }
-
-    /* ── CTA Section ── */
-    .tools-cta {
-      padding: 80px 0 100px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-    .tools-cta h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
-    }
-    .tools-cta .cta-sub {
-      color: var(--text-dim);
-      font-size: 1.05rem;
-      margin-bottom: 36px;
-      font-weight: 300;
-    }
-
+    
     @media (max-width: 768px) {
       .tools-grid {
         grid-template-columns: 1fr;
-      }
-      .tool-card.featured {
-        grid-column: span 1;
-      }
-      .tool-stats {
-        flex-wrap: wrap;
-        gap: 16px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="grid-bg"></div>
-  <div class="glow-orb green"></div>
-  <div class="glow-orb green2"></div>
-
-  <!-- Nav -->
   <nav>
     <div class="container">
       <a href="/" class="nav-logo">
-        <div class="dot"></div>
+        <span class="indicator"></span>
         AI Operators
       </a>
       <div class="nav-links">
@@ -332,135 +122,66 @@
     </div>
   </nav>
 
-  <!-- Breadcrumbs -->
-  <div class="breadcrumbs">
-    <div class="container">
-      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
-          <meta itemprop="position" content="1">
-          <span class="sep">/</span>
-        </li>
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <span class="current" itemprop="name">Tools</span>
-          <meta itemprop="position" content="2">
-        </li>
-      </ol>
-    </div>
-  </div>
-
-  <!-- Hero -->
   <section class="tools-hero">
     <div class="container">
-      <div class="page-tag">Free tools</div>
-      <h1>Audit, calculate,<br><span class="green">discover</span></h1>
-      <p class="page-subtitle">Free tools to see where AI agents can save you time and money. No signup. No email required. Just answers.</p>
+      <p class="label">Free tools</p>
+      <h1>Evaluate your<br><em>AI readiness</em></h1>
+      <p class="subtitle">Free calculators, quizzes, and audits to help you understand where AI can help your business.</p>
     </div>
   </section>
 
-  <!-- Tools Grid -->
   <section class="tools-section">
     <div class="container">
       <div class="tools-grid">
-
-        <!-- AI Readiness Quiz -->
-        <a href="/tools/ai-readiness-quiz" class="tool-card reveal">
-          <div class="tool-icon">🎯</div>
-          <div class="tool-badge">Interactive Quiz</div>
+        <a href="/tools/roi-calculator" class="tool-card">
+          <div class="tool-icon">📊</div>
+          <h3>ROI Calculator</h3>
+          <p>Calculate the potential return on investment from implementing AI agents in your business. See real numbers based on your situation.</p>
+          <span class="tool-cta">Calculate ROI <span class="arrow">→</span></span>
+        </a>
+        <a href="/tools/ai-readiness-quiz" class="tool-card">
+          <div class="tool-icon">✅</div>
           <h3>AI Readiness Quiz</h3>
-          <p>Find out which AI agent you should build first. Answer a few questions about your business and get a personalized recommendation in 2 minutes.</p>
-          <div class="tool-stats">
-            <div class="tool-stat">
-              <span class="tool-stat-icon">⏱️</span>
-              <span class="tool-stat-text">2 min</span>
-            </div>
-            <div class="tool-stat">
-              <span class="tool-stat-icon">📊</span>
-              <span class="tool-stat-text">Personalized result</span>
-            </div>
-          </div>
-          <div class="tool-cta">Take the quiz <span class="arrow">→</span></div>
+          <p>Find out if your business is ready for AI automation. 5-minute assessment with personalized recommendations.</p>
+          <span class="tool-cta">Take the quiz <span class="arrow">→</span></span>
         </a>
-
-        <!-- Automation Audit -->
-        <a href="/tools/automation-audit" class="tool-card reveal">
+        <a href="/tools/automation-audit" class="tool-card">
           <div class="tool-icon">🔍</div>
-          <div class="tool-badge">Audit Checklist</div>
           <h3>Automation Audit</h3>
-          <p>Find your hidden time leaks. Check off the manual tasks draining your week and see exactly how many hours AI could reclaim for you.</p>
-          <div class="tool-stats">
-            <div class="tool-stat">
-              <span class="tool-stat-icon">⏱️</span>
-              <span class="tool-stat-text">3 min</span>
-            </div>
-            <div class="tool-stat">
-              <span class="tool-stat-icon">📋</span>
-              <span class="tool-stat-text">50+ tasks</span>
-            </div>
-          </div>
-          <div class="tool-cta">Start audit <span class="arrow">→</span></div>
+          <p>Identify the best opportunities for AI automation in your current workflow. Prioritize what to automate first.</p>
+          <span class="tool-cta">Start audit <span class="arrow">→</span></span>
         </a>
-
-        <!-- ROI Calculator -->
-        <a href="/tools/roi-calculator" class="tool-card reveal">
-          <div class="tool-icon">💰</div>
-          <div class="tool-badge">Calculator</div>
-          <h3>AI Agent ROI Calculator</h3>
-          <p>Calculate exactly how much time and money an AI agent saves your business. See your before/after numbers in 30 seconds.</p>
-          <div class="tool-stats">
-            <div class="tool-stat">
-              <span class="tool-stat-icon">⏱️</span>
-              <span class="tool-stat-text">30 sec</span>
-            </div>
-            <div class="tool-stat">
-              <span class="tool-stat-icon">💵</span>
-              <span class="tool-stat-text">Dollar savings</span>
-            </div>
-          </div>
-          <div class="tool-cta">Calculate ROI <span class="arrow">→</span></div>
+        <a href="/tools/security-audit" class="tool-card">
+          <div class="tool-icon">🔒</div>
+          <h3>Security Checklist</h3>
+          <p>Make sure your AI setup is secure. Checklist of best practices for protecting your data and systems.</p>
+          <span class="tool-cta">Review checklist <span class="arrow">→</span></span>
         </a>
-
-        <!-- Security Audit -->
-        <a href="/tools/security-audit" class="tool-card reveal">
-          <div class="tool-icon">🛡️</div>
-          <div class="tool-badge">Security Tool</div>
-          <h3>AI Security Audit</h3>
-          <p>Let AI hack your laptop before someone else does. Run a comprehensive security audit using Claude AI. One prompt gives you full protection.</p>
-          <div class="tool-stats">
-            <div class="tool-stat">
-              <span class="tool-stat-icon">⏱️</span>
-              <span class="tool-stat-text">5 min</span>
-            </div>
-            <div class="tool-stat">
-              <span class="tool-stat-icon">🔒</span>
-              <span class="tool-stat-text">Mac focused</span>
-            </div>
-          </div>
-          <div class="tool-cta">Run audit <span class="arrow">→</span></div>
-        </a>
-
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="tools-cta">
-    <div class="container reveal">
-      <h2>Ready to build your<br><span style="color:var(--green)">AI agent?</span></h2>
-      <p class="cta-sub">Join the community of founders learning to build AI that works.</p>
-      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn-primary">
-        Join AI Operators <span class="arrow">→</span>
-      </a>
+  <section class="cta-section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+      <h2 class="headline-lg">Need help implementing?</h2>
+      <p class="subtitle">Join the community or book a consulting call.</p>
+      <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn btn-primary">
+          Join free <span class="arrow">→</span>
+        </a>
+        <a href="/consulting/" class="btn btn-secondary">
+          Consulting →
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="nav-logo">
-            <div class="dot"></div>
+            <span class="indicator"></span>
             AI Operators
           </a>
           <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi" target="_blank">Johann Sathianathen</a>.</p>
@@ -471,37 +192,33 @@
           <a href="/learn/claude-code-setup">Claude Code Setup</a>
           <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
           <a href="/learn/ai-automation-business">AI Business Automation</a>
-          <a href="/learn/ai-employee-setup">AI Employee Setup</a>
         </div>
         <div class="footer-col">
-          <h5>Tools</h5>
-          <a href="/tools/ai-readiness-quiz">AI Readiness Quiz</a>
-          <a href="/tools/automation-audit">Automation Audit</a>
-          <a href="/tools/roi-calculator">ROI Calculator</a>
-          <a href="/tools/security-audit">Security Audit</a>
+          <h5>Compare</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/compare/ai-agents-vs-hiring-va">AI vs Hiring a VA</a>
+          <a href="/compare/claude-code-vs-cursor">Claude Code vs Cursor</a>
         </div>
         <div class="footer-col">
-          <h5>For You</h5>
-          <a href="/for/saas-founders">SaaS Founders</a>
-          <a href="/for/agency-owners">Agency Owners</a>
-          <a href="/for/freelancers">Freelancers</a>
-          <a href="/for/creators">Content Creators</a>
+          <h5>Resources</h5>
+          <a href="/for/saas-founders">For SaaS Founders</a>
+          <a href="/for/agency-owners">For Agency Owners</a>
+          <a href="/consulting/">Consulting</a>
           <a href="/faq">FAQ</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 AI Operators. Built different.</p>
+        <p>© 2025 AI Operators</p>
+        <p>Built different.</p>
       </div>
     </div>
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.pageYOffset > 100);
+    });
   </script>
 </body>
 </html>
