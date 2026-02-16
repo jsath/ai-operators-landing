@@ -180,4 +180,46 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
+
+  <!-- OpenClaw Consulting SEO Pages -->
+  <url>
+    <loc>https://aioperator.sh/learn/openclaw-consulting-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://aioperator.sh/learn/hire-openclaw-consultant</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://aioperator.sh/learn/openclaw-for-business</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://aioperator.sh/learn/openclaw-setup-cost</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://aioperator.sh/learn/openclaw-vs-chatgpt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://aioperator.sh/learn/openclaw-use-cases</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://aioperator.sh/learn/best-openclaw-consultant-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://aioperator.sh/learn/openclaw-roi-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
