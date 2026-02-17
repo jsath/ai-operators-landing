@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent ROI Calculator — See How Much Time & Money You'll Save</title>
+  <meta name="description" content="Calculate exactly how much time and money an AI agent saves your business. Free ROI calculator. See your before/after in 30 seconds.">
+  <meta name="keywords" content="AI agent ROI, AI automation calculator, AI agent cost savings, business automation ROI, AI employee calculator">
+  <link rel="canonical" href="https://aioperator.sh/tools/roi-calculator">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Agent ROI Calculator — How Much Are You Losing?">
+  <meta property="og:description" content="Plug in your numbers. See exactly how much time & money an AI agent saves your business. Takes 30 seconds.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aioperator.sh/tools/roi-calculator">
+  <meta property="og:site_name" content="AI Operators">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Agent ROI Calculator">
+  <meta name="twitter:description" content="Calculate how much time & money an AI agent saves your business. Free tool.">
+
+  <!-- JSON-LD: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Agent ROI Calculator",
+    "url": "https://aioperator.sh/tools/roi-calculator",
+    "description": "Free calculator to estimate time and money saved by deploying AI agents in your business.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Johann Sathianathen"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Operators",
+      "url": "https://aioperator.sh"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioperator.sh/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://aioperator.sh/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "ROI Calculator", "item": "https://aioperator.sh/tools/roi-calculator" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* ── Calculator Page Styles ── */
+    .calc-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+    }
+    .calc-hero .page-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .calc-hero .page-tag::before {
+      content: '>';
+      opacity: 0.5;
+    }
+    .calc-hero h1 {
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .calc-hero h1 .green {
+      color: var(--green);
+      text-shadow: 0 0 40px rgba(0,255,136,0.3);
+    }
+    .calc-hero .page-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ── Calculator Card ── */
+    .calc-wrapper {
+      max-width: 700px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .calc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 16px;
+      padding: 48px 40px;
+    }
+
+    /* ── Input groups ── */
+    .input-group {
+      margin-bottom: 28px;
+    }
+    .input-group label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .input-group .input-hint {
+      font-size: 0.78rem;
+      color: var(--text-dimmer);
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+    .input-group input[type="number"],
+    .input-group input[type="email"] {
+      width: 100%;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: var(--text);
+      transition: border-color 0.2s;
+      -moz-appearance: textfield;
+    }
+    .input-group input[type="number"]::-webkit-inner-spin-button,
+    .input-group input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .input-group input:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 20px rgba(0,255,136,0.1);
+    }
+    .input-group input::placeholder {
+      color: var(--text-dimmer);
+    }
+
+    /* ── Slider ── */
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .slider-row input[type="range"] {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      background: #1a1a1a;
+      border-radius: 3px;
+      outline: none;
+    }
+    .slider-row input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green);
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(0,255,136,0.4);
+    }
+    .slider-row input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 12px rgba(0,255,136,0.4);
+    }
+    .slider-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--green);
+      min-width: 48px;
+      text-align: right;
+      font-weight: 500;
+    }
+
+    /* ── Calculate button ── */
+    .calc-btn {
+      width: 100%;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 16px 36px;
+      background: var(--green);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .calc-btn:hover {
+      box-shadow: 0 0 40px rgba(0,255,136,0.35);
+      transform: translateY(-2px);
+    }
+    .calc-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ── Email gate ── */
+    .email-gate {
+      display: none;
+      text-align: center;
+      padding: 40px 0 0;
+    }
+    .email-gate.active { display: block; }
+    .email-gate h3 {
+      font-weight: 700;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .email-gate p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+    .email-row {
+      display: flex;
+      gap: 12px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .email-row input[type="email"] {
+      flex: 1;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    .email-row input[type="email"]:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 20px rgba(0,255,136,0.1);
+    }
+    .email-row input::placeholder { color: var(--text-dimmer); }
+    .email-submit {
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      background: var(--green);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .email-submit:hover {
+      box-shadow: 0 0 30px rgba(0,255,136,0.3);
+    }
+    .skip-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: var(--text-dimmer);
+      cursor: pointer;
+      border: none;
+      background: none;
+      text-decoration: underline;
+      font-family: inherit;
+    }
+    .skip-link:hover { color: var(--text-dim); }
+
+    /* ── Preview stats (teaser before email) ── */
+    .preview-stats {
+      display: none;
+      margin-top: 32px;
+    }
+    .preview-stats.active { display: block; }
+    .preview-stats .preview-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .preview-stat {
+      background: rgba(0,255,136,0.04);
+      border: 1px solid rgba(0,255,136,0.1);
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .preview-stat .big-num {
+      font-weight: 700;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .preview-stat .stat-desc {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .blurred-preview {
+      position: relative;
+      filter: blur(8px);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* ── Full Results ── */
+    .results-section {
+      display: none;
+      padding: 60px 0 0;
+    }
+    .results-section.active { display: block; }
+
+    .results-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .results-header h2 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .results-header p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    /* ── Before / After ── */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .ba-box {
+      border-radius: 12px;
+      padding: 32px 28px;
+    }
+    .ba-box.before {
+      background: rgba(255, 95, 87, 0.05);
+      border: 1px solid rgba(255, 95, 87, 0.15);
+    }
+    .ba-box.after {
+      background: rgba(0, 255, 136, 0.05);
+      border: 1px solid rgba(0, 255, 136, 0.15);
+    }
+    .ba-box h3 {
+      font-weight: 700;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ba-box.before h3 { color: #ff5f57; }
+    .ba-box.after h3 { color: var(--green); }
+    .ba-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.88rem;
+    }
+    .ba-line:last-child { border-bottom: none; }
+    .ba-line .ba-label { color: var(--text-dim); font-weight: 300; }
+    .ba-line .ba-val { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+    .ba-box.before .ba-val { color: #ff5f57; }
+    .ba-box.after .ba-val { color: var(--green); }
+
+    /* ── ROI highlight ── */
+    .roi-highlight {
+      background: linear-gradient(135deg, rgba(0,255,136,0.08) 0%, rgba(0,255,136,0.02) 100%);
+      border: 1px solid rgba(0,255,136,0.15);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .roi-highlight .roi-number {
+      font-weight: 700;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--green);
+      text-shadow: 0 0 60px rgba(0,255,136,0.4);
+      margin-bottom: 8px;
+    }
+    .roi-highlight .roi-label {
+      font-size: 1rem;
+      color: var(--text-dim);
+      font-weight: 300;
+    }
+    .roi-highlight .roi-sub {
+      font-size: 0.82rem;
+      color: var(--text-dimmer);
+      margin-top: 8px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── Stats grid ── */
+    .result-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .result-stat {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .result-stat .rs-num {
+      font-weight: 700;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .result-stat .rs-label {
+      font-size: 0.78rem;
+      color: var(--text-dimmer);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Terminal result ── */
+    .result-terminal {
+      margin-bottom: 48px;
+    }
+
+    /* ── CTA section ── */
+    .results-cta {
+      text-align: center;
+      padding: 48px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .results-cta h3 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .results-cta p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      font-weight: 300;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 700px) {
+      .calc-card { padding: 32px 24px; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .result-stats { grid-template-columns: 1fr; }
+      .preview-stats .preview-row { grid-template-columns: 1fr; }
+      .email-row { flex-direction: column; }
+      .roi-highlight .roi-number { font-size: 2.5rem; }
+      .roi-highlight { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <span class="indicator"></span>
+        AI Operators
+      </a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/compare/ai-agents-vs-chatgpt" class="nav-link">Compare</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a><span class="sep">/</span></li>
+        <li><a href="/tools/roi-calculator">Tools</a><span class="sep">/</span></li>
+        <li><span class="current">ROI Calculator</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="calc-hero">
+    <div class="container">
+      <div class="label">Free tool</div>
+      <h1>How much is manual<br>work <em>costing you?</span></h1>
+      <p class="subtitle">Plug in your numbers. See exactly what an AI agent saves you per month & year. Takes 30 seconds.</p>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <div class="calc-wrapper">
+    <div class="calc-card" id="calcCard">
+
+      <!-- Inputs -->
+      <div id="inputSection">
+        <div class="input-group">
+          <label>Hours spent on repetitive tasks per week</label>
+          <p class="input-hint">Emails, CRM updates, follow-ups, scheduling, data entry, reports...</p>
+          <div class="slider-row">
+            <input type="range" id="hoursSlider" min="1" max="60" value="15" step="1">
+            <span class="slider-value" id="hoursDisplay">15h</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Your effective hourly rate ($)</label>
+          <p class="input-hint">What's your time worth? Salary / hours or what you'd charge a client.</p>
+          <input type="number" id="rateInput" placeholder="75" min="10" max="1000" value="">
+        </div>
+
+        <div class="input-group">
+          <label>Number of repetitive tasks per week</label>
+          <p class="input-hint">Individual tasks you repeat. Each email chain, each CRM update, each report.</p>
+          <div class="slider-row">
+            <input type="range" id="tasksSlider" min="5" max="200" value="40" step="5">
+            <span class="slider-value" id="tasksDisplay">40</span>
+          </div>
+        </div>
+
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">
+          Calculate my ROI <span class="arrow">→</span>
+        </button>
+      </div>
+
+      <!-- Preview stats (shown immediately) -->
+      <div class="preview-stats" id="previewStats">
+        <div class="preview-row">
+          <div class="preview-stat">
+            <div class="big-num" id="previewTimeSaved">--</div>
+            <div class="stat-desc">Hours saved / month</div>
+          </div>
+          <div class="preview-stat">
+            <div class="big-num" id="previewMoneySaved">--</div>
+            <div class="stat-desc">Saved / month</div>
+          </div>
+        </div>
+        <div class="preview-row blurred-preview" id="blurredPreview">
+          <div class="preview-stat">
+            <div class="big-num">$XX,XXX</div>
+            <div class="stat-desc">Saved / year</div>
+          </div>
+          <div class="preview-stat">
+            <div class="big-num">X,XXX%</div>
+            <div class="stat-desc">ROI vs AI agent cost</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Gate -->
+      <div class="email-gate" id="emailGate">
+        <h3>Your full results are ready 🔥</h3>
+        <p>Drop your email to unlock the full breakdown (yearly savings, ROI, before/after comparison).</p>
+        <div class="email-row">
+          <input type="email" id="emailInput" placeholder="you@company.com">
+          <button class="email-submit" onclick="unlockResults()">Show results</button>
+        </div>
+        <button class="skip-link" onclick="unlockResults()">Skip, just show me</button>
+      </div>
+
+      <!-- Full Results -->
+      <div class="results-section" id="resultsSection">
+        <div class="results-header">
+          <h2>Your AI agent saves you...</h2>
+        </div>
+
+        <!-- ROI highlight -->
+        <div class="roi-highlight">
+          <div class="roi-number" id="roiPercent">--</div>
+          <div class="roi-label">return on investment vs $100/mo AI agent</div>
+          <div class="roi-sub" id="roiSubtext"></div>
+        </div>
+
+        <!-- Before / After -->
+        <div class="ba-grid">
+          <div class="ba-box before">
+            <h3>✗ Without AI agent</h3>
+            <div class="ba-line">
+              <span class="ba-label">Weekly manual hours</span>
+              <span class="ba-val" id="bHoursWeek">--</span>
+            </div>
+            <div class="ba-line">
+              <span class="ba-label">Monthly manual hours</span>
+              <span class="ba-val" id="bHoursMonth">--</span>
+            </div>
+            <div class="ba-line">
+              <span class="ba-label">Tasks done manually</span>
+              <span class="ba-val" id="bTasks">--</span>
+            </div>
+            <div class="ba-line">
+              <span class="ba-label">Monthly cost of your time</span>
+              <span class="ba-val" id="bCostMonth">--</span>
+            </div>
+            <div class="ba-line">
+              <span class="ba-label">Yearly cost of your time</span>
+              <span class="ba-val" id="bCostYear">--</span>
+            </div>
+          </div>
+          <div class="ba-box after">
+            <h3>✓ With AI agent</h3>
+            <div class="ba-line">
+              <span class="ba-label">Weekly manual hours</span>
+              <span class="ba-val" id="aHoursWeek">--</span>
+            </div>
+            <div class="ba-line">
+              <span class="ba-label">Monthly manual hours</span>
+              <span class="ba-val" id="aHoursMonth">--</span>
+            </div>
+            <div class="ba-line">
+              <span class="ba-label">Tasks automated</span>
+              <span class="ba-val" id="aTasks">--</span>
+            </div>
+            <div class="ba-line">
+              <span class="ba-label">Monthly AI agent cost</span>
+              <span class="ba-val" id="aAgentCost">$100</span>
+            </div>
+            <div class="ba-line">
+              <span class="ba-label">Net monthly savings</span>
+              <span class="ba-val" id="aNetMonth">--</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="result-stats">
+          <div class="result-stat">
+            <div class="rs-num" id="rTimeSavedYear">--</div>
+            <div class="rs-label">Hours saved / year</div>
+          </div>
+          <div class="result-stat">
+            <div class="rs-num" id="rMoneySavedYear">--</div>
+            <div class="rs-label">Net savings / year</div>
+          </div>
+          <div class="result-stat">
+            <div class="rs-num" id="rTasksAuto">--</div>
+            <div class="rs-label">Tasks automated / year</div>
+          </div>
+        </div>
+
+        <!-- Terminal -->
+        <div class="result-terminal">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <div class="terminal-dot r"></div>
+              <div class="terminal-dot y"></div>
+              <div class="terminal-dot g"></div>
+              <span class="terminal-title">roi-calculator ~ results</span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">agent roi --calculate</span></div>
+              <div class="terminal-line"><span class="dim" id="termLine1">▸ Analyzing your workload...</span></div>
+              <div class="terminal-line"><span class="dim" id="termLine2">▸ Time recovered: --</span></div>
+              <div class="terminal-line"><span class="dim" id="termLine3">▸ Money saved: --</span></div>
+              <div class="terminal-line"><span class="success" id="termLine4">✓ ROI: -- (vs $100/mo agent cost)</span></div>
+              <div class="terminal-line"><span class="success" id="termLine5">✓ Verdict: --</span><span class="terminal-cursor"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="results-cta">
+          <h3>Ready to build your AI agent?</h3>
+          <p>Join AI Operators. Learn the exact system to build agents that do this work for you. No coding needed.</p>
+          <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn btn-primary">
+            Join AI Operators (free) <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <span class="indicator"></span>
+            AI Operators
+          </a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi/openclaw-consulting" target="_blank">Johann Sathianathen</a>, <a href="https://johann.fyi/openclaw-consulting" target="_blank">OpenClaw consultant</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Network</h5>
+          <a href="https://jarsolutions.com" target="_blank">JARS Solutions</a>
+          <a href="https://jars.global" target="_blank">JARS Global</a>
+          <a href="https://johann.fyi" target="_blank">Johann.fyi</a>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+          <a href="/learn/ai-automation-business">AI Business Automation</a>
+        </div>
+        <div class="footer-col">
+          <h5>Tools</h5>
+          <a href="/tools/roi-calculator">ROI Calculator</a>
+          <a href="/tools/ai-readiness-quiz">AI Readiness Quiz</a>
+        </div>
+        <div class="footer-col">
+          <h5>More</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/faq">FAQ</a>
+          <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">Join Community</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Slider displays
+    const hoursSlider = document.getElementById('hoursSlider');
+    const hoursDisplay = document.getElementById('hoursDisplay');
+    const tasksSlider = document.getElementById('tasksSlider');
+    const tasksDisplay = document.getElementById('tasksDisplay');
+
+    hoursSlider.addEventListener('input', () => {
+      hoursDisplay.textContent = hoursSlider.value + 'h';
+    });
+    tasksSlider.addEventListener('input', () => {
+      tasksDisplay.textContent = tasksSlider.value;
+    });
+
+    // Stored calculation results
+    let calcResults = {};
+
+    function calculate() {
+      const hours = parseInt(hoursSlider.value);
+      const rate = parseFloat(document.getElementById('rateInput').value);
+      const tasks = parseInt(tasksSlider.value);
+
+      if (!rate || rate <= 0) {
+        document.getElementById('rateInput').focus();
+        document.getElementById('rateInput').style.borderColor = '#ff5f57';
+        setTimeout(() => {
+          document.getElementById('rateInput').style.borderColor = '#1a1a1a';
+        }, 2000);
+        return;
+      }
+
+      // AI agents typically automate 70-80% of repetitive work
+      const automationRate = 0.75;
+      const agentCost = 100; // per month
+
+      const hoursSavedWeek = Math.round(hours * automationRate);
+      const hoursSavedMonth = Math.round(hoursSavedWeek * 4.33);
+      const hoursSavedYear = Math.round(hoursSavedWeek * 52);
+
+      const costBefore = Math.round(hours * rate * 4.33);
+      const costBeforeYear = Math.round(hours * rate * 52);
+
+      const moneySavedMonth = Math.round(hoursSavedMonth * rate);
+      const netSavingsMonth = moneySavedMonth - agentCost;
+      const netSavingsYear = Math.round(netSavingsMonth * 12);
+
+      const tasksAutomated = Math.round(tasks * automationRate);
+      const tasksAutoYear = tasksAutomated * 52;
+
+      const roi = Math.round((netSavingsYear / (agentCost * 12)) * 100);
+
+      calcResults = {
+        hours, rate, tasks,
+        hoursSavedWeek, hoursSavedMonth, hoursSavedYear,
+        costBefore, costBeforeYear,
+        moneySavedMonth, netSavingsMonth, netSavingsYear,
+        tasksAutomated, tasksAutoYear,
+        roi, agentCost
+      };
+
+      // Show preview
+      document.getElementById('previewTimeSaved').textContent = hoursSavedMonth + 'h';
+      document.getElementById('previewMoneySaved').textContent = '$' + moneySavedMonth.toLocaleString();
+      document.getElementById('previewStats').classList.add('active');
+
+      // Show email gate
+      document.getElementById('emailGate').classList.add('active');
+
+      // Scroll to preview
+      document.getElementById('previewStats').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function unlockResults() {
+      const email = document.getElementById('emailInput').value;
+      const r = calcResults;
+
+      // If they entered an email, open mailto (lightweight capture)
+      if (email && email.includes('@')) {
+        const subject = encodeURIComponent('AI Agent ROI Calculator - New Lead');
+        const body = encodeURIComponent(
+          'New ROI calculator submission:\n\n' +
+          'Email: ' + email + '\n' +
+          'Hours/week on manual tasks: ' + r.hours + '\n' +
+          'Hourly rate: $' + r.rate + '\n' +
+          'Tasks/week: ' + r.tasks + '\n' +
+          'Estimated monthly savings: $' + r.moneySavedMonth.toLocaleString() + '\n' +
+          'Estimated yearly savings: $' + r.netSavingsYear.toLocaleString() + '\n' +
+          'ROI: ' + r.roi + '%'
+        );
+        // Fire and forget (hidden iframe to avoid navigating away)
+        const a = document.createElement('a');
+        a.href = 'mailto:johann@jarsglobal.com?subject=' + subject + '&body=' + body;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        // Don't actually open mailto - just store for now
+      }
+
+      // Hide gate and blur
+      document.getElementById('emailGate').style.display = 'none';
+      document.getElementById('blurredPreview').classList.remove('blurred-preview');
+
+      // Update blurred preview with real numbers
+      document.getElementById('blurredPreview').innerHTML =
+        '<div class="preview-stat"><div class="big-num">$' + r.netSavingsYear.toLocaleString() + '</div><div class="stat-desc">Net savings / year</div></div>' +
+        '<div class="preview-stat"><div class="big-num">' + r.roi.toLocaleString() + '%</div><div class="stat-desc">ROI vs AI agent cost</div></div>';
+
+      // Populate full results
+      document.getElementById('roiPercent').textContent = r.roi.toLocaleString() + '%';
+      document.getElementById('roiSubtext').textContent =
+        'Every $1 spent on AI agents returns $' + Math.round(r.roi / 100) + ' in saved time';
+
+      // Before
+      document.getElementById('bHoursWeek').textContent = r.hours + 'h';
+      document.getElementById('bHoursMonth').textContent = Math.round(r.hours * 4.33) + 'h';
+      document.getElementById('bTasks').textContent = r.tasks + '/week';
+      document.getElementById('bCostMonth').textContent = '$' + r.costBefore.toLocaleString();
+      document.getElementById('bCostYear').textContent = '$' + r.costBeforeYear.toLocaleString();
+
+      // After
+      document.getElementById('aHoursWeek').textContent = (r.hours - r.hoursSavedWeek) + 'h';
+      document.getElementById('aHoursMonth').textContent = Math.round((r.hours - r.hoursSavedWeek) * 4.33) + 'h';
+      document.getElementById('aTasks').textContent = r.tasksAutomated + '/week';
+      document.getElementById('aAgentCost').textContent = '$' + r.agentCost;
+      document.getElementById('aNetMonth').textContent = '$' + r.netSavingsMonth.toLocaleString();
+
+      // Stats
+      document.getElementById('rTimeSavedYear').textContent = r.hoursSavedYear.toLocaleString() + 'h';
+      document.getElementById('rMoneySavedYear').textContent = '$' + r.netSavingsYear.toLocaleString();
+      document.getElementById('rTasksAuto').textContent = r.tasksAutoYear.toLocaleString();
+
+      // Terminal
+      document.getElementById('termLine1').textContent = '▸ Analyzing ' + r.hours + 'h/week across ' + r.tasks + ' tasks...';
+      document.getElementById('termLine2').textContent = '▸ Time recovered: ' + r.hoursSavedYear.toLocaleString() + ' hours/year';
+      document.getElementById('termLine3').textContent = '▸ Money saved: $' + r.netSavingsYear.toLocaleString() + '/year (net of $' + r.agentCost + '/mo agent cost)';
+      document.getElementById('termLine4').textContent = '✓ ROI: ' + r.roi.toLocaleString() + '% return on AI investment';
+
+      let verdict = 'This is a no-brainer. Build the agent.';
+      if (r.roi > 5000) verdict = 'You\'re literally burning money not doing this.';
+      else if (r.roi > 2000) verdict = 'Massive ROI. Start building today.';
+      else if (r.roi > 500) verdict = 'Strong returns. Definitely worth it.';
+      else if (r.roi > 100) verdict = 'Solid ROI. You should automate this.';
+      document.getElementById('termLine5').innerHTML = '✓ Verdict: ' + verdict + '<span class="terminal-cursor"></span>';
+
+      // Show results
+      document.getElementById('resultsSection').classList.add('active');
+
+      // Scroll to results
+      setTimeout(() => {
+        document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  </script>
+</body>
+</html>

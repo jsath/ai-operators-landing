@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous AI Agent Setup: Build Agents That Work 24/7</title>
+  <meta name="description" content="Complete guide to setting up autonomous AI agents. Build agents that run 24/7, make decisions, and take action without constant supervision.">
+  <link rel="canonical" href="https://aioperator.sh/learn/autonomous-ai-agent-setup">
+
+  <meta property="og:title" content="Autonomous AI Agent Setup Guide">
+  <meta property="og:description" content="Build AI agents that work independently 24/7.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aioperator.sh/learn/autonomous-ai-agent-setup">
+  <meta property="og:site_name" content="AI Operators">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Autonomous AI Agent Setup">
+  <meta name="twitter:description" content="Build AI agents that run 24/7.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Set Up an Autonomous AI Agent",
+    "description": "Guide to building autonomous AI agents",
+    "step": [
+      {"@type": "HowToStep", "name": "Set up Claude Code", "text": "Install and configure Claude Code"},
+      {"@type": "HowToStep", "name": "Install OpenClaw", "text": "Add the agent framework"},
+      {"@type": "HowToStep", "name": "Define agent tasks", "text": "Create the agent's responsibilities"},
+      {"@type": "HowToStep", "name": "Configure autonomy level", "text": "Set what actions require approval"},
+      {"@type": "HowToStep", "name": "Deploy and monitor", "text": "Launch your agent and track performance"}
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo"><span class="indicator"></span>AI Operators</a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/compare/ai-agents-vs-chatgpt" class="nav-link">Compare</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/learn/build-ai-agents" itemprop="item"><span itemprop="name">Learn</span></a>
+          <meta itemprop="position" content="2">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span class="current" itemprop="name">Autonomous AI Agent Setup</span>
+          <meta itemprop="position" content="3">
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="container-narrow">
+      <div class="label">Advanced Guide</div>
+      <h1>Autonomous AI Agent<br><em>Setup Guide</span></h1>
+      <p class="subtitle">Build AI agents that run 24/7. They monitor, decide, and act without waiting for your instructions. This is the next level.</p>
+    </div>
+  </section>
+
+  <section class="article-body">
+    <div class="container-narrow">
+
+      <p>Most AI tools wait for you to ask. You type. They respond. You're the driver.</p>
+
+      <p>Autonomous agents flip this. They run in the background. Check things. Make decisions. Take action. You're not the driver. You're the manager.</p>
+
+      <p>This guide shows you how to build them.</p>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Always running</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Babysitting needed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Tasks automated</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">~2h</div>
+          <div class="stat-label">Setup time</div>
+        </div>
+      </div>
+
+      <h2>What Makes an Agent "Autonomous"?</h2>
+
+      <p>An autonomous agent has three properties:</p>
+
+      <ol>
+        <li><strong>Persistence</strong> — It stays running. Not just when you call it.</li>
+        <li><strong>Perception</strong> — It monitors things. Email, calendars, files, APIs, whatever you configure.</li>
+        <li><strong>Action</strong> — It does things without asking first. Within boundaries you set.</li>
+      </ol>
+
+      <p>A chatbot waits for input. An autonomous agent takes initiative.</p>
+
+      <h2>The Tech Stack</h2>
+
+      <p>To build an autonomous agent, you need:</p>
+
+      <ul>
+        <li><strong>Claude Code</strong> — The AI engine that understands and acts</li>
+        <li><strong>OpenClaw</strong> — The framework that makes it persistent</li>
+        <li><strong>A server</strong> — Somewhere for the agent to run (your computer, a VPS, or cloud)</li>
+        <li><strong>Integrations</strong> — APIs and tools the agent can access</li>
+      </ul>
+
+      <p>If you haven't set up Claude Code and OpenClaw yet, start with these guides first:</p>
+
+      <ul>
+        <li><a href="/learn/claude-code-setup">Claude Code Setup Guide</a></li>
+        <li><a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a></li>
+      </ul>
+
+      <h2>Step 1: Define the Agent's Purpose</h2>
+
+      <p>Before building anything, get clear on what this agent should do. Be specific.</p>
+
+      <p>Bad: "Help me with emails"</p>
+      <p>Good: "Monitor my Gmail for client emails (from domains in my client list). Extract any tasks or deadlines mentioned. Add them to my todo list. Send me a morning summary at 7am."</p>
+
+      <p>The more specific, the better it works.</p>
+
+      <h3>Example Agent Purposes</h3>
+
+      <ul>
+        <li><strong>Morning Briefing Agent</strong> — Checks email, calendar, weather, news. Sends you a summary each morning.</li>
+        <li><strong>Lead Response Agent</strong> — Monitors new leads. Sends personalized follow-ups. Schedules calls.</li>
+        <li><strong>Code Monitor Agent</strong> — Watches GitHub repos. Alerts on issues. Auto-merges safe PRs.</li>
+        <li><strong>Customer Support Agent</strong> — Answers common questions. Escalates complex issues to you.</li>
+        <li><strong>Research Agent</strong> — Monitors industry news. Summarizes relevant articles. Tracks competitors.</li>
+      </ul>
+
+      <h2>Step 2: Set Up the Agent File</h2>
+
+      <p>OpenClaw uses a YAML file to define your agent. Create <code>agent.yaml</code>:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">agent.yaml</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="dim">name: morning-briefing</span></div>
+          <div class="terminal-line"><span class="dim">description: Daily morning briefing agent</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">schedule:</span></div>
+          <div class="terminal-line"><span class="dim">  - cron: "0 7 * * *"  # 7am daily</span></div>
+          <div class="terminal-line"><span class="dim">    task: morning_briefing</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">tasks:</span></div>
+          <div class="terminal-line"><span class="dim">  morning_briefing:</span></div>
+          <div class="terminal-line"><span class="dim">    prompt: |</span></div>
+          <div class="terminal-line"><span class="dim">      Check my email for unread messages.</span></div>
+          <div class="terminal-line"><span class="dim">      Check my calendar for today's events.</span></div>
+          <div class="terminal-line"><span class="dim">      Check weather for my location.</span></div>
+          <div class="terminal-line"><span class="dim">      Compile into a morning briefing.</span></div>
+          <div class="terminal-line"><span class="dim">      Send to my Telegram.</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">integrations:</span></div>
+          <div class="terminal-line"><span class="dim">  - gmail</span></div>
+          <div class="terminal-line"><span class="dim">  - google_calendar</span></div>
+          <div class="terminal-line"><span class="dim">  - weather_api</span></div>
+          <div class="terminal-line"><span class="dim">  - telegram</span></div>
+        </div>
+      </div>
+
+      <p>This defines what the agent does, when it runs, and what tools it can use.</p>
+
+      <h2>Step 3: Configure Integrations</h2>
+
+      <p>Your agent needs access to services. Each integration requires credentials.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">.env</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="dim"># Gmail API</span></div>
+          <div class="terminal-line"><span class="dim">GMAIL_CLIENT_ID=your_client_id</span></div>
+          <div class="terminal-line"><span class="dim">GMAIL_CLIENT_SECRET=your_client_secret</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim"># Google Calendar</span></div>
+          <div class="terminal-line"><span class="dim">GCAL_CREDENTIALS_PATH=./credentials.json</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim"># Telegram</span></div>
+          <div class="terminal-line"><span class="dim">TELEGRAM_BOT_TOKEN=your_bot_token</span></div>
+          <div class="terminal-line"><span class="dim">TELEGRAM_CHAT_ID=your_chat_id</span></div>
+        </div>
+      </div>
+
+      <h2>Step 4: Set Autonomy Boundaries</h2>
+
+      <p>This is crucial. What can the agent do without asking you first?</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">agent.yaml — permissions</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="dim">permissions:</span></div>
+          <div class="terminal-line"><span class="dim">  # Can do without asking</span></div>
+          <div class="terminal-line"><span class="dim">  auto_approve:</span></div>
+          <div class="terminal-line"><span class="dim">    - read_email</span></div>
+          <div class="terminal-line"><span class="dim">    - read_calendar</span></div>
+          <div class="terminal-line"><span class="dim">    - send_notification</span></div>
+          <div class="terminal-line"><span class="dim">    - update_todo_list</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">  # Must ask first</span></div>
+          <div class="terminal-line"><span class="dim">  require_approval:</span></div>
+          <div class="terminal-line"><span class="dim">    - send_email</span></div>
+          <div class="terminal-line"><span class="dim">    - schedule_meeting</span></div>
+          <div class="terminal-line"><span class="dim">    - make_purchase</span></div>
+          <div class="terminal-line"><span class="dim">    - delete_anything</span></div>
+        </div>
+      </div>
+
+      <p>Start conservative. You can grant more autonomy as you build trust.</p>
+
+      <h2>Step 5: Deploy the Agent</h2>
+
+      <p>Your agent needs to run somewhere. Options:</p>
+
+      <h3>Option A: Your Computer</h3>
+      <p>Simplest. Just keep your computer running. Use <code>screen</code> or <code>tmux</code> to keep the agent alive.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">screen -S agent</span></div>
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">openclaw run agent.yaml</span></div>
+          <div class="terminal-line"><span class="success">▸ Agent started: morning-briefing</span></div>
+          <div class="terminal-line"><span class="dim">▸ Next scheduled run: 7:00 AM</span></div>
+        </div>
+      </div>
+
+      <p>Ctrl+A then D to detach. The agent keeps running.</p>
+
+      <h3>Option B: VPS (Recommended)</h3>
+      <p>A $5/month VPS (DigitalOcean, Vultr, etc.) runs 24/7 without depending on your computer.</p>
+
+      <h3>Option C: Cloud Functions</h3>
+      <p>For simple scheduled tasks, AWS Lambda or similar can work. More complex for agents that need state.</p>
+
+      <h2>Step 6: Monitor and Iterate</h2>
+
+      <p>Your agent will make mistakes. That's normal. Set up monitoring:</p>
+
+      <ul>
+        <li><strong>Logging</strong> — Record what the agent does and why</li>
+        <li><strong>Alerts</strong> — Get notified when the agent hits errors</li>
+        <li><strong>Review</strong> — Check logs weekly to spot issues</li>
+      </ul>
+
+      <p>Adjust the agent's instructions based on what you learn. Each iteration makes it smarter.</p>
+
+      <h2>Example: My Morning Briefing Agent</h2>
+
+      <p>Here's what my agent (Jars) does every morning at 7am:</p>
+
+      <ol>
+        <li>Checks email for anything from clients or urgent keywords</li>
+        <li>Summarizes today's calendar events</li>
+        <li>Checks weather and alerts if rain/extreme temps</li>
+        <li>Pulls key metrics from my business dashboards</li>
+        <li>Checks for any GitHub notifications</li>
+        <li>Compiles everything into a 2-minute briefing</li>
+        <li>Sends to my Telegram</li>
+      </ol>
+
+      <p>I wake up, read the briefing, and know exactly what needs attention. No inbox scrolling. No context switching. Just clarity.</p>
+
+      <h2>What's Next</h2>
+
+      <p>Once you have one agent running, you'll want more. Ideas:</p>
+
+      <ul>
+        <li><strong>Lead follow-up agent</strong> — Responds to new inquiries automatically</li>
+        <li><strong>Content repurposing agent</strong> — Turns blog posts into tweets, threads, newsletters</li>
+        <li><strong>Customer support agent</strong> — Handles tier-1 support questions</li>
+        <li><strong>Research agent</strong> — Monitors topics and sends weekly digests</li>
+      </ul>
+
+      <div class="related-grid">
+        <a href="/learn/personal-ai-assistant-guide" class="related-card">
+          <div class="related-tag">Guide</div>
+          <h4>Personal AI Assistant Guide</h4>
+          <p>Build your own Jarvis-style AI assistant.</p>
+        </a>
+        <a href="/learn/ai-employee-setup" class="related-card">
+          <div class="related-tag">Setup</div>
+          <h4>AI Employee Setup</h4>
+          <p>Give your agent real work responsibilities.</p>
+        </a>
+        <a href="/learn/build-ai-agents" class="related-card">
+          <div class="related-tag">Start Here</div>
+          <h4>Build AI Agents</h4>
+          <p>Complete guide from zero to working agent.</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+      <h2>Ready to build agents that<br><em>work while you sleep?</span></h2>
+      <p class="subtitle">Join AI Operators for templates, configs, and help getting your first agent running.</p>
+      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn btn-primary">
+        Join AI Operators Free <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="indicator"></span>AI Operators</a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi/openclaw-consulting" target="_blank">Johann Sathianathen</a>, <a href="https://johann.fyi/openclaw-consulting" target="_blank">OpenClaw consultant</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Network</h5>
+          <a href="https://jarsolutions.com" target="_blank">JARS Solutions</a>
+          <a href="https://jars.global" target="_blank">JARS Global</a>
+          <a href="https://johann.fyi" target="_blank">Johann.fyi</a>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/autonomous-ai-agent-setup">Autonomous Agent Setup</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+        </div>
+        <div class="footer-col">
+          <h5>Compare</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/compare/claude-code-vs-cursor">Claude Code vs Cursor</a>
+          <a href="/compare/claude-code-vs-github-copilot">Claude Code vs Copilot</a>
+        </div>
+        <div class="footer-col">
+          <h5>For You</h5>
+          <a href="/for/saas-founders">SaaS Founders</a>
+          <a href="/for/agency-owners">Agency Owners</a>
+          <a href="/for/freelancers">Freelancers</a>
+          <a href="/for/creators">Content Creators</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+    <!-- Related Articles -->
+    <section style="margin-top:3rem;padding-top:2rem;border-top:1px solid #e5e7eb;">
+      <h2 style="font-size:1.5rem;margin-bottom:1rem;">Keep Reading</h2>
+      <ul style="list-style:none;padding:0;">
+        <li><a href="/learn/build-ai-agents">How to Build AI Agents (No Code)</a></li>
+        <li><a href="/learn/ai-agent-morning-routine">5 Things My AI Agent Does Every Morning Before I Wake Up</a></li>
+        <li><a href="/learn/claude-code-setup">Claude Code Setup Guide</a></li>
+      </ul>
+    </section>
+    </body>
+</html>

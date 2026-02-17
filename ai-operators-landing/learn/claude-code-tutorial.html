@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code Tutorial: Complete Beginner's Guide (2025)</title>
+  <meta name="description" content="Learn Claude Code from scratch with this hands-on tutorial. Build your first AI agent, automate tasks, and write code using natural language. No coding experience needed.">
+  <link rel="canonical" href="https://aioperator.sh/learn/claude-code-tutorial">
+
+  <meta property="og:title" content="Claude Code Tutorial: Complete Beginner's Guide">
+  <meta property="og:description" content="Master Claude Code with step-by-step examples. Build AI agents that write code for you.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aioperator.sh/learn/claude-code-tutorial">
+  <meta property="og:site_name" content="AI Operators">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code Tutorial for Beginners">
+  <meta name="twitter:description" content="Build AI agents with Claude Code. Step-by-step tutorial.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Claude Code Tutorial: Complete Beginner's Guide",
+    "description": "Learn Claude Code from scratch with hands-on examples",
+    "author": {"@type": "Person", "name": "Johann Sathianathen"},
+    "datePublished": "2025-01-15",
+    "dateModified": "2025-02-01"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo"><span class="indicator"></span>AI Operators</a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/compare/ai-agents-vs-chatgpt" class="nav-link">Compare</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/learn/build-ai-agents" itemprop="item"><span itemprop="name">Learn</span></a>
+          <meta itemprop="position" content="2">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span class="current" itemprop="name">Claude Code Tutorial</span>
+          <meta itemprop="position" content="3">
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="container-narrow">
+      <div class="label">Tutorial</div>
+      <h1>Claude Code Tutorial:<br><em>Complete Beginner's Guide</span></h1>
+      <p class="subtitle">Master Anthropic's AI coding agent with hands-on examples. This tutorial takes you from zero to building real automations. No coding background required.</p>
+    </div>
+  </section>
+
+  <section class="article-body">
+    <div class="container-narrow">
+
+      <p>Claude Code changed how I build software. Instead of writing code line by line, I describe what I want in plain English. The AI handles everything else.</p>
+
+      <p>This tutorial covers everything you need to know. We'll go from basic setup to building real automations you can use today. By the end, you'll understand why so many developers are switching to this workflow.</p>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-number">30min</div>
+          <div class="stat-label">Tutorial time</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Projects you'll build</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Code you write</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Possibilities</div>
+        </div>
+      </div>
+
+      <h2>What is Claude Code?</h2>
+
+      <p>Claude Code is Anthropic's AI coding assistant that runs in your terminal. Unlike chat-based AI tools, it can actually do things on your computer:</p>
+
+      <ul>
+        <li>Read and write files</li>
+        <li>Run terminal commands</li>
+        <li>Understand entire projects</li>
+        <li>Build complete applications</li>
+        <li>Debug and fix problems</li>
+      </ul>
+
+      <p>Think of it as having a senior developer available 24/7. You describe what you want. It builds it. No syntax to memorize. No debugging for hours.</p>
+
+      <h2>Prerequisites</h2>
+
+      <p>Before we start, make sure you have:</p>
+
+      <ol>
+        <li><strong>Node.js installed</strong> — Download from nodejs.org</li>
+        <li><strong>Anthropic account</strong> — Sign up at console.anthropic.com</li>
+        <li><strong>Basic terminal knowledge</strong> — Know how to open terminal and navigate folders</li>
+      </ol>
+
+      <p>Need help with setup? Check out our <a href="/learn/claude-code-setup">Claude Code Setup Guide</a> first.</p>
+
+      <h2>Tutorial 1: Your First Script</h2>
+
+      <p>Let's start simple. We'll build a script that organizes files in a folder by type.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — file organizer</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">claude> </span><span class="cmd">Create a Python script that organizes files in a folder. Move images to /images, documents to /docs, and videos to /videos. Make it work on any folder I specify.</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">▸ I'll create a file organizer script.</span></div>
+          <div class="terminal-line"><span class="dim">▸ Creating organize_files.py...</span></div>
+          <div class="terminal-line"><span class="success">✓ Created organize_files.py</span></div>
+        </div>
+      </div>
+
+      <p>That's it. One sentence. Claude Code creates a working script. You can run it immediately:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — run script</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">python organize_files.py ~/Downloads</span></div>
+          <div class="terminal-line"><span class="success">✓ Moved 12 images to /images</span></div>
+          <div class="terminal-line"><span class="success">✓ Moved 8 documents to /docs</span></div>
+          <div class="terminal-line"><span class="success">✓ Moved 3 videos to /videos</span></div>
+        </div>
+      </div>
+
+      <h2>Tutorial 2: Web Scraper</h2>
+
+      <p>Now something more practical. Let's build a tool that scrapes data from a website.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — web scraper</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">claude> </span><span class="cmd">Build a web scraper that extracts all headlines from a news website. Take the URL as input. Save results to a CSV file with the headline and link.</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">▸ Creating news_scraper.py...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding BeautifulSoup for parsing...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding CSV export functionality...</span></div>
+          <div class="terminal-line"><span class="success">✓ Created news_scraper.py</span></div>
+        </div>
+      </div>
+
+      <p>Notice how Claude Code picks the right libraries automatically. You didn't need to know that BeautifulSoup exists. It just works.</p>
+
+      <h2>Tutorial 3: API Integration</h2>
+
+      <p>Let's connect to an external service. We'll build a weather notification tool.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — weather api</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">claude> </span><span class="cmd">Create a script that checks the weather for my location using wttr.in API (free, no key needed). If it's going to rain in the next 6 hours, send me a notification.</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">▸ Creating weather_alert.py...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding wttr.in API integration...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding system notification support...</span></div>
+          <div class="terminal-line"><span class="success">✓ Created weather_alert.py</span></div>
+        </div>
+      </div>
+
+      <h2>Tutorial 4: Database Project</h2>
+
+      <p>Time for something bigger. Let's build a contact management system.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — contact manager</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">claude> </span><span class="cmd">Build a command-line contact manager. Store contacts in SQLite. Support add, search, update, and delete. Include name, email, phone, and notes fields. Make the interface user-friendly.</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">▸ Creating contact_manager.py...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Setting up SQLite database...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding CRUD operations...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding search functionality...</span></div>
+          <div class="terminal-line"><span class="success">✓ Created contact_manager.py</span></div>
+          <div class="terminal-line"><span class="success">✓ Created contacts.db</span></div>
+        </div>
+      </div>
+
+      <p>Claude Code just built a complete database application. With a nice interface. In seconds.</p>
+
+      <h2>Tutorial 5: Automation Pipeline</h2>
+
+      <p>Now the real power. Let's chain multiple tasks together.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — email pipeline</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">claude> </span><span class="cmd">Build an automation that: 1) Checks my Gmail for emails from clients (domains I specify in a config file), 2) Extracts any tasks or action items mentioned, 3) Adds them to a local todo.json file, 4) Sends me a daily summary at 9am</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">▸ Creating email_pipeline/...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding Gmail API integration...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding task extraction logic...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding scheduler for daily summary...</span></div>
+          <div class="terminal-line"><span class="success">✓ Created 4 files in email_pipeline/</span></div>
+        </div>
+      </div>
+
+      <p>This is the kind of automation that would take a developer hours to build. You described it in one message.</p>
+
+      <h2>Key Techniques</h2>
+
+      <h3>1. Be specific about inputs and outputs</h3>
+      <p>Tell Claude Code exactly what goes in and what should come out. "Take a URL as input, output a JSON file with the data."</p>
+
+      <h3>2. Describe the user experience</h3>
+      <p>Say "make it user-friendly" or "add helpful error messages." Claude Code will build a better interface.</p>
+
+      <h3>3. Iterate in conversation</h3>
+      <p>Built something close but not perfect? Just say "Add a feature that..." or "Change the output format to..." Claude Code remembers context.</p>
+
+      <h3>4. Reference existing files</h3>
+      <p>Say "Update config.json to add..." or "Modify the script we just created to..." Claude Code understands your project structure.</p>
+
+      <h2>Common Mistakes to Avoid</h2>
+
+      <ul>
+        <li><strong>Being too vague</strong> — "Build me something cool" won't work. Be specific.</li>
+        <li><strong>Ignoring errors</strong> — If something fails, paste the error back. Claude Code will fix it.</li>
+        <li><strong>Not using /compact</strong> — Long conversations get slow. Use /compact to summarize.</li>
+        <li><strong>Forgetting context</strong> — Remind Claude Code about your project if starting a new session.</li>
+      </ul>
+
+      <h2>From Tutorial to AI Agent</h2>
+
+      <p>Everything you've learned here is foundation. The real magic happens when you combine Claude Code with <a href="/learn/openclaw-tutorial">OpenClaw</a> to create persistent AI agents.</p>
+
+      <p>An agent doesn't just run when you tell it to. It runs in the background. Checks things. Makes decisions. Takes action. That's where the real value is.</p>
+
+      <div class="related-grid">
+        <a href="/learn/claude-code-examples" class="related-card">
+          <div class="related-tag">Examples</div>
+          <h4>Claude Code Examples</h4>
+          <p>20+ ready-to-use prompts and project templates.</p>
+        </a>
+        <a href="/learn/openclaw-tutorial" class="related-card">
+          <div class="related-tag">Next Step</div>
+          <h4>OpenClaw Tutorial</h4>
+          <p>Turn Claude Code into a persistent AI agent.</p>
+        </a>
+        <a href="/learn/autonomous-ai-agent-setup" class="related-card">
+          <div class="related-tag">Advanced</div>
+          <h4>Autonomous AI Agent Setup</h4>
+          <p>Build agents that work independently 24/7.</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+      <h2>Ready to build<br><em>real AI agents?</span></h2>
+      <p class="subtitle">Join AI Operators for templates, configs, and a community of builders using Claude Code daily.</p>
+      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn btn-primary">
+        Join AI Operators Free <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="indicator"></span>AI Operators</a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi/openclaw-consulting" target="_blank">Johann Sathianathen</a>, <a href="https://johann.fyi/openclaw-consulting" target="_blank">OpenClaw consultant</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Network</h5>
+          <a href="https://jarsolutions.com" target="_blank">JARS Solutions</a>
+          <a href="https://jars.global" target="_blank">JARS Global</a>
+          <a href="https://johann.fyi" target="_blank">Johann.fyi</a>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/claude-code-tutorial">Claude Code Tutorial</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+          <a href="/learn/ai-automation-business">AI Business Automation</a>
+        </div>
+        <div class="footer-col">
+          <h5>Compare</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/compare/ai-agents-vs-hiring-va">AI Agents vs Hiring a VA</a>
+          <a href="/compare/claude-code-vs-cursor">Claude Code vs Cursor</a>
+          <a href="/compare/claude-code-vs-github-copilot">Claude Code vs Copilot</a>
+        </div>
+        <div class="footer-col">
+          <h5>For You</h5>
+          <a href="/for/saas-founders">SaaS Founders</a>
+          <a href="/for/agency-owners">Agency Owners</a>
+          <a href="/for/freelancers">Freelancers</a>
+          <a href="/for/creators">Content Creators</a>
+          <a href="/faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+    <!-- Related Articles -->
+    <section style="margin-top:3rem;padding-top:2rem;border-top:1px solid #e5e7eb;">
+      <h2 style="font-size:1.5rem;margin-bottom:1rem;">Keep Reading</h2>
+      <ul style="list-style:none;padding:0;">
+        <li><a href="/learn/claude-code-setup">Claude Code Setup Guide</a></li>
+        <li><a href="/learn/claude-code-examples">Claude Code Examples: 20+ Ready-to-Use Prompts & Projects</a></li>
+        <li><a href="/learn/best-ai-coding-assistant-2025">Best AI Coding Assistant in 2025: Complete Comparison Guide</a></li>
+      </ul>
+    </section>
+    </body>
+</html>

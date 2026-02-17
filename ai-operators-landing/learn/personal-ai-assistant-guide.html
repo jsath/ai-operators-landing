@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal AI Assistant Guide: Build Your Own Jarvis (2025)</title>
+  <meta name="description" content="Complete guide to building a personal AI assistant. Control your email, calendar, smart home, and more. Like Jarvis from Iron Man, but real.">
+  <link rel="canonical" href="https://aioperator.sh/learn/personal-ai-assistant-guide">
+
+  <meta property="og:title" content="Personal AI Assistant Guide: Build Your Own Jarvis">
+  <meta property="og:description" content="Build a personal AI assistant that manages your life.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aioperator.sh/learn/personal-ai-assistant-guide">
+  <meta property="og:site_name" content="AI Operators">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Personal AI Assistant Guide">
+  <meta name="twitter:description" content="Build your own Jarvis-style AI assistant.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Build a Personal AI Assistant",
+    "description": "Guide to creating your own AI assistant for daily life",
+    "step": [
+      {"@type": "HowToStep", "name": "Choose your platform", "text": "Set up Claude Code and OpenClaw"},
+      {"@type": "HowToStep", "name": "Define capabilities", "text": "Decide what your assistant should do"},
+      {"@type": "HowToStep", "name": "Connect services", "text": "Integrate email, calendar, and other tools"},
+      {"@type": "HowToStep", "name": "Set up communication", "text": "Configure how you'll interact with your assistant"},
+      {"@type": "HowToStep", "name": "Train and refine", "text": "Improve your assistant over time"}
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="glow-orb green"></div>
+  <div class="glow-orb green2"></div>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo"><span class="indicator"></span>AI Operators</a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/compare/ai-agents-vs-chatgpt" class="nav-link">Compare</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/learn/build-ai-agents" itemprop="item"><span itemprop="name">Learn</span></a>
+          <meta itemprop="position" content="2">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span class="current" itemprop="name">Personal AI Assistant Guide</span>
+          <meta itemprop="position" content="3">
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="container-narrow">
+      <div class="label">Guide</div>
+      <h1>Personal AI Assistant Guide:<br><em>Build Your Own Jarvis</span></h1>
+      <p class="subtitle">Siri and Alexa are toys. This guide shows you how to build a real AI assistant that actually runs your life.</p>
+    </div>
+  </section>
+
+  <section class="article-body">
+    <div class="container-narrow">
+
+      <p>I've been building personal AI assistants for three years. Started with basic automations. Now I have an AI that manages my email, schedules meetings, controls my smart home, tracks my projects, and gives me morning briefings.</p>
+
+      <p>This isn't science fiction. It's not even that hard anymore. The tools exist. You just need to put them together.</p>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-number">2h+</div>
+          <div class="stat-label">Saved daily</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Services connected</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Always available</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">$150</div>
+          <div class="stat-label">Monthly cost</div>
+        </div>
+      </div>
+
+      <h2>What a Real AI Assistant Does</h2>
+
+      <p>Forget what you think AI assistants do. Here's what mine actually handles:</p>
+
+      <h3>Morning Routine</h3>
+      <ul>
+        <li>Checks overnight emails, flags urgent ones</li>
+        <li>Summarizes today's calendar</li>
+        <li>Checks weather and suggests what to wear</li>
+        <li>Reviews my todo list and priorities</li>
+        <li>Sends me a 2-minute briefing via Telegram</li>
+      </ul>
+
+      <h3>Throughout the Day</h3>
+      <ul>
+        <li>Responds to routine emails (with my approval)</li>
+        <li>Schedules meetings when people email asking</li>
+        <li>Tracks tasks mentioned in messages and adds to my list</li>
+        <li>Monitors project dashboards and alerts on issues</li>
+        <li>Answers questions I ask via voice or text</li>
+      </ul>
+
+      <h3>Smart Home</h3>
+      <ul>
+        <li>Adjusts lights based on time and weather</li>
+        <li>Controls temperature when I'm away</li>
+        <li>Announces visitors from doorbell camera</li>
+        <li>Plays music based on mood and activity</li>
+      </ul>
+
+      <h3>Evening</h3>
+      <ul>
+        <li>Summarizes what I accomplished today</li>
+        <li>Prepares tomorrow's priority list</li>
+        <li>Sets alarms based on my first meeting</li>
+        <li>Dims lights and sets sleep mode</li>
+      </ul>
+
+      <h2>The Tech Stack</h2>
+
+      <p>Here's what powers my assistant:</p>
+
+      <ul>
+        <li><strong>Claude Code + OpenClaw</strong> — The brain. Understands requests and takes action.</li>
+        <li><strong>Telegram</strong> — Primary interface. I text my assistant like a person.</li>
+        <li><strong>Gmail + Google Calendar</strong> — Email and scheduling.</li>
+        <li><strong>Notion/Todoist</strong> — Task and project management.</li>
+        <li><strong>Home Assistant</strong> — Smart home control.</li>
+        <li><strong>Zapier/Make</strong> — Connects services without custom code.</li>
+      </ul>
+
+      <h2>Phase 1: Foundation</h2>
+
+      <p>Start simple. Get the core working before adding features.</p>
+
+      <h3>Step 1: Set Up Claude Code</h3>
+      <p>Follow the <a href="/learn/claude-code-setup">Claude Code Setup Guide</a>. Takes 15 minutes.</p>
+
+      <h3>Step 2: Add OpenClaw</h3>
+      <p>This makes Claude Code persistent. Follow the <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>.</p>
+
+      <h3>Step 3: Set Up Telegram Bot</h3>
+      <p>Create a Telegram bot via @BotFather. This is how you'll talk to your assistant. Text-based is easier than voice to start.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">claude> </span><span class="cmd">Set up a Telegram bot that forwards all messages to this agent and sends my responses back to Telegram</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">▸ Creating telegram_bot.py...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding message handler...</span></div>
+          <div class="terminal-line"><span class="success">✓ Telegram bot created</span></div>
+        </div>
+      </div>
+
+      <h3>Step 4: First Test</h3>
+      <p>Send your assistant a message. "What time is it?" or "Tell me a joke." Make sure the loop works.</p>
+
+      <h2>Phase 2: Core Capabilities</h2>
+
+      <h3>Email Integration</h3>
+      <p>Connect Gmail API. Give your assistant read access. Start with summaries only:</p>
+
+      <ul>
+        <li>"Summarize my unread emails"</li>
+        <li>"Any emails from [client name]?"</li>
+        <li>"What's urgent?"</li>
+      </ul>
+
+      <p>Don't let it send emails yet. Build trust first.</p>
+
+      <h3>Calendar Integration</h3>
+      <p>Connect Google Calendar. Start with read-only:</p>
+
+      <ul>
+        <li>"What's on my calendar today?"</li>
+        <li>"When is my next meeting?"</li>
+        <li>"Am I free Thursday at 2pm?"</li>
+      </ul>
+
+      <h3>Task Management</h3>
+      <p>Connect your todo app (Todoist, Things, Notion). Let the assistant add tasks:</p>
+
+      <ul>
+        <li>"Add 'call dentist' to my todo list"</li>
+        <li>"What's on my list for today?"</li>
+        <li>"Mark 'review proposal' as done"</li>
+      </ul>
+
+      <h2>Phase 3: Automation</h2>
+
+      <p>Now make it proactive.</p>
+
+      <h3>Morning Briefing</h3>
+      <p>Create a scheduled task for 7am:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">morning_briefing.yaml</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="dim">schedule: "0 7 * * *"</span></div>
+          <div class="terminal-line"><span class="dim">task: |</span></div>
+          <div class="terminal-line"><span class="dim">  1. Check email for urgent/client messages</span></div>
+          <div class="terminal-line"><span class="dim">  2. Get today's calendar events</span></div>
+          <div class="terminal-line"><span class="dim">  3. Check weather forecast</span></div>
+          <div class="terminal-line"><span class="dim">  4. Review priority todos</span></div>
+          <div class="terminal-line"><span class="dim">  5. Compile into brief summary</span></div>
+          <div class="terminal-line"><span class="dim">  6. Send via Telegram</span></div>
+        </div>
+      </div>
+
+      <h3>Email Monitoring</h3>
+      <p>Check email every 30 minutes. Alert on urgent keywords or specific senders.</p>
+
+      <h3>Meeting Reminders</h3>
+      <p>15 minutes before meetings, send a prep note with context from recent related emails.</p>
+
+      <h2>Phase 4: Smart Home</h2>
+
+      <p>If you use Home Assistant, connect it. Your assistant can:</p>
+
+      <ul>
+        <li>"Turn off all lights"</li>
+        <li>"Set the bedroom to 68 degrees"</li>
+        <li>"Is the front door locked?"</li>
+        <li>"Start the coffee maker"</li>
+      </ul>
+
+      <p>Combine with automation. "When I say 'good morning,' turn on lights, start coffee, and read my briefing aloud."</p>
+
+      <h2>Phase 5: Voice Interface</h2>
+
+      <p>Once text works reliably, add voice.</p>
+
+      <h3>Option A: Phone-Based</h3>
+      <p>Telegram voice messages. Your assistant transcribes, responds, and sends audio back.</p>
+
+      <h3>Option B: Smart Speaker</h3>
+      <p>Route through a local voice system. More complex setup but hands-free.</p>
+
+      <h3>Option C: Computer-Based</h3>
+      <p>Whisper for transcription, ElevenLabs for voice. Works great for desktop use.</p>
+
+      <h2>Tips from Experience</h2>
+
+      <h3>Start with one thing</h3>
+      <p>Don't try to build everything at once. Get email working perfectly. Then add calendar. Then tasks. Build on success.</p>
+
+      <h3>Read-only first</h3>
+      <p>Let your assistant read before it writes. Watch for mistakes. Grant write access only when you trust it.</p>
+
+      <h3>Log everything</h3>
+      <p>Keep logs of what your assistant does. Review weekly. Catch problems early.</p>
+
+      <h3>Set clear boundaries</h3>
+      <p>Define what requires approval. Money, external emails, public posts. Keep humans in the loop for risky actions.</p>
+
+      <h3>Personalize the voice</h3>
+      <p>Give your assistant a name. A personality. Makes it more natural to talk to. Mine is "Jars" — helpful, slightly sarcastic, efficient.</p>
+
+      <h2>What It Costs</h2>
+
+      <ul>
+        <li><strong>Claude Code API:</strong> ~$100/month for heavy use</li>
+        <li><strong>Server (VPS):</strong> $5-20/month</li>
+        <li><strong>Voice (ElevenLabs):</strong> $5-22/month if you want speech</li>
+        <li><strong>Other APIs:</strong> Usually free tier covers it</li>
+      </ul>
+
+      <p>Total: $100-150/month for a fully functional personal AI assistant. Compare that to the hours saved.</p>
+
+      <h2>What's Next</h2>
+
+      <p>Your assistant will evolve. After a few months, you'll have something truly personal. It knows your preferences. Anticipates your needs. Handles the mundane so you focus on what matters.</p>
+
+      <p>Start today. Even a basic version saves hours per week.</p>
+
+      <div class="related-grid">
+        <a href="/learn/autonomous-ai-agent-setup" class="related-card">
+          <div class="related-tag">Advanced</div>
+          <h4>Autonomous AI Agent Setup</h4>
+          <p>Make your assistant fully autonomous.</p>
+        </a>
+        <a href="/learn/claude-code-setup" class="related-card">
+          <div class="related-tag">Start Here</div>
+          <h4>Claude Code Setup</h4>
+          <p>Get the core AI engine running first.</p>
+        </a>
+        <a href="/learn/ai-employee-setup" class="related-card">
+          <div class="related-tag">Business</div>
+          <h4>AI Employee Setup</h4>
+          <p>Turn your assistant into a business tool.</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+      <h2>Ready to build<br><em>your own Jarvis?</span></h2>
+      <p class="subtitle">Join AI Operators for templates, configs, and a community building personal AI assistants.</p>
+      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn btn-primary">
+        Join AI Operators Free <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="indicator"></span>AI Operators</a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi/openclaw-consulting" target="_blank">Johann Sathianathen</a>, <a href="https://johann.fyi/openclaw-consulting" target="_blank">OpenClaw consultant</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Network</h5>
+          <a href="https://jarsolutions.com" target="_blank">JARS Solutions</a>
+          <a href="https://jars.global" target="_blank">JARS Global</a>
+          <a href="https://johann.fyi" target="_blank">Johann.fyi</a>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/personal-ai-assistant-guide">Personal AI Assistant</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+        </div>
+        <div class="footer-col">
+          <h5>Compare</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/compare/claude-code-vs-cursor">Claude Code vs Cursor</a>
+          <a href="/compare/claude-code-vs-github-copilot">Claude Code vs Copilot</a>
+        </div>
+        <div class="footer-col">
+          <h5>For You</h5>
+          <a href="/for/saas-founders">SaaS Founders</a>
+          <a href="/for/agency-owners">Agency Owners</a>
+          <a href="/for/freelancers">Freelancers</a>
+          <a href="/for/creators">Content Creators</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+    <!-- Related Articles -->
+    <section style="margin-top:3rem;padding-top:2rem;border-top:1px solid #e5e7eb;">
+      <h2 style="font-size:1.5rem;margin-bottom:1rem;">Keep Reading</h2>
+      <ul style="list-style:none;padding:0;">
+        <li><a href="/learn/ai-agent-morning-routine">5 Things My AI Agent Does Every Morning Before I Wake Up</a></li>
+        <li><a href="/learn/autonomous-ai-agent-setup">Autonomous AI Agent Setup: Build Agents That Work 24/7</a></li>
+        <li><a href="/learn/build-ai-agents">How to Build AI Agents (No Code)</a></li>
+      </ul>
+    </section>
+    </body>
+</html>

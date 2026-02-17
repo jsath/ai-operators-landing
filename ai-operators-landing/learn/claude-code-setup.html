@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code Setup Guide — Get Your AI Coding Agent Running in 15 Minutes</title>
+  <meta name="description" content="Complete Claude Code setup guide. Install, configure & start building with Anthropic's AI coding agent. No prior coding experience needed.">
+  <link rel="canonical" href="https://aioperator.sh/learn/claude-code-setup">
+
+  <meta property="og:title" content="Claude Code Setup Guide — 15 Minute Walkthrough">
+  <meta property="og:description" content="Get Claude Code running and start building AI agents. Step-by-step setup guide for non-developers.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aioperator.sh/learn/claude-code-setup">
+  <meta property="og:site_name" content="AI Operators">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code Setup Guide">
+  <meta name="twitter:description" content="Get Claude Code running in 15 minutes. No coding experience needed.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Claude Code Setup Guide",
+    "description": "How to install and configure Claude Code for building AI agents",
+    "step": [
+      {"@type": "HowToStep", "name": "Create Anthropic account", "text": "Sign up at console.anthropic.com and add billing"},
+      {"@type": "HowToStep", "name": "Install Node.js", "text": "Download and install Node.js from nodejs.org"},
+      {"@type": "HowToStep", "name": "Install Claude Code", "text": "Run npm install -g @anthropic-ai/claude-code in your terminal"},
+      {"@type": "HowToStep", "name": "Authenticate", "text": "Run claude and follow the authentication flow"},
+      {"@type": "HowToStep", "name": "Start building", "text": "Navigate to your project and start talking to Claude Code"}
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo"><span class="indicator"></span>AI Operators</a>
+      <div class="nav-links">
+        <a href="/learn/build-ai-agents" class="nav-link">Learn</a>
+        <a href="/compare/ai-agents-vs-chatgpt" class="nav-link">Compare</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/learn/build-ai-agents" itemprop="item"><span itemprop="name">Learn</span></a>
+          <meta itemprop="position" content="2">
+          <span class="sep">/</span>
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span class="current" itemprop="name">Claude Code Setup</span>
+          <meta itemprop="position" content="3">
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="container-narrow">
+      <div class="label">Learn</div>
+      <h1>Claude Code<br><em>Setup Guide</span></h1>
+      <p class="subtitle">Get Anthropic's AI coding agent running in 15 minutes. This is the tool that powers Jars, my AI agent that runs half my business. Here's how to set it up.</p>
+    </div>
+  </section>
+
+  <section class="article-body">
+    <div class="container-narrow">
+
+      <p>Claude Code is the foundation of everything I build. It's an AI coding agent from Anthropic that lives in your terminal. You talk to it in English. It writes code, debugs problems, ships features & manages entire projects.</p>
+
+      <p>I use it every single day for DMpro. My agent Jars is built on top of it. And when I say "no coding needed," I mean it. Claude Code writes the code. You just tell it what you want.</p>
+
+      <p>This guide gets you from zero to running in about 15 minutes. Let's go.</p>
+
+      <h2>What Claude Code actually is</h2>
+
+      <p>Claude Code is not a chat interface. It's not claude.ai. It's a command-line tool that can:</p>
+
+      <ul>
+        <li>Read & write files on your computer</li>
+        <li>Execute commands in your terminal</li>
+        <li>Understand entire codebases (not just one file)</li>
+        <li>Build, test & debug software</li>
+        <li>Handle multi-step projects from start to finish</li>
+      </ul>
+
+      <p>Think of it like having a senior developer sitting at your computer, ready to build whatever you describe. Except this developer works 24/7, costs about $100/month & never complains.</p>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-number">15min</div>
+          <div class="stat-label">Setup time</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">~$100</div>
+          <div class="stat-label">Monthly cost</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Availability</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Code you write</div>
+        </div>
+      </div>
+
+      <h2>Prerequisites</h2>
+
+      <p>You need three things before we start:</p>
+
+      <ol>
+        <li><strong>A computer</strong> (Mac, Windows or Linux all work)</li>
+        <li><strong>Node.js installed</strong> (free, takes 2 minutes)</li>
+        <li><strong>An Anthropic account</strong> with billing set up</li>
+      </ol>
+
+      <p>That's it. No programming knowledge. No special software. No CS degree.</p>
+
+      <h2>Step 1: Install Node.js</h2>
+
+      <p>Node.js is the runtime that Claude Code needs to run. Don't worry about what that means. Just install it.</p>
+
+      <p>Go to <strong>nodejs.org</strong> and download the LTS version. Run the installer. Click next a few times. Done.</p>
+
+      <p>To verify it worked, open your terminal (Terminal on Mac, Command Prompt on Windows) and type:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — verify node</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">node --version</span></div>
+          <div class="terminal-line"><span class="success">v22.12.0</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">npm --version</span></div>
+          <div class="terminal-line"><span class="success">10.9.0</span></div>
+        </div>
+      </div>
+
+      <p>If you see version numbers, you're good. The exact numbers don't matter.</p>
+
+      <h2>Step 2: Create your Anthropic account</h2>
+
+      <p>Go to <strong>console.anthropic.com</strong> and sign up. You'll need to:</p>
+
+      <ol>
+        <li>Create an account with email or Google</li>
+        <li>Add a payment method (credit card)</li>
+        <li>Add some credits ($20 to start is fine)</li>
+      </ol>
+
+      <p>Claude Code charges based on usage. For most people building agents, it's about $100/month. Some months less, some more depending on how hard you push it.</p>
+
+      <p>The ROI is insane though. My agent generates more value in one morning briefing than the entire monthly cost.</p>
+
+      <h2>Step 3: Install Claude Code</h2>
+
+      <p>Open your terminal and run:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — install</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">npm install -g @anthropic-ai/claude-code</span></div>
+          <div class="terminal-line"><span class="dim">▸ Downloading @anthropic-ai/claude-code...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Installing dependencies...</span></div>
+          <div class="terminal-line"><span class="success">✓ Added 1 package, installed in 12s</span></div>
+        </div>
+      </div>
+
+      <p>One command. That's the entire installation. The <code>-g</code> flag means it's installed globally so you can use it from anywhere.</p>
+
+      <h2>Step 4: Authenticate</h2>
+
+      <p>Now run Claude Code for the first time:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — auth</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">claude</span></div>
+          <div class="terminal-line"><span class="dim">▸ Welcome to Claude Code v1.0!</span></div>
+          <div class="terminal-line"><span class="dim">▸ To get started, authenticate your account.</span></div>
+          <div class="terminal-line"><span class="dim">▸ Opening browser for authentication...</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="success">✓ Authentication successful!</span></div>
+          <div class="terminal-line"><span class="dim">▸ You can now start using Claude Code.</span></div>
+          <div class="terminal-line"><span class="dim">▸ Type your request or /help for commands.</span></div>
+        </div>
+      </div>
+
+      <p>It'll open your browser and ask you to log in to your Anthropic account. Click approve. Done. You're authenticated.</p>
+
+      <h2>Step 5: Your first conversation</h2>
+
+      <p>Now you're in. Let's test it. Navigate to any folder on your computer and try something simple:</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot r"></div>
+          <div class="terminal-dot y"></div>
+          <div class="terminal-dot g"></div>
+          <span class="terminal-title">terminal — first command</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">claude> </span><span class="cmd">Create a simple Python script that checks my Gmail inbox and lists unread emails from today</span></div>
+          <div class="terminal-line"><br></div>
+          <div class="terminal-line"><span class="dim">▸ I'll create a Gmail checker script for you.</span></div>
+          <div class="terminal-line"><span class="dim">▸ Creating check_gmail.py...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding Gmail API authentication...</span></div>
+          <div class="terminal-line"><span class="dim">▸ Adding unread email filter for today...</span></div>
+          <div class="terminal-line"><span class="success">✓ Created check_gmail.py (47 lines)</span></div>
+          <div class="terminal-line"><span class="dim">▸ To use this, you'll need to set up</span></div>
+          <div class="terminal-line"><span class="dim">  Gmail API credentials first. Want me</span></div>
+          <div class="terminal-line"><span class="dim">  to walk you through that?</span></div>
+        </div>
+      </div>
+
+      <p>See what happened? You described what you wanted in plain English. Claude Code built it. It even asked if you need help with the next step.</p>
+
+      <p>This is how you build AI agents. Not by coding. By describing what you want.</p>
+
+      <h2>Key commands you should know</h2>
+
+      <p>Claude Code has a few useful commands built in:</p>
+
+      <ul>
+        <li><strong>/help</strong> — See all available commands</li>
+        <li><strong>/clear</strong> — Clear the conversation & start fresh</li>
+        <li><strong>/cost</strong> — Check how much you've spent this session</li>
+        <li><strong>/compact</strong> — Summarize the conversation to save context</li>
+      </ul>
+
+      <p>The most important one is <code>/compact</code>. When you're working on a big project, the conversation gets long. Compacting summarizes it so Claude Code stays focused without losing context.</p>
+
+      <h2>Tips for getting the best results</h2>
+
+      <h3>Be specific about what you want</h3>
+      <p>Bad: "Build me an email tool"</p>
+      <p>Good: "Build a Python script that connects to Gmail API, checks for unread emails from the last 24 hours, filters for emails from domains ending in @client.com, and sends a summary to my Slack channel #notifications"</p>
+
+      <h3>Give it context about your project</h3>
+      <p>Claude Code can read your entire project. If you're working in a folder with existing code, it understands what's there. Reference existing files. Say "update the config in agent.yaml" and it knows exactly what you mean.</p>
+
+      <h3>Let it handle the technical details</h3>
+      <p>You don't need to specify programming languages, frameworks or technical approaches. Just describe the outcome you want. Claude Code picks the best tools for the job.</p>
+
+      <h3>Iterate conversationally</h3>
+      <p>Built something and it's not quite right? Just tell Claude Code what to change. "Make the summary shorter" or "Add error handling for when Gmail is down." It's like giving feedback to an employee.</p>
+
+      <h2>Common issues & fixes</h2>
+
+      <h3>"npm: command not found"</h3>
+      <p>Node.js isn't installed properly. Go back to Step 1 and reinstall. On Mac, you might need to restart your terminal after installing.</p>
+
+      <h3>"Permission denied" during install</h3>
+      <p>On Mac/Linux, try: <code>sudo npm install -g @anthropic-ai/claude-code</code></p>
+      <p>On Windows, run Command Prompt as Administrator.</p>
+
+      <h3>"Authentication failed"</h3>
+      <p>Make sure you have billing set up on your Anthropic account. Claude Code won't work without active billing even if you have free credits.</p>
+
+      <h3>High usage costs</h3>
+      <p>Use <code>/cost</code> to track spending. Use <code>/compact</code> regularly to keep conversations efficient. For big projects, break them into smaller tasks.</p>
+
+      <h2>What to build next</h2>
+
+      <p>Claude Code is your foundation. Now pair it with <a href="/learn/openclaw-tutorial">OpenClaw</a> to turn it into a persistent AI agent that runs in the background.</p>
+
+      <p>Here's the natural progression:</p>
+
+      <div class="flow-diagram" role="img" aria-label="Progression: Claude Code Setup to OpenClaw to Build Agent to Automate Business">
+        <div class="flow-step">
+          <div class="step-icon">⚡</div>
+          <div class="step-label">Claude Code<br>Setup</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-icon">🔧</div>
+          <div class="step-label">OpenClaw<br>Install</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-icon">🤖</div>
+          <div class="step-label">Build First<br>Agent</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-icon">🚀</div>
+          <div class="step-label">Automate<br>Business</div>
+        </div>
+      </div>
+
+      <p>Inside the <a href="https://www.skool.com/ai-operators-5011/about" target="_blank">AI Operators community</a>, you get my exact Claude Code configs. The same ones I use for Jars. Plus templates, prompts & direct help when you get stuck.</p>
+
+      <div class="related-grid">
+        <a href="/learn/openclaw-tutorial" class="related-card">
+          <div class="related-tag">Next Step</div>
+          <h4>OpenClaw Tutorial for Beginners</h4>
+          <p>Install OpenClaw & turn Claude Code into a persistent agent.</p>
+        </a>
+        <a href="/learn/build-ai-agents" class="related-card">
+          <div class="related-tag">Guide</div>
+          <h4>How to Build AI Agents (No Code)</h4>
+          <p>The complete guide from zero to working AI agent.</p>
+        </a>
+        <a href="/learn/ai-employee-setup" class="related-card">
+          <div class="related-tag">Guide</div>
+          <h4>How to Set Up an AI Employee</h4>
+          <p>Give your agent a role, responsibilities & real work to do.</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+      <h2>Claude Code is just<br><em>the beginning.</span></h2>
+      <p class="subtitle">Join AI Operators to get the full stack. Templates, configs & a community of builders.</p>
+      <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn btn-primary">
+        Join AI Operators Free <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="indicator"></span>AI Operators</a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi/openclaw-consulting" target="_blank">Johann Sathianathen</a>, <a href="https://johann.fyi/openclaw-consulting" target="_blank">OpenClaw consultant</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Network</h5>
+          <a href="https://jarsolutions.com" target="_blank">JARS Solutions</a>
+          <a href="https://jars.global" target="_blank">JARS Global</a>
+          <a href="https://johann.fyi" target="_blank">Johann.fyi</a>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+          <a href="/learn/ai-automation-business">AI Business Automation</a>
+          <a href="/learn/ai-employee-setup">AI Employee Setup</a>
+        </div>
+        <div class="footer-col">
+          <h5>Compare</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/compare/ai-agents-vs-hiring-va">AI Agents vs Hiring a VA</a>
+        </div>
+        <div class="footer-col">
+          <h5>For You</h5>
+          <a href="/for/saas-founders">SaaS Founders</a>
+          <a href="/for/agency-owners">Agency Owners</a>
+          <a href="/for/freelancers">Freelancers</a>
+          <a href="/for/creators">Content Creators</a>
+          <a href="/faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AI Operators. Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+    <!-- Related Articles -->
+    <section style="margin-top:3rem;padding-top:2rem;border-top:1px solid #e5e7eb;">
+      <h2 style="font-size:1.5rem;margin-bottom:1rem;">Keep Reading</h2>
+      <ul style="list-style:none;padding:0;">
+        <li><a href="/learn/claude-code-tutorial">Claude Code Tutorial: Complete Beginner's Guide (2025)</a></li>
+        <li><a href="/learn/claude-code-examples">Claude Code Examples: 20+ Ready-to-Use Prompts & Projects</a></li>
+        <li><a href="/learn/autonomous-ai-agent-setup">Autonomous AI Agent Setup: Build Agents That Work 24/7</a></li>
+      </ul>
+    </section>
+    </body>
+</html>

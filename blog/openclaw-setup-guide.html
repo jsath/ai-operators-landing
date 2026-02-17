@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw Setup Guide: Build Your First AI Agent in Under an Hour</title>
+  <meta name="description" content="Complete OpenClaw setup guide for beginners. Install, configure, and deploy your first autonomous AI agent step by step. No coding experience needed.">
+  <meta name="keywords" content="OpenClaw setup guide, OpenClaw tutorial, how to use OpenClaw, OpenClaw installation, AI agent setup">
+  <link rel="canonical" href="https://aioperator.sh/blog/openclaw-setup-guide">
+
+  <meta property="og:title" content="OpenClaw Setup Guide: Build Your First AI Agent in Under an Hour">
+  <meta property="og:description" content="Complete step-by-step OpenClaw setup guide. Install, configure, and deploy your first AI agent.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aioperator.sh/blog/openclaw-setup-guide">
+  <meta property="og:image" content="https://aioperator.sh/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OpenClaw Setup Guide: Build Your First AI Agent">
+  <meta name="twitter:description" content="Complete step-by-step OpenClaw setup guide for beginners.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "OpenClaw Setup Guide",
+    "description": "How to install and configure OpenClaw to build your first autonomous AI agent.",
+    "author": {"@type": "Person", "name": "Johann Sathianathen", "url": "https://johann.fyi"},
+    "step": [
+      {"@type": "HowToStep", "name": "Install OpenClaw", "text": "Install OpenClaw on your server or local machine."},
+      {"@type": "HowToStep", "name": "Configure your workspace", "text": "Set up AGENTS.md, SOUL.md, and workspace files."},
+      {"@type": "HowToStep", "name": "Connect your tools", "text": "Add skills for email, calendar, CRM, and other integrations."},
+      {"@type": "HowToStep", "name": "Build your first agent", "text": "Create an agent with specific roles and schedules."},
+      {"@type": "HowToStep", "name": "Deploy and monitor", "text": "Launch your agent and review its outputs."}
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .article-hero { padding: var(--space-5xl) 0 var(--space-3xl); max-width: 760px; }
+    .article-hero .label { margin-bottom: var(--space-lg); }
+    .article-hero h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: var(--space-lg); }
+    .article-hero .subtitle { font-size: var(--text-xl); color: var(--text-secondary); line-height: 1.6; }
+    .article-body { max-width: 760px; padding-bottom: var(--space-5xl); }
+    .article-body h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; margin: var(--space-3xl) 0 var(--space-lg); }
+    .article-body h3 { font-family: 'Inter', sans-serif; font-size: var(--text-xl); font-weight: 500; margin: var(--space-2xl) 0 var(--space-md); }
+    .article-body p { font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-lg); }
+    .article-body ul, .article-body ol { margin: 0 0 var(--space-lg); padding-left: var(--space-xl); }
+    .article-body li { font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-sm); }
+    .article-body a { color: var(--green); text-decoration: none; }
+    .article-body a:hover { text-decoration: underline; }
+    .article-body strong { color: var(--text); font-weight: 500; }
+    .article-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: var(--bg-elevated); padding: 2px 6px; border-radius: 3px; }
+    .article-body pre { background: var(--bg-elevated); border: 1px solid var(--border); padding: var(--space-lg); border-radius: 2px; overflow-x: auto; margin-bottom: var(--space-lg); }
+    .article-body pre code { background: none; padding: 0; }
+    .article-cta { border: 1px solid var(--border); padding: var(--space-2xl); margin: var(--space-3xl) 0; border-radius: 2px; }
+    .article-cta h3 { margin-top: 0; }
+    .article-meta { font-size: var(--text-sm); color: var(--text-tertiary); margin-top: var(--space-md); }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo"><span class="indicator"></span> AI Operators</a>
+      <div class="nav-links">
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/consulting/" class="nav-link">Consulting</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join the Community</a>
+      </div>
+    </div>
+  </nav>
+
+  <article>
+    <div class="container">
+      <div class="article-hero">
+        <p class="label">Tutorial</p>
+        <h1>OpenClaw Setup Guide: Build Your First AI Agent in Under an Hour</h1>
+        <p class="subtitle">Everything you need to install, configure, and launch your first autonomous AI agent with OpenClaw. Zero coding experience required.</p>
+        <p class="article-meta">By <a href="https://johann.fyi" target="_blank">Johann Sathianathen</a> · February 2026 · 15 min read</p>
+      </div>
+
+      <div class="article-body">
+        <h2>What Is OpenClaw?</h2>
+        <p><a href="/learn/what-is-openclaw">OpenClaw</a> is an open-source AI agent orchestration platform. Think of it as the operating system for your AI workforce. It manages agent sessions, schedules tasks, connects to your tools, and keeps everything running — even when you're sleeping.</p>
+        <p>Unlike chatbots that wait for your input, OpenClaw agents are <strong>autonomous</strong>. They have schedules, memory, and the ability to take actions across your tools (email, Slack, CRM, GitHub, and more).</p>
+
+        <h2>Prerequisites</h2>
+        <p>Before starting, you'll need:</p>
+        <ul>
+          <li><strong>A server or VPS</strong> — Any Linux machine works (Ubuntu recommended). Even a small VPS is fine to start.</li>
+          <li><strong>An Anthropic API key</strong> — OpenClaw uses Claude as its AI brain. Get a key from <a href="https://console.anthropic.com" target="_blank">Anthropic's console</a>.</li>
+          <li><strong>Basic terminal comfort</strong> — You don't need to code, but you should be able to run commands in a terminal.</li>
+        </ul>
+
+        <h2>Step 1: Install OpenClaw</h2>
+        <p>SSH into your server and run:</p>
+        <pre><code>curl -fsSL https://get.openclaw.ai | bash</code></pre>
+        <p>This installs OpenClaw and its dependencies. The installer will walk you through initial configuration including your API key setup.</p>
+
+        <h2>Step 2: Configure Your Workspace</h2>
+        <p>OpenClaw uses a workspace directory (typically <code>~/.openclaw/workspace/</code>) that acts as your agent's brain. Key files:</p>
+        <ul>
+          <li><strong>AGENTS.md</strong> — Rules and conventions for your agent</li>
+          <li><strong>SOUL.md</strong> — Your agent's personality and identity</li>
+          <li><strong>BRAIN.md</strong> — Active goals and tasks</li>
+          <li><strong>TOOLS.md</strong> — Tool-specific configuration notes</li>
+        </ul>
+        <p>Start by editing <code>SOUL.md</code> to give your agent a name and personality. This isn't just flavor — it affects how the agent communicates and makes decisions.</p>
+
+        <h2>Step 3: Add Skills (Tool Integrations)</h2>
+        <p>Skills are how your agent connects to external tools. Common skills include:</p>
+        <ul>
+          <li><strong>Email</strong> — Read inbox, send messages, draft responses</li>
+          <li><strong>Calendar</strong> — Check schedules, create events, manage availability</li>
+          <li><strong>Slack/Discord/Telegram</strong> — Communicate in team channels</li>
+          <li><strong>GitHub</strong> — Create PRs, review code, manage issues</li>
+          <li><strong>CRM</strong> — Update contacts, score leads, log interactions</li>
+        </ul>
+        <p>Each skill has a <code>SKILL.md</code> file that documents how to configure it. Install skills with:</p>
+        <pre><code>openclaw skill install email
+openclaw skill install calendar
+openclaw skill install slack</code></pre>
+
+        <h2>Step 4: Build Your First Agent</h2>
+        <p>The easiest first agent is a <strong>morning briefing agent</strong>. Here's what it does:</p>
+        <ol>
+          <li>Wakes up at 7 AM</li>
+          <li>Scans your email for important messages</li>
+          <li>Checks today's calendar</li>
+          <li>Reviews CRM for deals needing attention</li>
+          <li>Delivers a summary to Slack or Telegram</li>
+        </ol>
+        <p>Set this up by adding a cron schedule in your OpenClaw config:</p>
+        <pre><code># In your OpenClaw config
+cron:
+  morning-briefing:
+    schedule: "0 7 * * *"
+    prompt: "Good morning. Check email, calendar, and CRM. Deliver a briefing summary."
+    channel: telegram</code></pre>
+        <p>For a detailed walkthrough, see our <a href="/learn/ai-agent-morning-routine">morning briefing agent tutorial</a>.</p>
+
+        <h2>Step 5: Deploy and Monitor</h2>
+        <p>Start the OpenClaw gateway:</p>
+        <pre><code>openclaw gateway start</code></pre>
+        <p>Your agent is now live. Monitor it with:</p>
+        <pre><code>openclaw gateway status
+openclaw gateway logs</code></pre>
+        <p>For the first few days, review every output your agent produces. Tweak the instructions in your workspace files based on what you see. Most agents hit their stride within a week.</p>
+
+        <h2>What to Automate Next</h2>
+        <p>Once your morning briefing is running smoothly, expand to:</p>
+        <ul>
+          <li><strong>Lead outreach</strong> — Agent drafts and sends personalized outreach</li>
+          <li><strong>Email triage</strong> — Agent categorizes and drafts responses to incoming email</li>
+          <li><strong>Code reviews</strong> — Agent reviews PRs and suggests improvements</li>
+          <li><strong>Report generation</strong> — Weekly business metrics delivered automatically</li>
+        </ul>
+        <p>Learn more about scaling your agent workforce in our guide on <a href="/blog/how-to-automate-business-with-ai">automating your business with AI</a>.</p>
+
+        <div class="article-cta">
+          <h3>Need help with setup?</h3>
+          <p><a href="https://johann.fyi" target="_blank">Johann Sathianathen</a> offers <a href="https://johann.fyi/openclaw-consulting" target="_blank">OpenClaw consulting</a> to get you running in days. Or join the community for free support from other operators.</p>
+          <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-lg);">
+            <a href="https://app.lemcal.com/@johann" target="_blank" class="btn btn-primary">Book a Call <span class="arrow">→</span></a>
+            <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn btn-secondary">Join the Community</a>
+          </div>
+        </div>
+
+        <h2>Troubleshooting Common Issues</h2>
+        <ul>
+          <li><strong>Agent not responding</strong> — Check <code>openclaw gateway status</code> and verify your API key is valid</li>
+          <li><strong>Skills not connecting</strong> — Ensure OAuth tokens are configured in the skill's config file</li>
+          <li><strong>Agent making errors</strong> — Refine instructions in SOUL.md and BRAIN.md. Be more specific about edge cases.</li>
+          <li><strong>High API costs</strong> — Use model routing to send simple tasks to cheaper models</li>
+        </ul>
+
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="/learn/what-is-openclaw">What Is OpenClaw?</a> — Overview of the platform</li>
+          <li><a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a> — Deeper dive into features</li>
+          <li><a href="/learn/claude-code-setup">Claude Code Setup</a> — Configuring the AI brain</li>
+          <li><a href="/blog/what-is-an-ai-operator">What Is an AI Operator?</a> — Understanding the role</li>
+          <li><a href="https://sathigroup.ai" target="_blank">Sathi Group AI</a> — Enterprise AI solutions</li>
+          <li><a href="https://jarssolutions.com" target="_blank">JARS Solutions</a> — See OpenClaw in production</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo"><span class="indicator"></span> AI Operators</a>
+          <p>Learn to build AI agents that run your business. Built by <a href="https://johann.fyi/openclaw-consulting" target="_blank">Johann Sathianathen</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Network</h5>
+          <a href="https://jarssolutions.com" target="_blank">JARS Solutions</a>
+          <a href="https://sathigroup.ai" target="_blank">Sathi Group AI</a>
+          <a href="https://johann.fyi" target="_blank">Johann.fyi</a>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+          <a href="/blog/what-is-an-ai-operator">What Is an AI Operator</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="/consulting/">Consulting</a>
+          <a href="/faq">FAQ</a>
+          <a href="/tools/">Tools</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 AI Operators</p>
+        <p>Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.pageYOffset > 100); });
+  </script>
+</body>
+</html>

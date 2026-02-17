@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulting — AI Agent Setup & Implementation | AI Operators</title>
+  <meta name="description" content="Professional AI agent setup and implementation. Done-for-you OpenClaw & Claude Code configuration. Get your AI agent running in days, not months.">
+  <link rel="canonical" href="https://aioperator.sh/consulting/">
+
+  <meta property="og:title" content="Consulting — Professional AI Agent Setup">
+  <meta property="og:description" content="Done-for-you AI agent implementation. OpenClaw setup, Claude Code configuration, custom workflows.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aioperator.sh/consulting/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "AI Operators Consulting",
+    "description": "Professional AI agent setup and implementation services.",
+    "url": "https://aioperator.sh/consulting/",
+    "provider": {
+      "@type": "Person",
+      "name": "Johann Sathianathen"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .consulting-hero {
+      padding: var(--space-5xl) 0 var(--space-3xl);
+    }
+    
+    .consulting-hero .label {
+      margin-bottom: var(--space-lg);
+    }
+    
+    .consulting-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-lg);
+      max-width: 800px;
+    }
+    
+    .consulting-hero .subtitle {
+      font-size: var(--text-xl);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: var(--space-xl);
+    }
+    
+    .packages {
+      padding: var(--space-4xl) 0;
+      border-top: 1px solid var(--border);
+    }
+    
+    .packages-header {
+      margin-bottom: var(--space-3xl);
+    }
+    
+    .packages-header h2 {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      margin-bottom: var(--space-md);
+    }
+    
+    .packages-header p {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+    }
+    
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    
+    .package {
+      background: var(--bg);
+      padding: var(--space-2xl);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .package-tier {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-md);
+    }
+    
+    .package h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: var(--text-xl);
+      font-weight: 500;
+      margin-bottom: var(--space-sm);
+    }
+    
+    .package .price {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--text-4xl);
+      color: var(--text);
+      margin-bottom: var(--space-lg);
+    }
+    
+    .package .price span {
+      font-size: var(--text-base);
+      color: var(--text-tertiary);
+    }
+    
+    .package p {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .package ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-xl);
+      flex-grow: 1;
+    }
+    
+    .package li {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      padding: var(--space-xs) 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .package li::before {
+      content: '✓';
+      color: var(--green);
+      flex-shrink: 0;
+    }
+    
+    .package.featured {
+      background: var(--bg-elevated);
+      border-left: 3px solid var(--green);
+    }
+    
+    .process {
+      padding: var(--space-4xl) 0;
+    }
+    
+    .process-header {
+      margin-bottom: var(--space-3xl);
+    }
+    
+    .process-header h2 {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      margin-bottom: var(--space-md);
+    }
+    
+    .process-header p {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+    }
+    
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+    }
+    
+    .process-step {
+      padding: var(--space-xl);
+      border: 1px solid var(--border);
+    }
+    
+    .process-step .number {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--text-3xl);
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-md);
+    }
+    
+    .process-step h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: var(--text-base);
+      font-weight: 500;
+      margin-bottom: var(--space-xs);
+    }
+    
+    .process-step p {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    
+    .about-consultant {
+      padding: var(--space-4xl) 0;
+      border-top: 1px solid var(--border);
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: start;
+    }
+    
+    .about-grid h2 {
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      margin-bottom: var(--space-lg);
+    }
+    
+    .about-grid p {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+    
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    
+    .about-stat {
+      padding: var(--space-lg);
+      border: 1px solid var(--border);
+    }
+    
+    .about-stat .number {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: var(--text-3xl);
+      color: var(--text);
+      margin-bottom: var(--space-xs);
+    }
+    
+    .about-stat .label {
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    
+    @media (max-width: 1024px) {
+      .packages-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .process-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <span class="indicator"></span>
+        AI Operators
+      </a>
+      <div class="nav-links">
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/consulting/" class="nav-link">Consulting</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="consulting-hero">
+    <div class="container">
+      <p class="label">Consulting</p>
+      <h1>Get your AI agent<br><em>running in days</em></h1>
+      <p class="subtitle">Skip the learning curve. Let us set up your AI agent infrastructure so you can focus on running your business.</p>
+      <a href="https://cal.com/johannsath/ai-operators-consult" target="_blank" class="btn btn-primary">
+        Book a call <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="packages">
+    <div class="container">
+      <div class="packages-header">
+        <h2>Choose your path</h2>
+        <p>Three ways to get AI agents working in your business.</p>
+      </div>
+      <div class="packages-grid">
+        <div class="package">
+          <span class="package-tier">DIY</span>
+          <h3>Self-Implementation Kit</h3>
+          <div class="price">$497</div>
+          <p>Everything you need to set up AI agents yourself.</p>
+          <ul>
+            <li>Complete video walkthrough course</li>
+            <li>OpenClaw config templates</li>
+            <li>Claude Code setup guide</li>
+            <li>Production-ready prompts</li>
+            <li>Security best practices checklist</li>
+            <li>Community access for Q&A</li>
+          </ul>
+          <a href="https://cal.com/johannsath/ai-operators-consult" target="_blank" class="btn btn-secondary">Get started</a>
+        </div>
+        <div class="package featured">
+          <span class="package-tier">Most Popular</span>
+          <h3>Done-With-You</h3>
+          <div class="price">$1,500</div>
+          <p>Guided implementation with expert support.</p>
+          <ul>
+            <li>90-minute strategy call</li>
+            <li>Custom implementation plan</li>
+            <li>Step-by-step guided setup</li>
+            <li>30 days async support</li>
+            <li>Two review sessions</li>
+            <li>All DIY Kit materials included</li>
+          </ul>
+          <a href="https://cal.com/johannsath/ai-operators-consult" target="_blank" class="btn btn-primary">Book a call</a>
+        </div>
+        <div class="package">
+          <span class="package-tier">Enterprise</span>
+          <h3>Done-For-You</h3>
+          <div class="price">$5,000<span>+</span></div>
+          <p>Full white-glove implementation.</p>
+          <ul>
+            <li>Complete AI infrastructure setup</li>
+            <li>Custom skills & integrations</li>
+            <li>Team training session</li>
+            <li>Security hardening</li>
+            <li>60 days priority support</li>
+            <li>Ongoing maintenance available</li>
+          </ul>
+          <a href="https://cal.com/johannsath/ai-operators-consult" target="_blank" class="btn btn-secondary">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <div class="process-header">
+        <h2>How it works</h2>
+        <p>From first call to running AI agent.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="number">01</div>
+          <h4>Discovery</h4>
+          <p>We understand your business, workflows, and what tasks you want to automate.</p>
+        </div>
+        <div class="process-step">
+          <div class="number">02</div>
+          <h4>Strategy</h4>
+          <p>Custom implementation plan based on your specific needs and tech stack.</p>
+        </div>
+        <div class="process-step">
+          <div class="number">03</div>
+          <h4>Build</h4>
+          <p>We set up your AI infrastructure, configure agents, and connect your tools.</p>
+        </div>
+        <div class="process-step">
+          <div class="number">04</div>
+          <h4>Launch</h4>
+          <p>Your AI agent goes live. We provide support and iterate based on results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-consultant">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <h2>Built by someone who<br><em>actually uses this</em></h2>
+          <p>I'm <a href="https://johann.fyi" target="_blank">Johann</a>. I run half my SaaS business with an AI agent named Jars. Morning briefings, lead outreach, code shipping, CRM updates — all automated.</p>
+          <p>This isn't theoretical. I use the exact same setup I'll build for you, every single day.</p>
+          <p>Sold my first company at 20. Now I help other founders skip the months of trial and error I went through.</p>
+        </div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="number">21</div>
+            <div class="label">Years old</div>
+          </div>
+          <div class="about-stat">
+            <div class="number">50%</div>
+            <div class="label">Business automated</div>
+          </div>
+          <div class="about-stat">
+            <div class="number">1</div>
+            <div class="label">Company sold</div>
+          </div>
+          <div class="about-stat">
+            <div class="number">Daily</div>
+            <div class="label">AI agent usage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+      <h2 class="headline-lg">Ready to get started?</h2>
+      <p class="subtitle">Book a free discovery call. No commitment, just conversation.</p>
+      <a href="https://cal.com/johannsath/ai-operators-consult" target="_blank" class="btn btn-primary">
+        Book a call <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <span class="indicator"></span>
+            AI Operators
+          </a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi/openclaw-consulting" target="_blank">Johann Sathianathen</a>, <a href="https://johann.fyi/openclaw-consulting" target="_blank">OpenClaw consultant</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Network</h5>
+          <a href="https://jarsolutions.com" target="_blank">JARS Solutions</a>
+          <a href="https://jars.global" target="_blank">JARS Global</a>
+          <a href="https://johann.fyi" target="_blank">Johann.fyi</a>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+          <a href="/learn/ai-automation-business">AI Business Automation</a>
+        </div>
+        <div class="footer-col">
+          <h5>Compare</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/compare/ai-agents-vs-hiring-va">AI vs Hiring a VA</a>
+          <a href="/compare/claude-code-vs-cursor">Claude Code vs Cursor</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="/for/saas-founders">For SaaS Founders</a>
+          <a href="/for/agency-owners">For Agency Owners</a>
+          <a href="/consulting/">Consulting</a>
+          <a href="/faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 AI Operators</p>
+        <p>Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.pageYOffset > 100);
+    });
+  </script>
+</body>
+</html>

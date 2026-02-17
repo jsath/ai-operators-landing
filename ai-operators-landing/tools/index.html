@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools — Calculators, Quizzes & Audits | AI Operators</title>
+  <meta name="description" content="Free AI tools to help you evaluate and implement AI automation. ROI calculator, readiness quiz, automation audit, and more.">
+  <link rel="canonical" href="https://aioperator.sh/tools/">
+
+  <meta property="og:title" content="AI Tools — AI Operators">
+  <meta property="og:description" content="Free tools to help you evaluate and implement AI automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aioperator.sh/tools/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .tools-hero {
+      padding: var(--space-5xl) 0 var(--space-3xl);
+    }
+    
+    .tools-hero .label {
+      margin-bottom: var(--space-lg);
+    }
+    
+    .tools-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-lg);
+    }
+    
+    .tools-hero .subtitle {
+      font-size: var(--text-xl);
+      color: var(--text-secondary);
+      max-width: 560px;
+    }
+    
+    .tools-section {
+      padding: var(--space-3xl) 0 var(--space-5xl);
+    }
+    
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    
+    .tool-card {
+      background: var(--bg);
+      padding: var(--space-2xl);
+      text-decoration: none;
+      transition: background var(--duration-normal);
+      display: block;
+    }
+    
+    .tool-card:hover {
+      background: var(--bg-elevated);
+    }
+    
+    .tool-card .tool-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-md);
+    }
+    
+    .tool-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: var(--text-xl);
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: var(--space-sm);
+    }
+    
+    .tool-card p {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-md);
+    }
+    
+    .tool-card .tool-cta {
+      font-size: var(--text-sm);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .tool-card .tool-cta .arrow {
+      transition: transform var(--duration-normal) var(--ease-out-expo);
+    }
+    
+    .tool-card:hover .tool-cta .arrow {
+      transform: translateX(4px);
+    }
+    
+    @media (max-width: 768px) {
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <span class="indicator"></span>
+        AI Operators
+      </a>
+      <div class="nav-links">
+        <a href="/learn/" class="nav-link">Learn</a>
+        <a href="/consulting/" class="nav-link">Consulting</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="nav-cta">Join Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="tools-hero">
+    <div class="container">
+      <p class="label">Free tools</p>
+      <h1>Evaluate your<br><em>AI readiness</em></h1>
+      <p class="subtitle">Free calculators, quizzes, and audits to help you understand where AI can help your business.</p>
+    </div>
+  </section>
+
+  <section class="tools-section">
+    <div class="container">
+      <div class="tools-grid">
+        <a href="/tools/roi-calculator" class="tool-card">
+          <div class="tool-icon">📊</div>
+          <h3>ROI Calculator</h3>
+          <p>Calculate the potential return on investment from implementing AI agents in your business. See real numbers based on your situation.</p>
+          <span class="tool-cta">Calculate ROI <span class="arrow">→</span></span>
+        </a>
+        <a href="/tools/ai-readiness-quiz" class="tool-card">
+          <div class="tool-icon">✅</div>
+          <h3>AI Readiness Quiz</h3>
+          <p>Find out if your business is ready for AI automation. 5-minute assessment with personalized recommendations.</p>
+          <span class="tool-cta">Take the quiz <span class="arrow">→</span></span>
+        </a>
+        <a href="/tools/automation-audit" class="tool-card">
+          <div class="tool-icon">🔍</div>
+          <h3>Automation Audit</h3>
+          <p>Identify the best opportunities for AI automation in your current workflow. Prioritize what to automate first.</p>
+          <span class="tool-cta">Start audit <span class="arrow">→</span></span>
+        </a>
+        <a href="/tools/security-audit" class="tool-card">
+          <div class="tool-icon">🔒</div>
+          <h3>Security Checklist</h3>
+          <p>Make sure your AI setup is secure. Checklist of best practices for protecting your data and systems.</p>
+          <span class="tool-cta">Review checklist <span class="arrow">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" style="border-top: 1px solid var(--border);">
+    <div class="container">
+      <h2 class="headline-lg">Need help implementing?</h2>
+      <p class="subtitle">Join the community or book a consulting call.</p>
+      <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+        <a href="https://www.skool.com/ai-operators-5011/about" target="_blank" class="btn btn-primary">
+          Join free <span class="arrow">→</span>
+        </a>
+        <a href="/consulting/" class="btn btn-secondary">
+          Consulting →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <span class="indicator"></span>
+            AI Operators
+          </a>
+          <p>Learn to build AI agents that run your business. No coding needed. Built by <a href="https://johann.fyi/openclaw-consulting" target="_blank">Johann Sathianathen</a>, <a href="https://johann.fyi/openclaw-consulting" target="_blank">OpenClaw consultant</a>.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Network</h5>
+          <a href="https://jarsolutions.com" target="_blank">JARS Solutions</a>
+          <a href="https://jars.global" target="_blank">JARS Global</a>
+          <a href="https://johann.fyi" target="_blank">Johann.fyi</a>
+        </div>
+        <div class="footer-col">
+          <h5>Learn</h5>
+          <a href="/learn/build-ai-agents">Build AI Agents</a>
+          <a href="/learn/claude-code-setup">Claude Code Setup</a>
+          <a href="/learn/openclaw-tutorial">OpenClaw Tutorial</a>
+          <a href="/learn/ai-automation-business">AI Business Automation</a>
+        </div>
+        <div class="footer-col">
+          <h5>Compare</h5>
+          <a href="/compare/ai-agents-vs-chatgpt">AI Agents vs ChatGPT</a>
+          <a href="/compare/ai-agents-vs-hiring-va">AI vs Hiring a VA</a>
+          <a href="/compare/claude-code-vs-cursor">Claude Code vs Cursor</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="/for/saas-founders">For SaaS Founders</a>
+          <a href="/for/agency-owners">For Agency Owners</a>
+          <a href="/consulting/">Consulting</a>
+          <a href="/faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 AI Operators</p>
+        <p>Built different.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.pageYOffset > 100);
+    });
+  </script>
+</body>
+</html>
